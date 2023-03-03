@@ -20,7 +20,7 @@
 
 **팀페이지 주소** -> https://kookmin-sw.github.io/ '{{자신의 리파지토리 아이디}}'
 
-**예시)** 2023년 0조  https://kookmin-sw.github.io/capstone-2023-00/
+**예시)** 2023년 0조  https://kookmin-sw.github.io/capstone-2023-15/
 
 
 ## 내용에 아래와 같은 내용들을 추가하세요.
