@@ -1,6 +1,8 @@
 # node_modules/ 디렉토리에 있는 모든 파일을 무시
-./front/node_modules
+front/node_modules
 
-./front/.env
+front/.env
 
-./front/build
+ai_model/.env
+
+front/build
