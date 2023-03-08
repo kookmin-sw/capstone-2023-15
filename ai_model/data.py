@@ -1,6 +1,6 @@
-import torch.utils.data
+giimport torch.utils.data
 import torchvision.transforms as transforms
-# from torchvision.datasets import CIFAR10, CIFAR100, ImageNet
+from torchvision.datasets import CIFAR10, CIFAR100, ImageNet
 import cv2
 import numpy as np
 import os
