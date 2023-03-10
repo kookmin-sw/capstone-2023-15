@@ -6,3 +6,5 @@ front/.env
 ai_model/.env
 
 front/build
+
+crawller/node_modules
