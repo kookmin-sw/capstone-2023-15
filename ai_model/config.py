@@ -62,4 +62,4 @@ def config():
                         help='type of run the main function e.g. train or evaluate (default: train)')
     
     cfg = parser.parse_args()
-    return cfg
+    return cfg 
