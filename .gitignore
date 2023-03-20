@@ -8,3 +8,5 @@ ai_model/.env
 front/build
 
 crawller/node_modules
+mining/prompt_generator/node_modules
+.DS_Store
