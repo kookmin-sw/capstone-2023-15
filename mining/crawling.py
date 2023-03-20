@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 # selenium을 통해서 chrome 부라우저의 새로운 창을 열기 위해서 현재 내가 사용하는 chrome 부라우저와 상응하는 chromedriver를 다운 받아서 사용
-driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe')
+driver = webdriver.Chrome('/Users/chanhhoo/Desktop/workPlace/4-1class/capstone/chromedriver')
 
 # 내가 크롤링 하고자 하는 링크
 search = 'monkey'
