@@ -1,58 +1,47 @@
 # ThreeNFT
 
-## capstone-2023-15 
+## capstone-2023-15 github page
 https://kookmin-sw.github.io/capstone-2023-15/
 
+## 1. 프로젝트 소개 
 
-## 내용에 아래와 같은 내용들을 추가하세요.
+- 서비스 타겟 : nft 작가 (추가로 소비자에게도 전달 가능)
+- 서비스 목표 : 작가의 작품이 도용되고 있는지 파악 후 플렛폼에 판매 중지를 요청하는 대리 서비스
 
-### 1. 프로잭트 소개
+![process](/statics/process.png)
 
-프로젝트
+### 서비스 프로세스 : 
+1. 본인의 피해 사례를 확인하고 싶은 작가의 요청을 받습니다.
+2. 신청한 작가의 컬렉션 정보(메타데이터, 이미지 등)를 받은 후 이를 통해 모델을 학습 시킵니다.
+3. 데이터 마이닝을 통해 특정된 마켓플레이스에서 검사 가능한 컬렉션과 유사하다고 판단한 이미지를 모델에 전송합니다.
+4. 입력받은 이미지는 모델에서 검사합니다.
+> : 모델은 해당 작품이 어떤 컬렉션에 해당되는지 판별 합니다.
+5. 검사의 결과를 웹페이지에 오픈합니다.
+> : 결과는 오픈이 될 수 있고 안 될 수도 있습니다. 이는 작가와의 협의를 통해 정해집니다. 
+6. 판매 중지를 요청한다.
 
-### 2. 소개 영상
+## 2. 소개 영상
 
-프로젝트 소개하는 영상을 추가하세요
+## 3. 팀 소개 
 
-### 3. 팀 소개
+- 김찬호[팀장]
+> - 학번 : ****1601
+> - position : Infra, BE, PM
+> - Email : hpyho33@kookmin.ac.kr
 
-팀을 소개하세요.
+- 안상호 
+> - 학번 : ****1639
+> - position : AI
+> - Email : do753951@kookmin.ac.kr
 
-팀원정보 및 담당이나 사진 및 SNS를 이용하여 소개하세요.
+- 임현진
+> - 학번 : ****1684
+> - position : AI, Data Mining
+> - Email : hyeonjin0622@kookmin.ac.kr
 
-### 4. 사용법
+- 심혜린
+> - 학번 : ****1620
+> - position : FE, UI & UX
+> - Email : nier8702@kookmin.ac.kr
 
-소스코드제출시 설치법이나 사용법을 작성하세요.
-
-### 5. 기타
-
-추가적인 내용은 자유롭게 작성하세요.
-
-
-## Markdown을 사용하여 내용꾸미기
-
-Markdown은 작문을 스타일링하기위한 가볍고 사용하기 쉬운 구문입니다. 여기에는 다음을위한 규칙이 포함됩니다.
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-자세한 내용은 [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Support or Contact
-
-readme 파일 생성에 추가적인 도움이 필요하면 [도움말](https://help.github.com/articles/about-readmes/) 이나 [contact support](https://github.com/contact) 을 이용하세요.
+## 4. 사용법 
