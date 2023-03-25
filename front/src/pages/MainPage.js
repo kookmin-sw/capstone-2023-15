@@ -39,7 +39,7 @@ const MainText = styled.div`
 const Title = styled.div`
 	max-width: 30vw;
 	font-size: 8em;
-	background: linear-gradient(to right, #003cb8, #4cb9e9);
+	background: linear-gradient(to right top, #003cb8, #4cb9e9);
 	color: transparent;
 	-webkit-background-clip: text;
 `

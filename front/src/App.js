@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import GlobalStyle from './statics/styles/GlobalStyle';
+import Header from './components/Header';
 import MainPage from './pages/MainPage';
 import CasesPage from './pages/CasesPage';
 
@@ -12,6 +13,7 @@ import CasesPage from './pages/CasesPage';
 const App = () => {
   return (
     <div className="App">
+      <Header />
       <Router>
         <Routes>
           <Route path="/" element={ <MainPage /> } />
