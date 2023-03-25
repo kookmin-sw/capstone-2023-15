@@ -7,19 +7,13 @@ function Header() {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-        <Logo>
-            <NavLink href="/">
-                <LogoImgSection src={LogoImg} />
-            </NavLink>
+        <Logo onClick={()=>navigate('/')}>
+            <LogoImgSection src={LogoImg} />
         </Logo>
         <Nav>
             <NavList>
-                <NavItem>
-                    <NavLink href="/">INTRODUCTION</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="/cases">CASE</NavLink>
-                </NavItem>
+                <NavItem onClick={()=>navigate('/')}>INTRODUCTION</NavItem>
+                <NavItem onClick={()=>navigate('/cases')}>CASE</NavItem>
                 <NavItem>
                     <ResultBtn onClick={() => navigate('/')}>Check the result</ResultBtn>
                 </NavItem>
@@ -66,15 +60,6 @@ const NavList = styled.ul`
 const NavItem = styled.li`
     width: 100%;
     list-style-type: none;
-`
-
-const NavLink = styled.a`
-    text-decoration: none;
-    color: black;
-    &:hover, &:visited{
-        text-decoration: none;
-    };
-    
 `
 
 const ResultBtn = styled.button`
