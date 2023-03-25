@@ -1,9 +1,24 @@
-import './App.css';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import GlobalStyle from './statics/styles/GlobalStyle';
+import MainPage from './pages/MainPage';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      capstone
+      <Router>
+        <Routes>
+          <Route path="/" element={ <MainPage /> } />
+          
+        </Routes>
+      </Router>
+      <GlobalStyle />
     </div>
   );
 }
