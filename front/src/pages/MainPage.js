@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import BG from '../statics/images/bg-blue.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
@@ -7,6 +8,7 @@ import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 
 
 const MainPage = () => {
+	const navigate = useNavigate();
 	return (
 		<Main>
 			<MainTop>
@@ -22,7 +24,7 @@ const MainPage = () => {
 			</MainTop>
 			<MainBottom>
 				<BottomTitle>HI</BottomTitle>
-				<BottomContainer>
+				<BottomContainer onClick={()=>navigate('/cases')}>
 					<BoxToCase>
 						<BoxToCaseImg>
 							<BoxtoCaseText>CASE</BoxtoCaseText>
