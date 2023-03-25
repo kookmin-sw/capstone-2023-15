@@ -33,28 +33,28 @@ const MainTop = styled.div`
 	background: url(${BG});
 `
 const MainText = styled.div`
-	// width: 90%;
-	padding: 15% 55% 0% 10%;
-	
+	padding: 15% 0% 0% 10%;
 `
 
 const Title = styled.div`
+	max-width: 30vw;
 	font-size: 8em;
 	background: linear-gradient(to right, #003cb8, #4cb9e9);
 	color: transparent;
 	-webkit-background-clip: text;
 `
 const SubTitle = styled.div`
-	margin: 0% 0% 5% 0%;
+
+	margin: -1.5% 0% 5% 0%;
 `
 
 const ContactBtn = styled.button`
 	font-family: AkiraExpanded;
-	font-size: 1.3em;
-	padding: 3%;
-	background: linear-gradient(to right, #0bbafb, #4285ec);
-	border-radius: 25px;
-	border: 3px solid black;
+	font-size: 1.1em;
+	padding: 1.5%;
+	background: linear-gradient(to right, #4285ec, #0bbafb);
+	border-radius: 20px;
+	border: 2.5px solid black;
 `
 
 
