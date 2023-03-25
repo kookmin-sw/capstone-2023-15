@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import BG from '../statics/images/bg-blue.png'
+import CaseBoxImg from '../statics/images/main-case.png'
+import CaseBoxImg_ from '../statics/images/main-case-bline.png'
+
 
 
 const MainPage = () => {
@@ -17,6 +20,18 @@ const MainPage = () => {
 					<ContactBtn>Let's Protect! ►</ContactBtn>
 				</MainText>
 			</MainTop>
+			<MainBottom>
+				<BottomTitle>HI</BottomTitle>
+				<BottomContainer>
+					<BoxToCase>
+						<BoxToCaseImg>
+							<BoxtoCaseText>CASE</BoxtoCaseText>
+							<BoxToCaseBtn>+</BoxToCaseBtn>
+						</BoxToCaseImg>
+						
+					</BoxToCase>
+				</BottomContainer>
+			</MainBottom>
 		</Main>
 	);
 }
@@ -32,6 +47,7 @@ const MainTop = styled.div`
 
 	background: url(${BG});
 `
+
 const MainText = styled.div`
 	padding: 15% 0% 0% 10%;
 `
@@ -43,6 +59,7 @@ const Title = styled.div`
 	color: transparent;
 	-webkit-background-clip: text;
 `
+
 const SubTitle = styled.div`
 
 	margin: -1.5% 0% 5% 0%;
@@ -57,6 +74,64 @@ const ContactBtn = styled.button`
 	border: 2.5px solid black;
 `
 
+const MainBottom = styled.div`
+	width: 100vw;
+	height: 100vh;
 
+	background: #016DD8;
+	margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const BottomTitle = styled.div`
+	height: 15vh;
+	background: black;
+`
+const BottomContainer = styled.div`
+	margin: 5%;
+	height: 70%;
+	background: white;
+	border: 0.3em solid #000000;
+`
+const BoxToCase = styled.div`
+	width: 25%;
+	height: 100%;
+	border-right: 0.3em solid #000000;
+	position: relative;
+	color: white;
+`
+
+const BoxToCaseImg = styled.div`
+	background: url(${CaseBoxImg_});
+	height: 100%;
+	width: 100%;
+	background-size: cover; 
+	&:hover{
+		background: url(${CaseBoxImg});
+		background-size: cover; 
+        transition: 0.5s;
+	}
+`
+
+const BoxtoCaseText = styled.div`
+	transform: rotate(-90deg) ;
+	font-size: 7em;
+	transform-origin: right top;
+	position: absolute;
+    top: 5%;
+	right: 100%;
+`
+
+const BoxToCaseBtn = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	font-size: 3.5em;
+	top: 3%;
+	right: 5%;
+	text-align: right;
+
+`
 export default MainPage;
 
