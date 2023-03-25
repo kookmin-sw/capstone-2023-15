@@ -1,8 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import LogoImg from '../statics/images/logo-text.png'
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
         <Logo>
@@ -19,7 +21,7 @@ function Header() {
                     <NavLink href="/cases">CASE</NavLink>
                 </NavItem>
                 <NavItem>
-                    <ResultBtn>Check the result</ResultBtn>
+                    <ResultBtn onClick={() => navigate('/')}>Check the result</ResultBtn>
                 </NavItem>
             </NavList>
         </Nav>
