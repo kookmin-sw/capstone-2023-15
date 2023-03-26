@@ -13,7 +13,7 @@ const MainPage = () => {
 	const navigate = useNavigate();
 	const caseArr = [1, 2, 3, 4, 5, 6];
 	return (
-		<Main>
+		<MainPageContainer>
 			<MainTop>
 				<MainText>
 					<Title>F.F.F</Title>
@@ -54,11 +54,11 @@ const MainPage = () => {
 
 				</BottomCaseContainer>
 			</MainBottom>
-		</Main>
+		</MainPageContainer>
 	);
 }
 
-const Main = styled.div`
+const MainPageContainer = styled.div`
 	font-family: AkiraExpanded;
 
 `
@@ -72,33 +72,34 @@ const MainTop = styled.div`
 
 const MainText = styled.div`
 	padding: 15% 0% 0% 10%;
+	width: 50%;
 `
 
-const Title = styled.div`
-	max-width: 30vw;
+const Title = styled.span`
 	font-size: 8em;
-	background: linear-gradient(to right top, #003cb8, #4cb9e9);
+	// width: 85%;
+	background: linear-gradient(to right, #003cb8, #217bcc, #2fade4);
 	color: transparent;
 	-webkit-background-clip: text;
 `
 
 const SubTitle = styled.div`
 
-	margin: -1.5% 0% 5% 0%;
+	margin: -1.5% 0% 3% 0%;
 `
 
 const ContactBtn = styled.button`
 	font-family: AkiraExpanded;
 	font-size: 1.1em;
-	padding: 1.5%;
-	background: linear-gradient(to right, #4285ec, #0bbafb);
+	padding: 2%;
+	background: linear-gradient(to right, #71b4f6, #62d9fa);
 	border-radius: 20px;
 	border: 2.5px solid black;
 `
 
 
 
-
+// Bottom Frame
 const MainBottom = styled.div`
 	width: 100vw;
 	height: 100vh;
