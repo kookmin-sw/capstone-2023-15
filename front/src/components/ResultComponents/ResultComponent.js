@@ -1,16 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-/*
-const sampleJson = {
-  clientName : "AMERICAN MONKEY",
-  sequece:1,
-  requestStatus: "DONE",
-  requestResult:"safe",
-  numberOfImagesScanned:3258,
-  numberOfMaliciousImages:0
-}
-*/
+import MaliciousComponent from './MaliciousComponent';
 
 const ResultComponent = ({props}) => {
 	return (
@@ -36,7 +26,14 @@ const ResultComponent = ({props}) => {
 				<Cell width={"55%"} fontSize={"medium"}>NUMBER OF MALICIOUS IMAGES</Cell>
 				<Cell width={"45%"} fontSize={"large"} status={props.requestResult} maliciousCell={true} isEnd={true}>{props.numberOfMaliciousImages}</Cell>
 			</Section>
-			<Section />
+			<Section>
+				<MaliciousList>
+					<MaliciousComponent />
+					<MaliciousComponent />
+				</MaliciousList>
+				
+				
+			</Section>
 		</ComponentRoot>
 	);
 }
@@ -68,15 +65,23 @@ const Section = styled.div`
 	display:flex;
 `
 
+// color 가 두 개인 이유는 request Result의 컬러와 Number of malicious images 의 컬러를 한 컴포넌트로 처리하기 위해서 입니다. 
 const Cell = styled.div`
 	background-color:${props => props.status && props.statusCell ? colorDict[props.status] : ""};
+	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : "" };
+	color:${props => props.status && props.statusCell ? "white" : "" };
 	display:flex;
   justify-content: center;
   align-items: center;
-	border-right:${props => props.isEnd ? "" : "0.3vw solid"};
+	border-right:${props => props.isEnd ? "" : "0.3vw solid black"};
 	width:${props => props.width};
 	font-size:${props => fontSizeDict[props.fontSize]};
-	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : "" };
+`
+
+const MaliciousList = styled.div`
+	display:flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export default ResultComponent;

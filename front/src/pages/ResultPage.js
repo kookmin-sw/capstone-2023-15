@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ResultComponent from '../components/ResultComponent';
+import ResultComponent from '../components/ResultComponents/ResultComponent';
 
 const sampleJson = {
   clientName : "AMERICAN MONKEY",
   sequence:1,
   requestStatus: "DONE",
-  requestResult:"112da",
+  requestResult:"safe",
   numberOfImagesScanned:3258,
   numberOfMaliciousImages:0
 }
@@ -28,6 +28,7 @@ const ResultPageRoot = styled.div`
 `
 
 const PageTitle = styled.div`
+  margin-top:7vh;
   font-size:4em;
 `
 
