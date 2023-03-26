@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ResultComponent from '../components/ResultComponents/ResultComponent';
+import ResultComponent from '../components/ResultComponents/RequestDoneComponent';
 
 const sampleJson = {
   clientName : "AMERICAN MONKEY",

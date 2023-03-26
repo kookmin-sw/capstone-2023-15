@@ -15,7 +15,7 @@ const ResultComponent = ({props}) => {
 				<Cell width={"35%"} fontSize={"large"} >{props.requestStatus}</Cell>
 				<Cell width={"29.9%"} fontSize={"medium"} status={props.requestResult} statusCell={true}>REQUEST<br />RESULT</Cell>
 				<Cell width={"15%"} isEnd={true}>
-					{/* image cell */}
+					{/* insert image cell */}
 				</Cell>
 			</Section>
 			<Section>
@@ -27,12 +27,18 @@ const ResultComponent = ({props}) => {
 				<Cell width={"45%"} fontSize={"large"} status={props.requestResult} maliciousCell={true} isEnd={true}>{props.numberOfMaliciousImages}</Cell>
 			</Section>
 			<Section>
-				<MaliciousList>
-					<MaliciousComponent />
-					<MaliciousComponent />
-				</MaliciousList>
-				
-				
+				{
+					props.requestResult === 'safe' ?
+						<SafeString>
+							<span>YOUR NFT WORK IS</span>
+							<span style={{color:colorDict["safe"]}}>&nbsp; SAFE !</span>
+						</SafeString>
+						:
+						<MaliciousList>
+							<MaliciousComponent />
+							<MaliciousComponent />
+						</MaliciousList>
+				}
 			</Section>
 		</ComponentRoot>
 	);
@@ -82,6 +88,14 @@ const MaliciousList = styled.div`
 	display:flex;
   flex-direction: column;
   justify-content: center;
+`
+
+const SafeString = styled.div`
+	margin-left: 1em;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	font-size:1.5em;
 `
 
 export default ResultComponent;
