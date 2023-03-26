@@ -15,7 +15,7 @@ const MainCaseComponent = ({i}) => {
         <MCaseContainer isBelowThree={i <= 3}>
             <CaseSection>
                 <MCaseImg>
-                    <ImgSection src={FakeNftImg} />
+                    <ImgSection src={FakeNftImg} /> {/* tmp image */}
                 </MCaseImg>
                 <TextSection>CASE #{i}</TextSection>
 
@@ -85,15 +85,22 @@ const TextSection = styled.div`
     padding: 3%;
     font-size: 1.8em;
 	text-align: left;
+    // word-break: break-all;
+    // overflow: hidden;
+    text-size-adjust: auto;
 `
 const InfoTextSection = styled.div`
     padding: 10% 3% 10% 3%;
 `
 const InfoAuthorBig = styled.div`
     font-size: 2.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 const InfoAuthorSmall = styled.div`
     font-size: 1em;   
+    overflow: hidden;
+    text-overflow: ellipsis; 
 `
 
 const InfoBtnSection = styled.div`
@@ -102,6 +109,7 @@ const InfoBtnSection = styled.div`
     align-items: center;
 	justify-content: flex-end;  
 `
+
 const InfoBtnText = styled.div`
     padding: 0% 3% 3% 0%; 
     font-size: 2.3em;
@@ -109,6 +117,7 @@ const InfoBtnText = styled.div`
 `
 const InfoBtnImg = styled.img`
     padding-right: 3%;
+    width: 20%;
 `
 
 
