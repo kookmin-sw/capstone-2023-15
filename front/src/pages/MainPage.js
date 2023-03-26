@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import MainCaseComponent from '../components/MainComponents/MainCaseComponent';
 import BG from '../statics/images/bg-blue.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
@@ -9,6 +10,7 @@ import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 
 const MainPage = () => {
 	const navigate = useNavigate();
+	const caseArr = [1, 2, 3, 4, 5, 6];
 	return (
 		<Main>
 			<MainTop>
@@ -24,14 +26,19 @@ const MainPage = () => {
 			</MainTop>
 			<MainBottom>
 				<BottomTitle>HI</BottomTitle>
-				<BottomContainer onClick={()=>navigate('/cases')}>
-					<BoxToCase>
+				<BottomContainer>
+					<BoxToCase onClick={()=>navigate('/cases')}>
 						<BoxToCaseImg>
 							<BoxtoCaseText>CASE</BoxtoCaseText>
 							<BoxToCaseBtn>+</BoxToCaseBtn>
 						</BoxToCaseImg>
-						
 					</BoxToCase>
+					<MainCaseContainer>
+					{caseArr.map((i) => (
+						<MainCaseComponent i={i} />
+					))}
+						{/* <MCaseComponent></MCaseComponent> */}
+					</MainCaseContainer>
 				</BottomContainer>
 			</MainBottom>
 		</Main>
@@ -95,13 +102,14 @@ const BottomContainer = styled.div`
 	height: 70%;
 	background: white;
 	border: 0.3em solid #000000;
+	display: flex;
 `
 const BoxToCase = styled.div`
 	width: 25%;
 	height: 100%;
-	border-right: 0.3em solid #000000;
 	position: relative;
 	color: white;
+	border-right: 0.3em solid black;
 `
 
 const BoxToCaseImg = styled.div`
@@ -126,13 +134,21 @@ const BoxtoCaseText = styled.div`
 `
 
 const BoxToCaseBtn = styled.div`
-	width: 100%;
-	height: 100%;
+	// width: 100%;
+	// height: 100%;
 	position: absolute;
 	font-size: 3.5em;
 	top: 3%;
 	right: 5%;
 	text-align: right;
+`
+
+const MainCaseContainer = styled.div`
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: 0.3em solid black;
 
 `
 export default MainPage;

@@ -1,84 +1,114 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import FakeNftImg from '../../statics/images/FakeNftImg.png'
-import OpenseaLogo from '../../statics/images/OpenseaLogo.png'
+import AuthorArrow from '../../statics/images/author-arrow.png'
 
-const CaseComponent = ({props}) => {
-	// const [betweenMargin, setBetweenMargin] = useState(0)
-	// if(props.isReverse){
 
-	// }
-	const tmp = "BBEARR";
+const MainCaseComponent = ({i}) => {
+    const tmp_name = 'AMERICANO';
+    const tmp_email = 'AMERICANO@gmail.com';
+    const tmp_sns = 'NFT_AMERICANO';
+
 	return (
-		<CaseCard isReverse={props.isReverse}>
-			<ImgSection src={FakeNftImg} />
-			<MarginBox />
-			<ContentSection>
-				<div>
-					<CollectionTitle>
-						GREEN BEAR
-						<MarketIcon src={OpenseaLogo} />
-					</CollectionTitle>
-					<CustomerInfo>AUTHOR NAME</CustomerInfo>
-					<CustomerInfo>BEAR@GMAIL.COM</CustomerInfo>
-				</div>
-				<PlagiaristName>PLAGIARIST - {tmp}</PlagiaristName>
-				
-			</ContentSection>
-			
+        <MCaseContainer isBelowThree={i <= 3}>
+            <CaseSection>
+                <MCaseImg>
+                    <ImgSection src={FakeNftImg} />
+                </MCaseImg>
+                <TextSection>CASE #{i}</TextSection>
 
-		</CaseCard>
+            </CaseSection>   
+            <InfoSection>
+                <InfoTextSection>
+                    <InfoAuthorSmall>AUTHOR</InfoAuthorSmall>
+                    <InfoAuthorBig>{tmp_name}</InfoAuthorBig>
+                    <InfoAuthorBig>-</InfoAuthorBig>
+                    <InfoAuthorSmall>{tmp_email}</InfoAuthorSmall>
+                    <InfoAuthorSmall>@{tmp_sns}</InfoAuthorSmall>                    
+                </InfoTextSection>
+                <InfoBtnSection>
+                    <InfoBtnText>MORE</InfoBtnText>
+                    <InfoBtnImg src={AuthorArrow} />
+                </InfoBtnSection>
+                
+
+            </InfoSection>
+        </MCaseContainer>
 	);
 }
 
-const CaseCard = styled.div`
-	font-family: AkiraExpanded;
-	width: 94vw;
-	height: 15vh;
-	background-color:#ffffff;
-	border: 0.3em solid #000000;
-	padding: 1em;
-	display:flex;
-	flex-direction: ${props => props.isReverse ? "row-reverse" : "start"};
-	margin-bottom:1em;
+
+const CaseSection = styled.div`
+    &:hover{
+        display: none;
+    }
 `
 
-const ContentSection = styled.div`
-	height:100%;
-	width:100%;
-	display:flex;
-	flex-direction: column; 
-	justify-content: space-between;
+const InfoSection = styled.div`
+    display: none;
+    visibility: hidden;
+    background: #363636;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: left;
 `
 
-const CollectionTitle = styled.div`
-	display: flex;
-	justify-content: space-between;
-	width:100%;
-	font-size:2.5em;
+const MCaseContainer = styled.div`
+    width: 33.33335%; 
+    height: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 0.3em solid black;
+    border-bottom: ${props => ( props.isBelowThree ? '0.3em solid black' : "")};
+
+    &:hover ${InfoSection}{
+        visibility: visible;
+        display: block;
+    }
+    &:hover ${CaseSection}{
+        display: none;
+    }
 `
 
-const CustomerInfo = styled.div`
-	font-size:1.2em;
+const MCaseImg = styled.div`
+    padding: 10%;
+    
 `
-
-const PlagiaristName = styled.div`
-	font-size:1.2em;
-`
-
 const ImgSection = styled.img`
-	min-width:7em;
-	min-height:7em;
+    width: 60%;
+`
+const TextSection = styled.div`
+    border-top: 0.15em solid black;
+    padding: 3%;
+    font-size: 1.8em;
+	text-align: left;
+`
+const InfoTextSection = styled.div`
+    padding: 10% 3% 10% 3%;
+`
+const InfoAuthorBig = styled.div`
+    font-size: 2.5em;
+`
+const InfoAuthorSmall = styled.div`
+    font-size: 1em;   
 `
 
-const MarketIcon = styled.img`
-	width: 0.7em;
-	height: 0.7em;
+const InfoBtnSection = styled.div`
+    text-align: right;
+    display: flex;
+    align-items: center;
+	justify-content: flex-end;  
+`
+const InfoBtnText = styled.div`
+    padding: 0% 3% 3% 0%; 
+    font-size: 2.3em;
+
+`
+const InfoBtnImg = styled.img`
+    padding-right: 3%;
 `
 
-const MarginBox = styled.div`
-	width:2em;
-`
 
-export default CaseComponent;
+export default MainCaseComponent;
 
