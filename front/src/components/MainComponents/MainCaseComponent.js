@@ -84,9 +84,7 @@ const TextSection = styled.div`
     border-top: 0.15em solid black;
     padding: 3%;
     font-size: 1.8em;
-	text-align: left;
-    // word-break: break-all;
-    // overflow: hidden;
+    text-align: left;
     text-size-adjust: auto;
 `
 const InfoTextSection = styled.div`
@@ -107,7 +105,7 @@ const InfoBtnSection = styled.div`
     text-align: right;
     display: flex;
     align-items: center;
-	justify-content: flex-end;  
+    justify-content: flex-end;  
 `
 
 const InfoBtnText = styled.div`

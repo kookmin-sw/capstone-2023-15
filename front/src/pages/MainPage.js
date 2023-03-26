@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import MainCaseComponent from '../components/MainComponents/MainCaseComponent';
 import BG from '../statics/images/bg-blue.png'
+import NftCards from '../statics/images/nftcard.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 import BTitleImg from '../statics/images/main-btitle.png'
@@ -24,6 +25,9 @@ const MainPage = () => {
 					</SubTitle>
 					<ContactBtn>Let's Protect! ►</ContactBtn>
 				</MainText>
+				<MainImg>
+					<MainImgSection src={NftCards} />
+				</MainImg>
 			</MainTop>
 			<MainBottom>
 				<BottomTitle>
@@ -66,8 +70,8 @@ const MainPageContainer = styled.div`
 const MainTop = styled.div`
 	width: 100vw;
 	height: 100vh;
-
 	background: url(${BG});
+	display: flex;
 `
 
 const MainText = styled.div`
@@ -76,25 +80,33 @@ const MainText = styled.div`
 `
 
 const Title = styled.span`
-	font-size: 8em;
-	// width: 85%;
+	font-size: 8.5em;
 	background: linear-gradient(to right, #003cb8, #217bcc, #2fade4);
 	color: transparent;
 	-webkit-background-clip: text;
 `
 
 const SubTitle = styled.div`
-
-	margin: -1.5% 0% 3% 0%;
+	font-size: 1em;
+	margin: -1.5% 0% 5% 0%;
 `
 
 const ContactBtn = styled.button`
 	font-family: AkiraExpanded;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	padding: 2%;
 	background: linear-gradient(to right, #71b4f6, #62d9fa);
 	border-radius: 20px;
 	border: 2.5px solid black;
+`
+
+const MainImg = styled.div`
+	margin: 5%;
+	padding-right: 3%;
+`
+
+const MainImgSection = styled.img`
+	width: 100%;
 `
 
 
@@ -187,8 +199,6 @@ const BoxtoCaseText = styled.div`
 `
 
 const BoxToCaseBtn = styled.div`
-	// width: 100%;
-	// height: 100%;
 	position: absolute;
 	font-size: 3.5em;
 	top: 3%;
