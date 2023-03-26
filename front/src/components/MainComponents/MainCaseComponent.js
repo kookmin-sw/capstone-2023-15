@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import FakeNftImg from '../../statics/images/FakeNftImg.png'
 import AuthorArrow from '../../statics/images/author-arrow.png'
 
 
 const MainCaseComponent = ({i}) => {
+    const navigate = useNavigate();
     const tmp_name = 'AMERICANO';
     const tmp_email = 'AMERICANO@gmail.com';
     const tmp_sns = 'NFT_AMERICANO';
@@ -26,7 +28,7 @@ const MainCaseComponent = ({i}) => {
                     <InfoAuthorSmall>{tmp_email}</InfoAuthorSmall>
                     <InfoAuthorSmall>@{tmp_sns}</InfoAuthorSmall>                    
                 </InfoTextSection>
-                <InfoBtnSection>
+                <InfoBtnSection onClick={()=>navigate('/cases')}>
                     <InfoBtnText>MORE</InfoBtnText>
                     <InfoBtnImg src={AuthorArrow} />
                 </InfoBtnSection>
