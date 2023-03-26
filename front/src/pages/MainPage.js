@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import MainCaseComponent from '../components/MainComponents/MainCaseComponent';
 import BG from '../statics/images/bg-blue.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
+import BTitleImg from '../statics/images/main-btitle.png'
 
 
 
@@ -25,21 +26,33 @@ const MainPage = () => {
 				</MainText>
 			</MainTop>
 			<MainBottom>
-				<BottomTitle>HI</BottomTitle>
-				<BottomContainer>
+				<BottomTitle>
+					<BottomTitleSection>
+						<BottomTitleTextSection>
+							<span>📌 List of <TextStroke>plagiarized</TextStroke> works we found !   &nbsp;&nbsp;</span>
+							<span><BottomTitleImgSection src={BTitleImg} /></span>
+							<span>&nbsp;&nbsp; Three F &nbsp;-&nbsp; <TextStroke>FIND FAKE NFT</TextStroke></span>
+						</BottomTitleTextSection>
+					</BottomTitleSection>
+					
+				</BottomTitle>
+
+				<BottomCaseContainer>
+
 					<BoxToCase onClick={()=>navigate('/cases')}>
 						<BoxToCaseImg>
 							<BoxtoCaseText>CASE</BoxtoCaseText>
 							<BoxToCaseBtn>+</BoxToCaseBtn>
 						</BoxToCaseImg>
 					</BoxToCase>
+
 					<MainCaseContainer>
 					{caseArr.map((i) => (
 						<MainCaseComponent i={i} />
 					))}
-						{/* <MCaseComponent></MCaseComponent> */}
 					</MainCaseContainer>
-				</BottomContainer>
+
+				</BottomCaseContainer>
 			</MainBottom>
 		</Main>
 	);
@@ -83,21 +96,60 @@ const ContactBtn = styled.button`
 	border: 2.5px solid black;
 `
 
+
+
+
 const MainBottom = styled.div`
 	width: 100vw;
 	height: 100vh;
-
 	background: #016DD8;
 	margin: 0 auto;
     justify-content: space-between;
-    align-items: center;
 `
 
+// animation 추후 수정 예정
 const BottomTitle = styled.div`
-	height: 15vh;
+	height: 8vh;
 	background: black;
+	padding: 1% 0% 1% 0%;
+	display: flex;
 `
-const BottomContainer = styled.div`
+const marquee = keyframes`
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(-100%, 0);
+	}
+`
+const BottomTitleSection = styled.marquee`
+	font-size: 4em;
+	height: 100%;
+	width: 100%;
+	behavior: scroll;
+	display: flex;
+
+`
+
+const BottomTitleTextSection = styled.div`
+	color: white;
+	animation: ${marquee} 30s linear infinite;
+	white-space: nowrap;
+	will-change: transform;
+	position: absolute;
+`
+
+const TextStroke = styled.span`
+	-webkit-text-stroke: 0.04em white;
+	color: black;
+
+`
+
+const BottomTitleImgSection = styled.img`
+	width: 4.5%;
+`
+
+const BottomCaseContainer = styled.div`
 	margin: 5%;
 	height: 70%;
 	background: white;
