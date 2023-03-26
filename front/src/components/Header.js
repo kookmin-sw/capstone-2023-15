@@ -24,9 +24,7 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
-    // min-width: 1280px;
     max-height: 5em;
-	font-family: AkiraExpanded;
     font-size: 1em;
     margin: 0 auto;
     display: flex;
@@ -35,18 +33,16 @@ const HeaderContainer = styled.div`
 `
 
 const Logo = styled.div`
-    width: 25%;
+    width: 20%;
     margin-right: 5%;
+    padding-top: 0.1%;
 `
 
 const LogoImgSection = styled.img`
     width: 100%;
 `
 const Nav = styled.nav`
-    // background: orange;
     width: 70%;
-
-
 `
 const NavList = styled.ul`
     display: flex;
@@ -54,7 +50,7 @@ const NavList = styled.ul`
     align-items: center;
     font-size: 1em;
     margin-right: 3%;
-    
+    font-family: AkiraExpanded;
 `
 
 const NavItem = styled.li`
@@ -81,4 +77,3 @@ const ResultBtn = styled.button`
 `
 
 export default Header;
-
