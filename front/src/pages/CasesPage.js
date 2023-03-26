@@ -8,7 +8,6 @@ const CasePage = () => {
 			<PageTitle>CASE OF PLAGIRIZM</PageTitle>
 			<Dash />
 			<SubTitle>THIS IS A CASE OF PLAGIARISM OF NFT WORKS CAUGHT BY FFF</SubTitle>
-
 			<CaseComponent props={{isReverse:false}} />
 			<CaseComponent props={{isReverse:true}} />
 			<CaseComponent props={{isReverse:false}} />
