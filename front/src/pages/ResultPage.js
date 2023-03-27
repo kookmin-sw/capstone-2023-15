@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ResultComponent from '../components/ResultComponents/RequestDoneComponent';
+import RequestDoneComponent from '../components/ResultComponents/RequestDoneComponent';
+import RequestUndoneComponent from '../components/ResultComponents/RequestUndoneComponent';
+
 import bgGreen from '../statics/images/bg-green.png'
 import bgRed from '../statics/images/bg-red.png'
 import bgBlue from '../statics/images/bg-blue.png'
@@ -8,8 +10,8 @@ import bgBlue from '../statics/images/bg-blue.png'
 const sampleJson = {
   clientName : "AMERICAN MONKEY",
   sequence:1,
-  requestStatus: "DONE",
-  requestResult:"unexpected",
+  requestStatus: "FAIL",
+  requestResult:"undone",
   numberOfImagesScanned:3258,
   numberOfMaliciousImages:0
 }
@@ -18,7 +20,9 @@ const ResultPage = () => {
 	return (
     <ResultPageRoot>
       <PageTitle>RESULTs</PageTitle>
-      <ResultComponent props={sampleJson}/>
+      {
+        sampleJson.requestStatus === 'DONE' ? <RequestDoneComponent props={sampleJson}/> : <RequestUndoneComponent props={sampleJson}/>
+      }
     </ResultPageRoot>
 	);
 }
@@ -26,7 +30,7 @@ const ResultPage = () => {
 const BgDict = {
   safe:bgGreen,
   unsafe:bgRed,
-  unexpected:bgBlue
+  undone:bgBlue
 }
 
 const ResultPageRoot = styled.div`
