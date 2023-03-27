@@ -7,11 +7,17 @@ import bgGreen from '../statics/images/bg-green.png'
 import bgRed from '../statics/images/bg-red.png'
 import bgBlue from '../statics/images/bg-blue.png'
 
+/*
+---- parameter matching ----
+
+    DONE - (safe, danger)
+    UNDONE - (ignore)
+*/
 const sampleJson = {
   clientName : "AMERICAN MONKEY",
   sequence:1,
-  requestStatus: "FAIL",
-  requestResult:"undone",
+  requestStatus: "DONE", // DONE or UNDONE
+  requestResult:"danger", // safe, danger, ignore
   numberOfImagesScanned:3258,
   numberOfMaliciousImages:0
 }
@@ -29,8 +35,8 @@ const ResultPage = () => {
 
 const BgDict = {
   safe:bgGreen,
-  unsafe:bgRed,
-  undone:bgBlue
+  danger:bgRed,
+  ignore:bgBlue
 }
 
 const ResultPageRoot = styled.div`

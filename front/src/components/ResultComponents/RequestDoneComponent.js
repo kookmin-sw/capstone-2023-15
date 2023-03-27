@@ -1,37 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import MaliciousComponent from './MaliciousComponent';
+import DangerIcon from '../../statics/images/icon-danger-red.png';
+import SafetyIcon from '../../statics/images/icon-safety.png';
 
 const ResultComponent = ({props}) => {
 	return (
 		<ComponentRoot>
 			<Section>
-				<Cell width={"20%"} fontSize={"medium"} >CLIENT</Cell>
-				<Cell width={"65%"} fontSize={"large"} >{props.clientName}</Cell>
-				<Cell width={"15%"} fontSize={"large"} isEnd={true}>#{props.sequence}</Cell>
+				<Cell width={'20%'} fontSize={'medium'} >CLIENT</Cell>
+				<Cell width={'65%'} fontSize={'large'} >{props.clientName}</Cell>
+				<Cell width={'15%'} fontSize={'large'} isEnd={true}>#{props.sequence}</Cell>
 			</Section>
 			<Section>
-				<Cell width={"20.1%"} fontSize={"medium"}>REQUEST<br />STATUS</Cell>
-				<Cell width={"35%"} fontSize={"large"} >{props.requestStatus}</Cell>
-				<Cell width={"29.9%"} fontSize={"medium"} status={props.requestResult} statusCell={true}>REQUEST<br />RESULT</Cell>
-				<Cell width={"15%"} isEnd={true}>
-					{/* insert image cell */}
+				<Cell width={'20.1%'} fontSize={'medium'}>REQUEST<br />STATUS</Cell>
+				<Cell width={'35%'} fontSize={'large'} >{props.requestStatus}</Cell>
+				<Cell width={'29.9%'} fontSize={'medium'} status={props.requestResult} statusCell={true}>REQUEST<br />RESULT</Cell>
+				<Cell width={'15%'} isEnd={true}>
+					<ResultIcon src={props.requestResult === 'safe' ? SafetyIcon : DangerIcon} />
 				</Cell>
 			</Section>
 			<Section>
-				<Cell width={"55%"} fontSize={"medium"} >NUMBER OF IMAGES SCANNED</Cell>
-				<Cell width={"45%"} fontSize={"large"} isEnd={true}>{props.numberOfImagesScanned}</Cell>
+				<Cell width={'55%'} fontSize={'medium'} >NUMBER OF IMAGES SCANNED</Cell>
+				<Cell width={'45%'} fontSize={'large'} isEnd={true}>{props.numberOfImagesScanned}</Cell>
 			</Section>
 			<Section>
-				<Cell width={"55%"} fontSize={"medium"}>NUMBER OF MALICIOUS IMAGES</Cell>
-				<Cell width={"45%"} fontSize={"large"} status={props.requestResult} maliciousCell={true} isEnd={true}>{props.numberOfMaliciousImages}</Cell>
+				<Cell width={'55%'} fontSize={'medium'}>NUMBER OF MALICIOUS IMAGES</Cell>
+				<Cell width={'45%'} fontSize={'large'} status={props.requestResult} maliciousCell={true} isEnd={true}>{props.numberOfMaliciousImages}</Cell>
 			</Section>
 			<Section>
 				{
 					props.requestResult === 'safe' ?
 						<SafeString>
 							<span>YOUR NFT WORK IS</span>
-							<span style={{color:colorDict["safe"]}}>&nbsp; SAFE !</span>
+							<span style={{color:colorDict['safe']}}>&nbsp; SAFE !</span>
 						</SafeString>
 						:
 						<MaliciousList>
@@ -47,13 +49,13 @@ const ResultComponent = ({props}) => {
 // 모든 컴포넌트의 폰트 사이즈가 동일한 규격이 아니기 때문에 해당 변수는 선언된 컴포넌트에서만 사용한다.
 const fontSizeDict = {
 	small:'1em',
-	medium:'1.2em',
+	medium:'1.5em',
 	large:'2em',
 }
 
 const colorDict = {
 	safe:'#4BD37B',
-	unsafe:'#FF0000',
+	danger:'#FF0000',
 }
 
 const ComponentRoot = styled.div`
@@ -94,9 +96,16 @@ const MaliciousList = styled.div`
 const SafeString = styled.div`
 	margin-left: 1em;
 	display:flex;
+	width:100%;
 	justify-content: center;
 	align-items: center;
 	font-size:1.5em;
+`
+
+const ResultIcon = styled.img`
+	src:${props => `url(${props.src})`};
+	width:5em;
+	height:5em;
 `
 
 export default ResultComponent;

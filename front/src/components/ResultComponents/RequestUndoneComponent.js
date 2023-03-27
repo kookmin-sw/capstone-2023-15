@@ -6,20 +6,23 @@ const ResultComponent = ({props}) => {
 	return (
 		<ComponentRoot>
 			<Section>
-				<Cell width={"20%"} fontSize={"medium"} >CLIENT</Cell>
-				<Cell width={"65%"} fontSize={"large"} isData={true} >{props.clientName}</Cell>
-				<Cell width={"15%"} fontSize={"large"} isEnd={true}>#{props.sequence}</Cell>
+				<Cell width={'20%'} fontSize={'medium'} >CLIENT</Cell>
+				<Cell width={'65%'} fontSize={'large'} isData={true} >{props.clientName}</Cell>
+				<Cell width={'15%'} fontSize={'large'} isEnd={true}>#{props.sequence}</Cell>
 			</Section>
 			<Section>
-				<Cell width={"20.1%"} fontSize={"medium"}>REQUEST<br />STATUS</Cell>
-				<Cell width={"35%"} fontSize={"large"} >{props.requestStatus}</Cell>
-				<Cell width={"29.9%"} fontSize={"medium"} status={props.requestResult} statusCell={true}>REQUEST<br />RESULT</Cell>
-				<Cell width={"15%"} isEnd={true}>
-					{/* insert image cell */}
+				<Cell width={'20.1%'} fontSize={'medium'}>REQUEST<br />STATUS</Cell>
+				<Cell width={'35%'} fontSize={'large'} >{props.requestStatus}</Cell>
+				<Cell width={'29.9%'} fontSize={'medium'} status={props.requestResult} statusCell={true}>REQUEST<br />RESULT</Cell>
+				<Cell width={'15%'} fontSize={'medium'} isEnd={true}>
+					-
 				</Cell>
 			</Section>
+      {/* border 에 의한 1% 가 차감 되어야 자연스러움 */}
 			<Section style={{minHeight:'59%'}}>
-        a
+        <Cell width={'100%'} fontSize={'medium'} isEnd={true}>
+          SORRY, THERE WAS A PROBLEM AND <br /> THE OPERATION WAS INTERRUPTED
+        </Cell>
 			</Section>
 		</ComponentRoot>
 	);
@@ -28,7 +31,7 @@ const ResultComponent = ({props}) => {
 // 모든 컴포넌트의 폰트 사이즈가 동일한 규격이 아니기 때문에 해당 변수는 선언된 컴포넌트에서만 사용한다.
 const fontSizeDict = {
 	small:'1em',
-	medium:'1.2em',
+	medium:'1.5em',
 	large:'2em',
 }
 
