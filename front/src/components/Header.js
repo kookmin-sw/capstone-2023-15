@@ -72,7 +72,7 @@ const ResultBtn = styled.button`
         background: linear-gradient(to right, #4285ec, #0bbafb);
         color: white;
         border: none;
-
+        transition: 0.5s;
     }
 `
 
