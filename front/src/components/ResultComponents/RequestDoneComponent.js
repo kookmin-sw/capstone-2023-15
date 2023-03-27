@@ -46,14 +46,14 @@ const ResultComponent = ({props}) => {
 
 // 모든 컴포넌트의 폰트 사이즈가 동일한 규격이 아니기 때문에 해당 변수는 선언된 컴포넌트에서만 사용한다.
 const fontSizeDict = {
-	small:"1em",
-	medium:"1.2em",
-	large:"2em",
+	small:'1em',
+	medium:'1.2em',
+	large:'2em',
 }
 
 const colorDict = {
-	safe:"#4BD37B",
-	unsafe:"#FF0000",
+	safe:'#4BD37B',
+	unsafe:'#FF0000',
 }
 
 const ComponentRoot = styled.div`
@@ -69,17 +69,18 @@ const Section = styled.div`
 	border-bottom:0.3vw solid;
 	flex:1;
 	display:flex;
+	background-color:white;
 `
 
 // color 가 두 개인 이유는 request Result의 컬러와 Number of malicious images 의 컬러를 한 컴포넌트로 처리하기 위해서 입니다. 
 const Cell = styled.div`
-	background-color:${props => props.status && props.statusCell ? colorDict[props.status] : ""};
-	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : "" };
-	color:${props => props.status && props.statusCell ? "white" : "" };
+	background-color:${props => props.status && props.statusCell ? colorDict[props.status] : ''};
+	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : '' };
+	color:${props => props.status && props.statusCell ? 'white' : '' };
 	display:flex;
   justify-content: center;
   align-items: center;
-	border-right:${props => props.isEnd ? "" : "0.3vw solid black"};
+	border-right:${props => props.isEnd ? '' : '0.3vw solid black'};
 	width:${props => props.width};
 	font-size:${props => fontSizeDict[props.fontSize]};
 `
