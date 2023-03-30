@@ -1,4 +1,4 @@
-# ThreeNFT
+# ThreeF
 ## capstone-2023-15
 
 ## Document

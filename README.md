@@ -1,4 +1,4 @@
-# ThreeNFT
+# ThreeF
 
 ## capstone-2023-15 github page
 https://kookmin-sw.github.io/capstone-2023-15/
