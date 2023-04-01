@@ -1,12 +1,17 @@
 import urllib.request
 import multiprocessing, time
+import os
 from PIL import Image
 '''
 url = "https://i.seadn.io/gcs/files/93e2dd0a9fd852949598acf8f5c15c71.png?w=500&auto=format"
 savelocation = "C:/Users/hyeondin/Desktop/b.png" #내컴퓨터의 저장 위치
 urllib.request.urlretrieve(url, savelocation) #해당 url에서 이미지를 다운로드 메소드
 '''
-
+def check_file():
+    dir_path =  '../image'
+    if os.path.isdir(dir_path) == False:
+        os.mkdir(dir_path)
+        
 def check_time():
     time.sleep(5.0)
 
@@ -24,6 +29,7 @@ def try_download_from_link(url, savelocation):
 
 if __name__ == "__main__":
     f = open('../link.txt', 'r')
+    check_file()
     num = 1
 
     for url in f.readlines():
