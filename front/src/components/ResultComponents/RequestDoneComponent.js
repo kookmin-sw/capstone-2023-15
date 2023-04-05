@@ -104,8 +104,8 @@ const SafeString = styled.div`
 
 const ResultIcon = styled.img`
 	src:${props => `url(${props.src})`};
-	width:5em;
-	height:5em;
+	width:4em;
+	height:4em;
 `
 
 export default ResultComponent;
