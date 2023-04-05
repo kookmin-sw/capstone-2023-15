@@ -50,6 +50,7 @@ const ResultPageRoot = styled.div`
 
 const PageTitle = styled.div`
   margin-top:7vh;
+  margin-bottom: 1.3%;
   font-size:4em;
 `
 
