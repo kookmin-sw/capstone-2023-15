@@ -15,7 +15,8 @@ const ResultCheckPage = () => {
             </Title>
             <InputContainer>
                 <InputSection placeholder='Please enter your email'></InputSection>
-                <InputBtn>DONE</InputBtn>
+                {/* 임시로 DONE 버튼을 누르면 result 페이지로 이동하도록 해두었습니다. */}
+                <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn> 
             </InputContainer>
 		</PageContainer>
 	);
@@ -55,7 +56,6 @@ const InputSection = styled.input`
     &::placeholder {
         color: #B7B7B7;
         text-align: center;
-        // font-size: 1.3em;
     }
 `
 
