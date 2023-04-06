@@ -45,13 +45,14 @@ const ResultPageRoot = styled.div`
   font-family: AkiraExpanded;
   display:flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 `
 
 const PageTitle = styled.div`
-  margin-top:7vh;
+  // margin-top:5%;
   margin-bottom: 1.3%;
-  font-size:4em;
+  font-size:3.5em;
 `
 
 
