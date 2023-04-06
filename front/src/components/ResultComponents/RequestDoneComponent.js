@@ -38,7 +38,6 @@ const ResultComponent = ({props}) => {
 						:
 						<MaliciousList>
 							<MaliciousComponent />
-							<MaliciousComponent />
 						</MaliciousList>
 				}
 			</Section>
@@ -89,8 +88,9 @@ const Cell = styled.div`
 
 const MaliciousList = styled.div`
 	display:flex;
-  flex-direction: column;
-  justify-content: center;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
 `
 
 const SafeString = styled.div`
