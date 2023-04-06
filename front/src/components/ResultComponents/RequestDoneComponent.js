@@ -63,7 +63,7 @@ const ComponentRoot = styled.div`
 	display:flex;
 	flex-direction: column;
 	border-style: solid;
-  border-width: 0.3vw 0.3vw 0 0.3vw;
+	border-width: 0.3vw 0.3vw 0 0.3vw;
 `
 
 const Section = styled.div`
@@ -79,8 +79,8 @@ const Cell = styled.div`
 	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : '' };
 	color:${props => props.status && props.statusCell ? 'white' : '' };
 	display:flex;
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 	border-right:${props => props.isEnd ? '' : '0.3vw solid black'};
 	width:${props => props.width};
 	font-size:${props => fontSizeDict[props.fontSize]};
