@@ -13,8 +13,8 @@ def name():
 
     # 내가 크롤링 하고자 하는 링크
     #search = 'monkey%20power'
-    #search = 'fly%20dog'
-    search = 'fight%20pig'
+    search = 'fly%20dog'
+    #search = 'fight%20pig'
     driver.get('https://opensea.io/assets?search[toggles][0]=BUY_NOW&search[query]=' + search)
 
     # 이전 커서 위치
@@ -34,8 +34,12 @@ def name():
 
     # selected = 클롱링 대상을 감싸고 있는 table css
     selected = driver.find_element_by_css_selector("#main > div > div > div > div > div.sc-29427738-0.sc-630fc9ab-0.iRxATS.jSPhMX > div.sc-29427738-0.jFfKPa > div.sc-29427738-0.dVNeWL > div")
-    img_href = selected.find_elements_by_tag_name('a')
+    selected2 =  driver.find_element_by_css_selector("#main > div > div > div > div > div.sc-29427738-0.sc-630fc9ab-0.iRxATS.jSPhMX > div.sc-29427738-0.jFfKPa > div.sc-29427738-0.dVNeWL > div")
 
+    img_href = selected.find_elements_by_tag_name('a')
+    new_img_name = selected2.find_elements_by_class_name('sc-29427738-0.sc-d58c749b-2.sc-9545196f-5.eNYnCu.heRZSz.kubwJN')  # 이름을 가지고 있는 span tag의 class이름을 통해서 접근
+
+    img_collection_name = []
     href = []
 
     # 아이콘 뱃찌가 없는 nft만 crawling : try-except 이용
@@ -45,9 +49,10 @@ def name():
         except:
             if str(img_href[i].get_attribute('href'))!='None':
                 href.append(img_href[i].get_attribute('href'))
+                img_collection_name.append(new_img_name[i].text)
 
     driver.close()
-    return href
+    return href, img_collection_name
 
 def get_image(url,num):
     headers = {"Accept": "application/json"}
@@ -61,7 +66,8 @@ def run_next_file(next_file):
     subprocess.run(['python', next_file])
 
 if __name__=='__main__':
-    href = name()
+    href,collection_name = name()
+    collection_id = []
     #url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
     num = 1
     for url in href:
@@ -69,6 +75,8 @@ if __name__=='__main__':
         address = str(url).split('/')[5]
         id = str(url).split('/')[6]
         image_url = 'https://api.opensea.io/api/v2/metadata/'+unit+'/'+address+'/'+id
+        collection_id.append(id)
+        print(collection_name[num-1], collection_id[num-1])
         get_image(image_url,num)
         num+=1
     f.close()
