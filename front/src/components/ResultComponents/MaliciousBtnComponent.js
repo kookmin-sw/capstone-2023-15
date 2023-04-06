@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import OpenseaLogo from '../../statics/images/OpenseaLogo.png'
 
-const MaliciousComponent = () => {
+const MaliciousBtnComponent = () => {
 	return (
 		<MaliciousItemRoot>
 			{/* <MarketIconConatiner>
@@ -53,5 +53,5 @@ const ResultBtn = styled.button`
 	}
 `
 
-export default MaliciousComponent;
+export default MaliciousBtnComponent;
 

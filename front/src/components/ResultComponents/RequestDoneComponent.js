@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MaliciousComponent from './MaliciousComponent';
+import MaliciousBtnComponent from './MaliciousBtnComponent';
 import DangerIcon from '../../statics/images/icon-danger-red.png';
 import SafetyIcon from '../../statics/images/icon-safety.png';
 
@@ -37,7 +37,7 @@ const ResultComponent = ({props}) => {
 						</SafeString>
 						:
 						<MaliciousList>
-							<MaliciousComponent />
+							<MaliciousBtnComponent />
 						</MaliciousList>
 				}
 			</Section>
