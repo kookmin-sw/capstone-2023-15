@@ -1,8 +1,16 @@
-# ThreeF
-## capstone-2023-15
+# ThreeF: FIND FAKE NFT
+![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
 
 ## Document
-https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150&pvs=4
+<div align="center">
+  <a href="https://kookmin-sw.github.io/capstone-2023-15/">
+    <img src="https://user-images.githubusercontent.com/54926467/229354423-0f9ee204-2541-4bb9-bbd2-bd308b0876d7.png" width="150" height="150"/>
+   </a>
+  <a href="https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150&pvs=4">
+    <img src="https://user-images.githubusercontent.com/54926467/229354654-5741b51f-7c6d-4af1-a396-bf65c1bef318.png" width="150" height="150"/>
+  </a>
+</div>
+
 
 ## 1. 프로젝트 소개 
 
@@ -12,6 +20,7 @@ https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad0
 ![process](/statics/process.png)
 
 ### 서비스 프로세스 : 
+![service-process](https://user-images.githubusercontent.com/54926467/229354937-e515afb7-a8ec-4aaa-a6f7-56afff718c1d.png)
 1. 작가의 요청을 받습니다. 작가는 홈페이지에 접속하여 구글폼을 통해 자신의 정보와 학습용 데이터를 제공합니다. 이 때, 이용 동의서를 받습니다.
 2. 제공받은 학습용 데이터를 기반으로 모델을 학습시킵니다.
 3. 데이터 마이닝을 통해 특정된 마켓플레이스에서 검사 가능한 컬렉션과 유사하다고 판단한 이미지를 모델에 전송합니다.
