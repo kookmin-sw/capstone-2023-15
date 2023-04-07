@@ -9,6 +9,7 @@ import Header from './components/Header';
 import MainPage from './pages/MainPage';
 import CasesPage from './pages/CasesPage';
 import ResultPage from './pages/ResultPage';
+import ResultCheckPage from './pages/ResultCheckPage';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={ <MainPage /> } />
           <Route path='/cases' element={ <CasesPage /> } />
+          <Route path='/check' element={<ResultCheckPage />} />
           <Route path='/result' element={<ResultPage />} />
         </Routes>
       </Router>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import MaliciousComponent from './MaliciousComponent';
+import MaliciousBtnComponent from './MaliciousBtnComponent';
 import DangerIcon from '../../statics/images/icon-danger-red.png';
 import SafetyIcon from '../../statics/images/icon-safety.png';
 
@@ -37,8 +37,7 @@ const ResultComponent = ({props}) => {
 						</SafeString>
 						:
 						<MaliciousList>
-							<MaliciousComponent />
-							<MaliciousComponent />
+							<MaliciousBtnComponent />
 						</MaliciousList>
 				}
 			</Section>
@@ -49,7 +48,7 @@ const ResultComponent = ({props}) => {
 // 모든 컴포넌트의 폰트 사이즈가 동일한 규격이 아니기 때문에 해당 변수는 선언된 컴포넌트에서만 사용한다.
 const fontSizeDict = {
 	small:'1em',
-	medium:'1.5em',
+	medium:'1.2em',
 	large:'2em',
 }
 
@@ -64,7 +63,7 @@ const ComponentRoot = styled.div`
 	display:flex;
 	flex-direction: column;
 	border-style: solid;
-  border-width: 0.3vw 0.3vw 0 0.3vw;
+	border-width: 0.3vw 0.3vw 0 0.3vw;
 `
 
 const Section = styled.div`
@@ -80,8 +79,8 @@ const Cell = styled.div`
 	color:${props => props.status && props.maliciousCell ? colorDict[props.status] : '' };
 	color:${props => props.status && props.statusCell ? 'white' : '' };
 	display:flex;
-  justify-content: center;
-  align-items: center;
+	justify-content: center;
+	align-items: center;
 	border-right:${props => props.isEnd ? '' : '0.3vw solid black'};
 	width:${props => props.width};
 	font-size:${props => fontSizeDict[props.fontSize]};
@@ -89,8 +88,9 @@ const Cell = styled.div`
 
 const MaliciousList = styled.div`
 	display:flex;
-  flex-direction: column;
-  justify-content: center;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
 `
 
 const SafeString = styled.div`
@@ -104,8 +104,8 @@ const SafeString = styled.div`
 
 const ResultIcon = styled.img`
 	src:${props => `url(${props.src})`};
-	width:5em;
-	height:5em;
+	width:4em;
+	height:4em;
 `
 
 export default ResultComponent;

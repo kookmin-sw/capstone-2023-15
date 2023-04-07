@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import FakeNftImg from '../../statics/images/FakeNftImg.png'
-import AuthorArrow from '../../statics/images/author-arrow.png'
+import ClientArrow from '../../statics/images/client-arrow.png'
 
 
 const MainCaseComponent = ({i}) => {
@@ -22,15 +22,15 @@ const MainCaseComponent = ({i}) => {
             </CaseSection>   
             <InfoSection>
                 <InfoTextSection>
-                    <InfoAuthorSmall>AUTHOR</InfoAuthorSmall>
-                    <InfoAuthorBig>{tmp_name}</InfoAuthorBig>
-                    <InfoAuthorBig>-</InfoAuthorBig>
-                    <InfoAuthorSmall>{tmp_email}</InfoAuthorSmall>
-                    <InfoAuthorSmall>@{tmp_sns}</InfoAuthorSmall>                    
+                    <InfoClientSmall>CLIENT</InfoClientSmall>
+                    <InfoClientBig>{tmp_name}</InfoClientBig>
+                    <InfoClientBig>-</InfoClientBig>
+                    <InfoClientSmall>{tmp_email}</InfoClientSmall>
+                    <InfoClientSmall>@{tmp_sns}</InfoClientSmall>                    
                 </InfoTextSection>
                 <InfoBtnSection onClick={()=>navigate('/cases')}>
                     <InfoBtnText>MORE</InfoBtnText>
-                    <InfoBtnImg src={AuthorArrow} />
+                    <InfoBtnImg src={ClientArrow} />
                 </InfoBtnSection>
                 
 
@@ -90,12 +90,12 @@ const TextSection = styled.div`
 const InfoTextSection = styled.div`
     padding: 10% 3% 10% 3%;
 `
-const InfoAuthorBig = styled.div`
+const InfoClientBig = styled.div`
     font-size: 2.5em;
     overflow: hidden;
     text-overflow: ellipsis;
 `
-const InfoAuthorSmall = styled.div`
+const InfoClientSmall = styled.div`
     font-size: 1em;   
     overflow: hidden;
     text-overflow: ellipsis; 

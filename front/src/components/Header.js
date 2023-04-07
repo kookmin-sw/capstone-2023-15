@@ -15,7 +15,7 @@ function Header() {
                 <NavItem onClick={()=>navigate('/')}>INTRODUCTION</NavItem>
                 <NavItem onClick={()=>navigate('/cases')}>CASE</NavItem>
                 <NavItem>
-                    <ResultBtn onClick={() => navigate('/')}>Check the result</ResultBtn>
+                    <ResultBtn onClick={() => navigate('/check')}>Check the result</ResultBtn>
                 </NavItem>
             </NavList>
         </Nav>

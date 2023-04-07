@@ -14,43 +14,44 @@ import bgBlue from '../statics/images/bg-blue.png'
     UNDONE - (ignore)
 */
 const sampleJson = {
-  clientName : "AMERICAN MONKEY",
-  sequence:1,
-  requestStatus: "DONE", // DONE or UNDONE
-  requestResult:"danger", // safe, danger, ignore
-  numberOfImagesScanned:3258,
-  numberOfMaliciousImages:0
+	clientName : "AMERICAN MONKEY",
+	sequence:1,
+	requestStatus: "DONE", // DONE or UNDONE
+	requestResult:"danger", // safe, danger, ignore
+	numberOfImagesScanned:3258,
+	numberOfMaliciousImages:0
 }
 
 const ResultPage = () => {
 	return (
-    <ResultPageRoot>
-      <PageTitle>RESULTs</PageTitle>
-      {
-        sampleJson.requestStatus === 'DONE' ? <RequestDoneComponent props={sampleJson}/> : <RequestUndoneComponent props={sampleJson}/>
-      }
-    </ResultPageRoot>
+		<ResultPageRoot>
+			<PageTitle>RESULTs</PageTitle>
+			{
+				sampleJson.requestStatus === 'DONE' ? <RequestDoneComponent props={sampleJson}/> : <RequestUndoneComponent props={sampleJson}/>
+			}
+		</ResultPageRoot>
 	);
 }
 
 const BgDict = {
-  safe:bgGreen,
-  danger:bgRed,
-  ignore:bgBlue
+	safe:bgGreen,
+	danger:bgRed,
+	ignore:bgBlue
 }
 
 const ResultPageRoot = styled.div`
-  background-image:url(${BgDict[sampleJson.requestResult]});
-  height:100vh;
-  font-family: AkiraExpanded;
-  display:flex;
-  align-items: center;
-  flex-direction: column;
+	background-image:url(${BgDict[sampleJson.requestResult]});
+	height:100vh;
+	font-family: AkiraExpanded;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 `
 
 const PageTitle = styled.div`
-  margin-top:7vh;
-  font-size:4em;
+	margin-bottom: 1.3%;
+	font-size:3.5em;
 `
 
 
