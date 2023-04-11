@@ -24,7 +24,8 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
-    max-height: 5em;
+    height: 4em;
+    // width: 100vw;
     font-size: 1em;
     margin: 0 auto;
     display: flex;
@@ -33,13 +34,13 @@ const HeaderContainer = styled.div`
 `
 
 const Logo = styled.div`
-    width: 20%;
-    margin-right: 5%;
-    padding-top: 0.1%;
+    width: 30%;
+    margin-right: 3vh;
+    margin-top: 0.5vh;
 `
 
 const LogoImgSection = styled.img`
-    width: 100%;
+    width: 35vh;
 `
 const Nav = styled.nav`
     width: 70%;
@@ -48,8 +49,7 @@ const NavList = styled.ul`
     display: flex;
     text-align: center;
     align-items: center;
-    font-size: 1em;
-    margin-right: 3%;
+    font-size: 1.8vh;
     font-family: AkiraExpanded;
 `
 
@@ -59,8 +59,8 @@ const NavItem = styled.li`
 `
 
 const ResultBtn = styled.button`
-    padding: 3% 10% 3% 10%;
-    margin: 1%;
+    padding: 1vh 3vh 1vh 3vh;
+    margin: 1vh;
     font-size: 1em;
     font-family: AkiraExpanded; 
     border-radius: 3em;
@@ -71,8 +71,8 @@ const ResultBtn = styled.button`
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);
         color: white;
-        border: none;
-        transition: 0.5s;
+        border: 0.2em solid white;
+        // transition: 0.2s; // 애니메이션 임시 주석
     }
 `
 
