@@ -16,10 +16,10 @@ function Footer() {
                 </span>
             </TextSection>
             <IconSection>
-                <IconLinkSection>
+                <IconLinkSection onClick={()=>window.open('https://kookmin-sw.github.io/capstone-2023-15/')}>
                     <IconImgSection src={GitIcon}/>
                 </IconLinkSection>
-                <IconLinkSection>
+                <IconLinkSection onClick={()=>window.open('https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150')}>
                     <IconImgSection src={NotionIcon}/>
                 </IconLinkSection>
             </IconSection>
