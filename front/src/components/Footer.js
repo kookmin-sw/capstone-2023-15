@@ -11,9 +11,8 @@ function Footer() {
     <FooterContainer>
         <TopSection>
             <TextSection>
-                <span>
-                    <a onClick={()=>navigate('/')}>About</a> | <a>Terms</a>
-                </span>
+                {/* 임시 링크 연결 */}
+                <a onClick={()=>navigate('/')}>About</a> | <a>Terms</a>
             </TextSection>
             <IconSection>
                 <IconLinkSection onClick={()=>window.open('https://kookmin-sw.github.io/capstone-2023-15/')}>
@@ -67,7 +66,6 @@ const Copyright = styled.div`
     align-items: center;
 `
 
-
 const TextSection = styled.div`
     font-size: 0.5em;
 `
@@ -103,6 +101,5 @@ const IconLinkSection = styled.div`
 const IconImgSection = styled.img`
     padding: 0.7vh;
 `
-
 
 export default Footer;
