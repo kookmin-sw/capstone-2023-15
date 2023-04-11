@@ -12,13 +12,18 @@ function Footer() {
         <TopSection>
             <TextSection>
                 <span>
-                    <a>About</a> | <a>Terms</a>
+                    <a onClick={()=>navigate('/')}>About</a> | <a>Terms</a>
                 </span>
             </TextSection>
             <IconSection>
-                <IconImgSection src={GitIcon} />
-                <IconImgSection src={NotionIcon} />
+                <IconLinkSection>
+                    <IconImgSection src={GitIcon}/>
+                </IconLinkSection>
+                <IconLinkSection>
+                    <IconImgSection src={NotionIcon}/>
+                </IconLinkSection>
             </IconSection>
+            
         </TopSection>
         <BottomSection>
             <Copyright>
@@ -40,6 +45,7 @@ function Footer() {
 
 const FooterContainer = styled.div`
     height: 9em;
+    width: 100%;
     background: #3c3c3c;
     padding: 1vw 3vw 1vw 3vw;
     color: white;
@@ -84,15 +90,19 @@ const TopSection = styled.div`
     align-items: center;
     flex-direction: column;
 `
-
 const IconSection = styled.div`
-    height: 60%;
-    width: 100%;
+    height: 100%;
+    display: flex;
+`
+const IconLinkSection = styled.div`
+    height: 65%;
+    width: 4.5vw;
     display: flex;
     justify-content: center;
 `
 const IconImgSection = styled.img`
     padding: 0.7vh;
 `
+
 
 export default Footer;
