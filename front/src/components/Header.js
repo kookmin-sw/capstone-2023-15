@@ -63,8 +63,8 @@ const ResultBtn = styled.button`
     margin: 1%;
     font-size: 1em;
     font-family: AkiraExpanded; 
-    border-radius: 20px;
-    border: 2.5px solid black;
+    border-radius: 3em;
+    border: 0.2em solid black;
     background-color: white;
     white-space : nowrap;
 
