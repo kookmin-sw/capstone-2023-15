@@ -19,7 +19,7 @@ const sampleJson = {
 	requestStatus: "DONE", // DONE or UNDONE
 	requestResult:"danger", // safe, danger, ignore
 	numberOfImagesScanned:3258,
-	numberOfMaliciousImages:0
+	numberOfMaliciousImages:5
 }
 
 const ResultPage = () => {
