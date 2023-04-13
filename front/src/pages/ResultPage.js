@@ -22,51 +22,47 @@ const sampleJson = {
 	numberOfImagesScanned:3258,
 	numberOfMaliciousImages:5
 }
+/*
+client_email
+: 
+"test@gmail.com"
+collection_name
+: 
+"Azuki"
+data_type
+: 
+"response"
+malicious_images
+: 
+"[]"
+predict_result
+: 
+false
+request_id
+: 
+"0x123qqqww"
+target_images_cnt
+: 
+21231
+thumbnail_image
+: 
+"https://nftevening.com/wp-content/uploads/2022/05/Azuki-NFT-Founder.png"
+timestamp
+: 
+111111
+train_images_cnt
+: 
+1040
 
-const ResultPage = () => {
-	const {
-		REACT_APP_REGION,
-		REACT_APP_ACCESSKEY_ID,
-		REACT_APP_SECRETACCESSKEY,
-	} = process.env;
+*/
 
-	var results;
-
-	AWS.config.update({
-		region: REACT_APP_REGION,
-		accessKeyId: REACT_APP_ACCESSKEY_ID,
-		secretAccessKey: REACT_APP_SECRETACCESSKEY,
-	});
-
-	const dynamoDB = new AWS.DynamoDB.DocumentClient();
-	
-	// get
-	try {
-		dynamoDB.query({
-			TableName: "TF_database",
-			KeyConditionExpression: '#dt = :dataCondition',
-			ExpressionAttributeNames: {
-				"#dt": 'data_type'
-			},
-			ExpressionAttributeValues: {
-				':dataCondition': 'response',
-			}
-		}, (err, data) => {
-			if(err)
-				console.error(err);
-			else{
-				results = data.Items;
-			}
-		});
-	} catch {
-		console.error("Fail to get results.. please try again after one minute");
-	}
-
+const ResultPage = ({props, sequence}) => {
+	// console.log(props.result)
 	return (
-		<ResultPageRoot>
+		<ResultPageRoot result={props.result}>
 			<PageTitle>RESULTs</PageTitle>
 			{
-				sampleJson.requestStatus === 'DONE' ? <RequestDoneComponent props={sampleJson}/> : <RequestUndoneComponent props={sampleJson}/>
+				props !== undefined && props.status === 'done' ? <RequestDoneComponent props={Object.assign(props, {sequence:sequence})}/> : <RequestUndoneComponent props={sampleJson}/>
 			}
 		</ResultPageRoot>
 	);
@@ -79,7 +75,7 @@ const BgDict = {
 }
 
 const ResultPageRoot = styled.div`
-	background-image:url(${BgDict[sampleJson.requestResult]});
+	background-image:url(${ props => BgDict[props.result]});
 	height:100vh;
 	font-family: AkiraExpanded;
 	display:flex;
@@ -95,33 +91,3 @@ const PageTitle = styled.div`
 
 
 export default ResultPage;
-
-// {
-//   "data_type": {
-//     "S": "response"
-//   },
-//   "timestamp": {
-//     "N": "11111111111"
-//   },
-//   "id": {
-//     "S": "0xaEwarso12392samdl"
-//   },
-//   "malicious_images": {
-//     "S": "[{platform:opensea, info:ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/51669552594437927291657533851464109096593131995911303099186686504615012204545}, {platform:opensea, info:ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/51669552594437927291657533851464109096593131995911303099186686505714523832321]"
-//   },
-//   "predict_result": {
-//     "B": "true"
-//   },
-//   "request_id": {
-//     "S": "0x123wsda"
-//   },
-//   "target_images_cnt": {
-//     "N": "78210"
-//   },
-//   "thumbnail_image": {
-//     "S": "https://nftevening.com/wp-content/uploads/2022/05/Azuki-NFT-Founder.png"
-//   },
-//   "train_images_cnt": {
-//     "N": "2031"
-//   }
-// }
