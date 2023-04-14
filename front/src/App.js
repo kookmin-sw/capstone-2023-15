@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import GlobalStyle from './statics/styles/GlobalStyle';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import MainPage from './pages/MainPage';
 import CasesPage from './pages/CasesPage';
 import ResultPage from './pages/ResultPage';
@@ -15,13 +16,14 @@ const App = () => {
   return (
     <div className='App'>
       <Router>
-      <Header />
+        <Header />
         <Routes>
           <Route path='/' element={ <MainPage /> } />
           <Route path='/cases' element={ <CasesPage /> } />
           <Route path='/check' element={<ResultCheckPage />} />
           <Route path='/result' element={<ResultPage />} />
         </Routes>
+        <Footer />
       </Router>
       <GlobalStyle />
     </div>
