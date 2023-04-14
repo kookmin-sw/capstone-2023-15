@@ -6,20 +6,23 @@ import urllib.request
 import subprocess
 
 f = open('../link.txt', 'w')
+info_name = open('../infomation.txt','w')
 
 def name():
     # selenium을 통해서 chrome 부라우저의 새로운 창을 열기 위해서 현재 내가 사용하는 chrome 부라우저와 상응하는 chromedriver를 다운 받아서 사용
     driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe')
 
     # 내가 크롤링 하고자 하는 링크
-    #search = 'monkey%20power'
-    search = 'fly%20dog'
+    search = 'monkey'
+    #search = 'fly%20dog'
     #search = 'fight%20pig'
     driver.get('https://opensea.io/assets?search[toggles][0]=BUY_NOW&search[query]=' + search)
 
     # 이전 커서 위치
     cursor_location_prev = driver.execute_script("return window.pageYOffset")
-    while True:
+
+    #while True:
+    for i in range(80):
         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         time.sleep(2.0)
 
@@ -37,7 +40,11 @@ def name():
     selected2 =  driver.find_element_by_css_selector("#main > div > div > div > div > div.sc-29427738-0.sc-630fc9ab-0.iRxATS.jSPhMX > div.sc-29427738-0.jFfKPa > div.sc-29427738-0.dVNeWL > div")
 
     img_href = selected.find_elements_by_tag_name('a')
-    new_img_name = selected2.find_elements_by_class_name('sc-29427738-0.sc-d58c749b-2.sc-9545196f-5.eNYnCu.heRZSz.kubwJN')  # 이름을 가지고 있는 span tag의 class이름을 통해서 접근
+    new_img_name = selected2.find_elements_by_class_name('sc-29427738-0.sc-d58c749b-2.sc-512feba2-5.eNYnCu.heRZSz.jzhRQA')  # 이름을 가지고 있는 span tag의 class이름을 통해서 접근
+
+    #class ="sc-29427738-0 sc-d58c749b-2 sc-e1aced9b-5 eNYnCu heRZSz iIApyQ"
+    #class ="sc-29427738-0 sc-d58c749b-2 sc-512feba2-5 eNYnCu heRZSz jzhRQA"
+    #class="sc-29427738-0 sc-d58c749b-2 sc-512feba2-5 eNYnCu heRZSz jzhRQA"
 
     img_collection_name = []
     href = []
@@ -57,9 +64,13 @@ def name():
 def get_image(url,num):
     headers = {"Accept": "application/json"}
     response = requests.request("GET", url, headers=headers)
-    info = eval(response.text.split(',')[0]+"}")
+    info = eval(response.text.split(',')[0]+','+response.text.split(',')[1]+"}")
     print(info['image'])
+    info_name.write(info['name']+',')
     f.write(info['image']+'\n')
+
+def image_info(collection_name,id):
+    info_name.write(collection_name + ',' + str(id) + '\n')
 
 # 현재 파이썬 파일이 실행 중일 때 다음 파일을 실행시키기 위한 함수
 def run_next_file(next_file):
@@ -78,7 +89,10 @@ if __name__=='__main__':
         collection_id.append(id)
         print(collection_name[num-1], collection_id[num-1])
         get_image(image_url,num)
+        image_info(collection_name[num-1],id)
         num+=1
+
+    info_name.close()
     f.close()
 
     # 현재 파이썬 파일이 완료되면 실행할 파일 이름
@@ -87,5 +101,5 @@ if __name__=='__main__':
     # 현재 파이썬 파일이 완료되면 다음 파일 실행
     run_next_file(next_file)
 
-
+# infoamtion 파일 : 작품이름, 컬랙션 이름, token_id
 #173개 2분 20초
