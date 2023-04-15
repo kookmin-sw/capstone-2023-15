@@ -8,9 +8,17 @@ const CasePage = () => {
 			<PageTitle>OUR CASES</PageTitle>
 			<Dash />
 			<SubTitle>ThreeF has found suspected scam NFTs for several NFT collections</SubTitle>
-			<CaseComponent props={{isReverse:false}} />
-			{/* <CaseComponent props={{isReverse:true}} />
-			<CaseComponent props={{isReverse:false}} />
+			<CaseContainer>
+				<CaseComponent props={{isReverse:false}} />
+				<CaseComponent props={{isReverse:true}} />
+				<CaseComponent props={{isReverse:false}} />
+				<CaseComponent props={{isReverse:true}} />
+				<CaseComponent props={{isReverse:true}} />
+				<CaseComponent props={{isReverse:true}} />
+				<CaseComponent props={{isReverse:true}} />
+			</CaseContainer>
+
+			{/* <CaseComponent props={{isReverse:false}} />
 			<CaseComponent props={{isReverse:true}} /> */}
 		</CasePageRoot>
 	);
@@ -45,6 +53,13 @@ const SubTitle = styled.div`
 	font-size:1em;
 	color:white;
 	margin-bottom:3em;
+`
+
+const CaseContainer = styled.div`
+	width: 70%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin-bottom: 10vh;
 `
 
 export default CasePage;
