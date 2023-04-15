@@ -32,7 +32,6 @@ const CaseCard = styled.div`
 	padding: 1em;
 	display:flex;
     flex-direction: column;
-	// flex-direction: ${props => props.isReverse ? "row-reverse" : "start"};
 	margin-bottom:1em;
 	margin: 1em auto;
 

@@ -62,7 +62,6 @@ const CasePageRoot = styled.div`
 	min-height: 90vh;
 	font-family: AkiraExpanded;
 	background-color:#016DD8;
-	// padding: 2em;
     text-align: center;
     display: flex;
     flex-direction: column;
