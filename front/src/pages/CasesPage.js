@@ -5,13 +5,13 @@ import CaseComponent from '../components/CasesComponents/CaseComponent';
 const CasePage = () => {
 	return (
 		<CasePageRoot>
-			<PageTitle>CASE OF PLAGIRIZM</PageTitle>
+			<PageTitle>OUR CASES</PageTitle>
 			<Dash />
-			<SubTitle>THIS IS A CASE OF PLAGIARISM OF NFT WORKS CAUGHT BY FFF</SubTitle>
+			<SubTitle>ThreeF has found suspected scam NFTs for several NFT collections</SubTitle>
 			<CaseComponent props={{isReverse:false}} />
-			<CaseComponent props={{isReverse:true}} />
+			{/* <CaseComponent props={{isReverse:true}} />
 			<CaseComponent props={{isReverse:false}} />
-			<CaseComponent props={{isReverse:true}} />
+			<CaseComponent props={{isReverse:true}} /> */}
 		</CasePageRoot>
 	);
 }
@@ -35,11 +35,15 @@ const SubTitle = styled.div`
 `
 
 const CasePageRoot = styled.div`
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	min-height: 90vh;
 	font-family: AkiraExpanded;
 	background-color:#016DD8;
 	padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export default CasePage;
