@@ -8,21 +8,20 @@ const CaseComponent = ({props}) => {
 	// if(props.isReverse){
 
 	// }
-	const tmp = "BBEARR";
+	const scam_len = 345;
 	return (
 		<CaseCard isReverse={props.isReverse}>
 			<ImgSection src={FakeNftImg} />
-			<MarginBox />
 			<ContentSection>
-				<div>
-					<CollectionTitle>
-						GREEN BEAR
-						<MarketIcon src={OpenseaLogo} />
-					</CollectionTitle>
-					<CustomerInfo>AUTHOR NAME</CustomerInfo>
-					<CustomerInfo>BEAR@GMAIL.COM</CustomerInfo>
-				</div>
-				<PlagiaristName>PLAGIARIST - {tmp}</PlagiaristName>
+				Collection
+				<CollectionTitle>
+					GREEN BEAR
+				</CollectionTitle>
+				<ScamContent>
+					We Found a total of <br/>
+					<HighlightText>{scam_len} suspected</HighlightText> scam NFTs <br/>
+					for this collection !
+				</ScamContent>
 				
 			</ContentSection>
 			
@@ -33,12 +32,13 @@ const CaseComponent = ({props}) => {
 
 const CaseCard = styled.div`
 	font-family: AkiraExpanded;
-	width: 94vw;
-	height: 15vh;
-	background-color:#ffffff;
-	border: 0.3em solid #000000;
+	width: 15vw;
+	min-height: 45vh;
+	background-color: white;
+	border: 0.3em solid black;
 	padding: 1em;
 	display:flex;
+    flex-direction: column;
 	flex-direction: ${props => props.isReverse ? "row-reverse" : "start"};
 	margin-bottom:1em;
 `
@@ -46,34 +46,34 @@ const CaseCard = styled.div`
 const ContentSection = styled.div`
 	height:100%;
 	width:100%;
-	display:flex;
-	flex-direction: column; 
+	// display:flex;
+	// flex-direction: column; 
 	justify-content: space-between;
+`
+
+const CollectionTag = styled.div`
+	font-size: 1em;
 `
 
 const CollectionTitle = styled.div`
-	display: flex;
-	justify-content: space-between;
-	width:100%;
-	font-size:2.5em;
+	// display: flex;
+	// justify-content: space-between;
+	// width:100%;
+	font-size: 2em;
 `
 
-const CustomerInfo = styled.div`
-	font-size:1.2em;
+const HighlightText = styled.span`
+	color: white;
+	background: blue;
 `
 
-const PlagiaristName = styled.div`
-	font-size:1.2em;
+const ScamContent = styled.div`
+	font-size:0.8em;
+	margin-top: 2em;
 `
 
 const ImgSection = styled.img`
-	min-width:7em;
-	min-height:7em;
-`
-
-const MarketIcon = styled.img`
-	width: 0.7em;
-	height: 0.7em;
+	margin: 2em;
 `
 
 const MarginBox = styled.div`
