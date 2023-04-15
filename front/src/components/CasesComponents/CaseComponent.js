@@ -1,25 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import FakeNftImg from '../../statics/images/FakeNftImg.png'
-import OpenseaLogo from '../../statics/images/OpenseaLogo.png'
 
 const CaseComponent = ({props}) => {
-	// const [betweenMargin, setBetweenMargin] = useState(0)
-	// if(props.isReverse){
-
-	// }
-	const scam_len = 345;
 	return (
-		<CaseCard isReverse={props.isReverse}>
-			<ImgSection src={FakeNftImg} />
+		<CaseCard>
+			<ImgSection src={props.thumbnail_image} />
 			<ContentSection>
 				Collection
 				<CollectionTitle>
-					GREEN BEAR
+					{props.collection_name}
 				</CollectionTitle>
 				<ScamContent>
 					We Found a total of <br/>
-					<HighlightText>&nbsp;{scam_len} suspected&nbsp;</HighlightText> scam NFTs <br/>
+					<HighlightText>&nbsp;{props.scam_length} suspected&nbsp;</HighlightText> scam NFTs <br/>
 					for this collection !
 				</ScamContent>
 				
