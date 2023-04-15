@@ -16,34 +16,35 @@ const CasePage = () => {
 	);
 }
 
+const CasePageRoot = styled.div`
+	width: 100%;
+	min-height: 90vh;
+	font-family: AkiraExpanded;
+	background-color:#016DD8;
+	// padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 const PageTitle = styled.div`
 	font-size:3em;
 	color:white;
+	margin-top: 5vh;
 `
 
 const Dash = styled.div`
-  background-color: white;
-  width: 1.5em;
-  height: 0.3em;
-	margin:0.3em 0em 0.5em 0.3em;
+	background-color: white;
+	width: 1.5em;
+	height: 0.3em;
+	margin: 0.5em 0em 1em 0em;
 `
 
 const SubTitle = styled.div`
 	font-size:1em;
 	color:white;
 	margin-bottom:3em;
-`
-
-const CasePageRoot = styled.div`
-	width: 100%;
-	min-height: 90vh;
-	font-family: AkiraExpanded;
-	background-color:#016DD8;
-	padding: 2em;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 `
 
 export default CasePage;
