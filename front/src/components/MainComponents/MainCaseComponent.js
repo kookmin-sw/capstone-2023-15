@@ -6,11 +6,6 @@ import ClientArrow from '../../statics/images/client-arrow.png'
 
 
 const MainCaseComponent = ({index, props}) => {
-    const navigate = useNavigate();
-    const tmp_name = 'AMERICANO';
-    const tmp_email = 'AMERICANO@gmail.com';
-    const tmp_sns = 'NFT_AMERICANO';
-
 	return (
         <MCaseContainer isBelowThree={index+1 <= 3}>
             <CaseSection>
