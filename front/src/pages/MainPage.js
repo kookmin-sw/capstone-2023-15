@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import MainCaseComponent from '../components/MainComponents/MainCaseComponent';
@@ -7,12 +7,38 @@ import NftCards from '../statics/images/nftcard.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 import BTitleImg from '../statics/images/main-btitle.png'
-
+import { dynamoDB, params } from '../db.js';
 
 
 const MainPage = () => {
 	const navigate = useNavigate();
-	const caseArr = [1, 2, 3, 4, 5, 6];
+	const  [cases, setCases] = useState([]);
+
+	useEffect(() => {
+		// 데이터를 가져올 때, 캐시된 데이터가 있으면 사용하도록 함
+		const cachedData = localStorage.getItem('cachedData');
+		if (cachedData) {
+		  setCases(JSON.parse(cachedData));
+		} else {
+		  // 캐시된 데이터가 없으면, 서버에서 데이터를 가져옴
+		  dynamoDB.scan(params, function(err, data) {
+			if (err) {
+			  console.log(err);
+			} else {
+			  const items = data.Items
+			  .map(({ thumbnail_image, collection_name, malicious_images }) => ({
+				thumbnail_image,
+				collection_name,
+				scam_length: Math.floor(malicious_images.slice(1, -1).split(',').length/2)
+			  }))
+			  // [ISSUE] case 페이지에 악성 nft가 발견되지 않은 safe 상태의 케이스도 출력할 것인가?
+			//   .filter(({ scam_length }) => scam_length > 0);
+			  setCases(items.slice(0,6)); 
+			  localStorage.setItem('cachedData', JSON.stringify(items)); // 가져온 데이터를 로컬 스토리지에 저장
+			}  
+		  });
+		}
+	}, []);
 	return (
 		<MainPageContainer>
 			<MainTop>
@@ -48,8 +74,8 @@ const MainPage = () => {
 					</BoxToCase>
 
 					<MainCaseContainer>
-					{caseArr.map((i) => (
-						<MainCaseComponent i={i} />
+					{cases.map((c, i) => (
+						<MainCaseComponent index={i} props={c}/>
 					))}
 					</MainCaseContainer>
 
@@ -105,8 +131,6 @@ const MainImg = styled.div`
 const MainImgSection = styled.img`
 	width: 90%;
 `
-
-
 
 // Bottom Frame
 const MainBottom = styled.div`

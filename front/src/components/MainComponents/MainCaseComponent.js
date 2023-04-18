@@ -5,35 +5,29 @@ import FakeNftImg from '../../statics/images/FakeNftImg.png'
 import ClientArrow from '../../statics/images/client-arrow.png'
 
 
-const MainCaseComponent = ({i}) => {
+const MainCaseComponent = ({index, props}) => {
     const navigate = useNavigate();
     const tmp_name = 'AMERICANO';
     const tmp_email = 'AMERICANO@gmail.com';
     const tmp_sns = 'NFT_AMERICANO';
 
 	return (
-        <MCaseContainer isBelowThree={i <= 3}>
+        <MCaseContainer isBelowThree={index+1 <= 3}>
             <CaseSection>
                 <MCaseImg>
-                    <ImgSection src={FakeNftImg} /> {/* tmp image */}
+                    <ImgSection src={props.thumbnail_image} /> {/* tmp image */}
                 </MCaseImg>
-                <TextSection>CASE #{i}</TextSection>
-
+                <TextSection>CASE #{index+1}</TextSection>
             </CaseSection>   
             <InfoSection>
                 <InfoTextSection>
-                    <InfoClientSmall>CLIENT</InfoClientSmall>
-                    <InfoClientBig>{tmp_name}</InfoClientBig>
-                    <InfoClientBig>-</InfoClientBig>
-                    <InfoClientSmall>{tmp_email}</InfoClientSmall>
-                    <InfoClientSmall>@{tmp_sns}</InfoClientSmall>                    
-                </InfoTextSection>
-                <InfoBtnSection onClick={()=>navigate('/cases')}>
-                    <InfoBtnText>MORE</InfoBtnText>
-                    <InfoBtnImg src={ClientArrow} />
-                </InfoBtnSection>
-                
-
+                    <InfoClientSmall>COLLECTION</InfoClientSmall>
+                    <InfoClientBig>{props.collection_name}</InfoClientBig>
+                    <InfoClientSmall>-</InfoClientSmall>
+                    <InfoClientSmall>
+                        Suspected that there will be <HighlightText>{props.scam_length}</HighlightText> scam NFT
+                    </InfoClientSmall>
+                </InfoTextSection>             
             </InfoSection>
         </MCaseContainer>
 	);
@@ -74,12 +68,14 @@ const MCaseContainer = styled.div`
 `
 
 const MCaseImg = styled.div`
-    padding: 10%;
-    
+    margin: 1em auto;
+    height: 20vh;
 `
+
 const ImgSection = styled.img`
-    width: 60%;
+    width: 10vw;
 `
+
 const TextSection = styled.div`
     border-top: 0.15em solid black;
     padding: 3%;
@@ -87,37 +83,27 @@ const TextSection = styled.div`
     text-align: left;
     text-size-adjust: auto;
 `
+
 const InfoTextSection = styled.div`
     padding: 10% 3% 10% 3%;
 `
+
 const InfoClientBig = styled.div`
-    font-size: 2.5em;
+    font-size: 2.3em;
     overflow: hidden;
     text-overflow: ellipsis;
 `
+
 const InfoClientSmall = styled.div`
     font-size: 1em;   
     overflow: hidden;
     text-overflow: ellipsis; 
 `
 
-const InfoBtnSection = styled.div`
-    text-align: right;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;  
+const HighlightText = styled.span`
+	color: black;
+	background: white;
 `
-
-const InfoBtnText = styled.div`
-    padding: 0% 3% 3% 0%; 
-    font-size: 2.3em;
-
-`
-const InfoBtnImg = styled.img`
-    padding-right: 3%;
-    width: 20%;
-`
-
 
 export default MainCaseComponent;
 
