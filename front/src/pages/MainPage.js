@@ -38,11 +38,8 @@ const MainPage = () => {
 							<span>&nbsp;&nbsp; Three F &nbsp;-&nbsp; <TextStroke>FIND FAKE NFT</TextStroke></span>
 						</BottomTitleTextSection>
 					</BottomTitleSection>
-					
 				</BottomTitle>
-
 				<BottomCaseContainer>
-
 					<BoxToCase onClick={()=>navigate('/cases')}>
 						<BoxToCaseImg>
 							<BoxtoCaseText>CASE</BoxtoCaseText>
@@ -101,12 +98,12 @@ const ContactBtn = styled.button`
 `
 
 const MainImg = styled.div`
-	margin: 5%;
+	margin: 15vh 0vw 0vh 5vw;
 	padding-right: 3%;
 `
 
 const MainImgSection = styled.img`
-	width: 100%;
+	width: 90%;
 `
 
 
