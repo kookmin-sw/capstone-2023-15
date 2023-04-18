@@ -7,20 +7,15 @@ import NftCards from '../statics/images/nftcard.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 import BTitleImg from '../statics/images/main-btitle.png'
-import { dynamoDB, params } from '../db.js';
+import { dynamoDB, get_latest_params } from '../db.js';
 
 
 const MainPage = () => {
 	const navigate = useNavigate();
 	const [cases, setCases] = useState([]);
 
+	const params = get_latest_params;
 	useEffect(() => {
-		// 데이터를 가져올 때, 캐시된 데이터가 있으면 사용하도록 함
-		const cachedData = localStorage.getItem('cachedData');
-		if (cachedData) {
-		  setCases(JSON.parse(cachedData));
-		} else {
-		  // 캐시된 데이터가 없으면, 서버에서 데이터를 가져옴
 		  dynamoDB.scan(params, function(err, data) {
 			if (err) {
 			  console.log(err);
@@ -33,11 +28,9 @@ const MainPage = () => {
 			  }))
 			  // 최근 데이터 6개만 출력
 			  setCases(items.slice(0,6)); 
-			  localStorage.setItem('cachedData', JSON.stringify(items)); // 가져온 데이터를 로컬 스토리지에 저장
 			}  
 		  });
-		}
-	}, []);
+	}, [params]);
 
 	return (
 		<MainPageContainer>
@@ -110,33 +103,32 @@ const MainText = styled.div`
 `
 
 const Title = styled.span`
-	font-size: 8.5em;
+	font-size: 9vw;
 	background: linear-gradient(to right, #003cb8, #217bcc, #2fade4);
 	color: transparent;
 	-webkit-background-clip: text;
 `
 
 const SubTitle = styled.div`
-	font-size: 1em;
+	font-size: 1.05vw;
 	margin: -1.5% 0% 5% 0%;
 `
 
 const ContactBtn = styled.button`
 	font-family: AkiraExpanded;
-	font-size: 1.2em;
-	padding: 2%;
+	font-size: 1.1vw;
+	padding: 2vh 2vw 2vh 2vw;
 	background: linear-gradient(to right, #71b4f6, #62d9fa);
-	border-radius: 20px;
-	border: 2.5px solid black;
+	border-radius: 2vw;
+	border: 0.2em solid black;
 `
 
 const MainImg = styled.div`
-	margin: 15vh 0vw 0vh 5vw;
-	padding-right: 3%;
+	margin: 15vh 7vw 0vh 5vw;
 `
 
 const MainImgSection = styled.img`
-	width: 90%;
+	width: 40vw;
 `
 
 // Bottom Frame
