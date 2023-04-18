@@ -38,7 +38,7 @@ const MainPage = () => {
 		  });
 		}
 	}, []);
-	
+
 	return (
 		<MainPageContainer>
 			<MainTop>
@@ -59,16 +59,23 @@ const MainPage = () => {
 				<BottomTitle>
 					<BottomTitleSection>
 						<BottomTitleTextSection>
-							<span>📌 List of <TextStroke>plagiarized</TextStroke> works we found !   &nbsp;&nbsp;</span>
-							<span><BottomTitleImgSection src={BTitleImg} /></span>
-							<span>&nbsp;&nbsp; Three F &nbsp;-&nbsp; <TextStroke>FIND FAKE NFT</TextStroke></span>
+							<MarqueeText>
+								📌 Case of detecting the existence of <TextStroke>suspected scam nft</TextStroke>&nbsp;&nbsp;
+								<BottomTitleImgSection src={BTitleImg} />
+								&nbsp;&nbsp; Three F &nbsp;-&nbsp; <TextStroke>FIND FAKE NFT&nbsp;&nbsp;</TextStroke>
+							</MarqueeText>
+							<MarqueeText>
+								📌 Case of detecting the existence of <TextStroke>suspected scam nft</TextStroke>&nbsp;&nbsp;
+								<BottomTitleImgSection src={BTitleImg} />
+								&nbsp;&nbsp; Three F &nbsp;-&nbsp; <TextStroke>FIND FAKE NFT&nbsp;&nbsp;</TextStroke>
+							</MarqueeText>
 						</BottomTitleTextSection>
 					</BottomTitleSection>
 				</BottomTitle>
 				<BottomCaseContainer>
 					<BoxToCase onClick={()=>navigate('/cases')}>
 						<BoxToCaseImg>
-							<BoxtoCaseText>CASE</BoxtoCaseText>
+							<BoxToCaseText>MORE</BoxToCaseText>
 							<BoxToCaseBtn>+</BoxToCaseBtn>
 						</BoxToCaseImg>
 					</BoxToCase>
@@ -134,69 +141,66 @@ const MainImgSection = styled.img`
 
 // Bottom Frame
 const MainBottom = styled.div`
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	background: #016DD8;
 	margin: 0 auto;
     justify-content: space-between;
 `
 
-// animation 추후 수정 예정
 const BottomTitle = styled.div`
-	height: 8vh;
+	max-height: 15vh;
 	background: black;
-	padding: 1% 0% 1% 0%;
 	display: flex;
 `
-const marquee = keyframes`
-	0% {
-		transform: translate(0, 0);
-	}
-	100% {
-		transform: translate(-100%, 0);
-	}
-`
-const BottomTitleSection = styled.marquee`
-	font-size: 4em;
-	height: 100%;
-	width: 100%;
-	behavior: scroll;
-	display: flex;
 
+const marquee = keyframes`
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-100%); }
+`
+
+const BottomTitleSection = styled.div`
+	font-size: 7vh;
+	height: 11vh;
+	display: flex;
+	align-items: center;
+	overflow: hidden
 `
 
 const BottomTitleTextSection = styled.div`
 	color: white;
+	overflow: hidden;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+`
+
+const MarqueeText = styled.span`
 	animation: ${marquee} 30s linear infinite;
 	white-space: nowrap;
 	will-change: transform;
-	position: absolute;
+	display: inline-block;
 `
 
 const TextStroke = styled.span`
-	-webkit-text-stroke: 0.04em white;
+	-webkit-text-stroke: 0.03em white;
 	color: black;
-
 `
 
 const BottomTitleImgSection = styled.img`
-	width: 4.5%;
+	height: 5vh;
+	
 `
 
 const BottomCaseContainer = styled.div`
-	margin: 5%;
-	height: 70%;
+	margin: 8.5vh 15vw 8.5vh 15vw;
+	height: 70vh;
 	background: white;
 	border: 0.3em solid #000000;
 	display: flex;
-`
-
-const BoxToCase = styled.div`
-	width: 25%;
-	height: 100%;
-	position: relative;
-	color: white;
-	border-right: 0.3em solid black;
+	align-items: center;
+    justify-content: center;
+	text-align: center;
 `
 
 const BoxToCaseImg = styled.div`
@@ -211,9 +215,9 @@ const BoxToCaseImg = styled.div`
 	}
 `
 
-const BoxtoCaseText = styled.div`
-	transform: rotate(-90deg) ;
-	font-size: 7em;
+const BoxToCaseText = styled.span`
+	transform: rotate(-90deg);
+	font-size: 7vw;
 	transform-origin: right top;
 	position: absolute;
     top: 5%;
@@ -222,10 +226,25 @@ const BoxtoCaseText = styled.div`
 
 const BoxToCaseBtn = styled.div`
 	position: absolute;
-	font-size: 3.5em;
-	top: 3%;
-	right: 5%;
-	text-align: right;
+	font-size: 3.5vw;
+	margin-top: 2.45vh;
+	margin-left: 13vw;
+`
+
+const BoxToCase = styled.div`
+	width: 25%;
+	height: 100%;
+	position: relative;
+	color: white;
+	border-right: 0.3em solid black;
+	&:hover ${BoxToCaseImg} ${BoxToCaseBtn} {
+		transform: rotate(360deg);
+        transition: 0.5s;
+	}
+	${BoxToCaseImg}:not(:hover) ${BoxToCaseBtn} {
+        transform: rotate(0deg);
+        transition: 0.5s;
+    }
 `
 
 const MainCaseContainer = styled.div`

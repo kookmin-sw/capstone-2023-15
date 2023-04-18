@@ -16,7 +16,9 @@ const MainCaseComponent = ({index, props}) => {
                     <InfoClientBig>{props.collection_name}</InfoClientBig>
                     <InfoClientSmall>-</InfoClientSmall>
                     <InfoClientSmall>
-                        Suspected that there will be <HighlightText>{props.scam_length}</HighlightText> scam NFT
+                        Suspected <br/>
+                        <HighlightText>&nbsp;{props.scam_length} scam NFT&nbsp;</HighlightText><br/>
+                        For This Collection
                     </InfoClientSmall>
                 </InfoTextSection>             
             </InfoSection>
@@ -38,7 +40,6 @@ const InfoSection = styled.div`
     width: 100%;
     height: 100%;
     color: white;
-    text-align: left;
 `
 
 const MCaseContainer = styled.div`
@@ -69,14 +70,17 @@ const ImgSection = styled.img`
 
 const TextSection = styled.div`
     border-top: 0.15em solid black;
-    padding: 3%;
-    font-size: 1.8em;
-    text-align: left;
-    text-size-adjust: auto;
+    padding: 3vh;
+    font-size: 1.5vw;
 `
 
 const InfoTextSection = styled.div`
-    padding: 10% 3% 10% 3%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `
 
 const InfoClientBig = styled.div`
@@ -86,7 +90,7 @@ const InfoClientBig = styled.div`
 `
 
 const InfoClientSmall = styled.div`
-    font-size: 1em;   
+    font-size: 0.8em;   
     overflow: hidden;
     text-overflow: ellipsis; 
 `
@@ -94,6 +98,7 @@ const InfoClientSmall = styled.div`
 const HighlightText = styled.span`
 	color: black;
 	background: white;
+    font-size: 1.5vw;
 `
 
 export default MainCaseComponent;
