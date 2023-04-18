@@ -36,7 +36,7 @@ const CaseSection = styled.div`
 const InfoSection = styled.div`
     display: none;
     visibility: hidden;
-    background: #363636;
+    background: #252525;
     width: 100%;
     height: 100%;
     color: white;
