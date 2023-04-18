@@ -12,7 +12,7 @@ import { dynamoDB, params } from '../db.js';
 
 const MainPage = () => {
 	const navigate = useNavigate();
-	const  [cases, setCases] = useState([]);
+	const [cases, setCases] = useState([]);
 
 	useEffect(() => {
 		// 데이터를 가져올 때, 캐시된 데이터가 있으면 사용하도록 함
@@ -31,14 +31,14 @@ const MainPage = () => {
 				collection_name,
 				scam_length: Math.floor(malicious_images.slice(1, -1).split(',').length/2)
 			  }))
-			  // [ISSUE] case 페이지에 악성 nft가 발견되지 않은 safe 상태의 케이스도 출력할 것인가?
-			//   .filter(({ scam_length }) => scam_length > 0);
+			  // 최근 데이터 6개만 출력
 			  setCases(items.slice(0,6)); 
 			  localStorage.setItem('cachedData', JSON.stringify(items)); // 가져온 데이터를 로컬 스토리지에 저장
 			}  
 		  });
 		}
 	}, []);
+	
 	return (
 		<MainPageContainer>
 			<MainTop>
@@ -190,6 +190,7 @@ const BottomCaseContainer = styled.div`
 	border: 0.3em solid #000000;
 	display: flex;
 `
+
 const BoxToCase = styled.div`
 	width: 25%;
 	height: 100%;
