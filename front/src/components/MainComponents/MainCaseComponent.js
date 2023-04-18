@@ -1,9 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import FakeNftImg from '../../statics/images/FakeNftImg.png'
-import ClientArrow from '../../statics/images/client-arrow.png'
-
 
 const MainCaseComponent = ({index, props}) => {
 	return (
