@@ -6,14 +6,16 @@ const CaseComponent = ({props}) => {
 		<CaseCard>
 			<ImgSection src={props.thumbnail_image} />
 			<ContentSection>
-				Collection
+				<TextSection>
+					Collection
+				</TextSection>
 				<CollectionTitle>
 					{props.collection_name}
 				</CollectionTitle>
 				<ScamContent>
-					We Found a total of <br/>
-					<HighlightText>&nbsp;{props.scam_length} suspected&nbsp;</HighlightText> scam NFTs <br/>
-					for this collection !
+					{/* We Found a total of <br/> */}
+					{/* <HighlightText>&nbsp;{props.scam_length} suspected&nbsp;</HighlightText> scam NFTs <br/> */}
+					<HighlightText>&nbsp;{props.scam_length}&nbsp;</HighlightText> suspected
 				</ScamContent>
 				
 			</ContentSection>
@@ -43,18 +45,22 @@ const ContentSection = styled.div`
 	justify-content: space-between;
 `
 
+const TextSection = styled.p`
+	font-size: 1.2vw;
+`
+
 const CollectionTitle = styled.div`
-	font-size: 2em;
+	font-size: 3vw;
 `
 
 const HighlightText = styled.span`
 	color: white;
 	background: blue;
-	font-style: italic;
+	font-size: 2vw;
 `
 
 const ScamContent = styled.div`
-	font-size: 0.8em;
+	font-size: 1.2vw;
 	margin-top: 1vh;
 	margin-bottom: 3vh;
 `
@@ -63,9 +69,4 @@ const ImgSection = styled.img`
 	margin: 2.5em 2.5em 1.5em 2.5em;
 `
 
-const MarginBox = styled.div`
-	width:2em;
-`
-
 export default CaseComponent;
-
