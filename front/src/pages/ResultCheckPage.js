@@ -1,22 +1,60 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import BG from '../statics/images/bg-blue.png'
-
-
+import { dynamoDB } from '../db.js';
 
 const ResultCheckPage = () => {
 	const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [isValid, setIsValid] = useState(true);
+
+    function handleInputChange(event) {
+        setEmail(event.target.value);
+        console.log(event.target.value)
+    }
+    function checkEmail(email) {
+        console.log('email : ', email)
+        const params = {
+          TableName: 'TF_database',
+          KeyConditionExpression: "client_email = :client_email",
+          ExpressionAttributeValues: {
+              ":client_email": email
+          }
+        };
+      
+        dynamoDB.query(params, function(err, data) {
+          if (err) {
+              setIsValid(false);
+          } else {
+              if (data.Count == 0) {
+                setIsValid(false);
+              }
+              else {
+                setIsValid(true);
+              }
+              // console.log(data, data.Count);
+          }
+        });
+    }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        checkEmail(email);
+    }
+
 	return (
 		<PageContainer>
 			<Title>
                 -<br/>
                 Check the result
             </Title>
-            <InputContainer>
-                <InputSection placeholder='Please enter your email'></InputSection>
+            <InputContainer onSubmit={handleFormSubmit}>
+                <InputSection placeholder='Please enter your email' value={email} onChange={handleInputChange}></InputSection>
                 {/* 임시로 DONE 버튼을 누르면 result 페이지로 이동하도록 해두었습니다. */}
-                <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn> 
+                {/* <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn>  */}
+                <InputBtn >DONE</InputBtn> 
+                {!isValid && <p>Email is invalid</p>}
+                {isValid && <p>Email is f</p>}
             </InputContainer>
 		</PageContainer>
 	);
@@ -41,7 +79,7 @@ const Title = styled.span`
     text-align: center;
 `
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     margin: 3%;
 `
 const InputSection = styled.input`
