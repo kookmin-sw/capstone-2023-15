@@ -11,8 +11,8 @@ const ResultCheckPage = () => {
 
     function handleInputChange(event) {
         setEmail(event.target.value);
-        console.log(event.target.value)
     }
+
     function checkEmail(email) {
         console.log('email : ', email)
         const params = {
@@ -31,16 +31,18 @@ const ResultCheckPage = () => {
                 setIsValid(false);
               }
               else {
-                setIsValid(true);
+                navigate('/result');
               }
-              // console.log(data, data.Count);
           }
         });
     }
-    function handleFormSubmit(event) {
-        event.preventDefault();
+
+    function handleFormSubmit(e) {
+        e.preventDefault();
         checkEmail(email);
+
     }
+
 
 	return (
 		<PageContainer>
@@ -54,7 +56,8 @@ const ResultCheckPage = () => {
                 {/* <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn>  */}
                 <InputBtn >DONE</InputBtn> 
                 {!isValid && <p>Email is invalid</p>}
-                {isValid && <p>Email is f</p>}
+
+
             </InputContainer>
 		</PageContainer>
 	);
