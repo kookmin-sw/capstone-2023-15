@@ -1,8 +1,8 @@
-import React, { Component, useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import RequestDoneComponent from '../components/ResultComponents/RequestDoneComponent';
-import RequestUndoneComponent from '../components/ResultComponents/RequestUndoneComponent';
-import * as AWS from 'aws-sdk'
+import IgnoreComponent from '../components/ResultComponents/IgnoreComponent';
+import SafeComponent from '../components/ResultComponents/SafeComponent';
+import DangerComponent from '../components/ResultComponents/DangerComponent';
 
 import bgGreen from '../statics/images/bg-green.png'
 import bgRed from '../statics/images/bg-red.png'
@@ -14,59 +14,25 @@ import bgBlue from '../statics/images/bg-blue.png'
     DONE - (safe, danger)
     UNDONE - (ignore)
 */
-const sampleJson = {
-	clientName : "AMERICAN MONKEY",
-	sequence:1,
-	requestStatus: "DONE", // DONE or UNDONE
-	requestResult:"danger", // safe, danger, ignore
-	numberOfImagesScanned:3258,
-	numberOfMaliciousImages:5
-}
-/*
-client_email
-: 
-"test@gmail.com"
-collection_name
-: 
-"Azuki"
-data_type
-: 
-"response"
-malicious_images
-: 
-"[]"
-predict_result
-: 
-false
-request_id
-: 
-"0x123qqqww"
-target_images_cnt
-: 
-21231
-thumbnail_image
-: 
-"https://nftevening.com/wp-content/uploads/2022/05/Azuki-NFT-Founder.png"
-timestamp
-: 
-111111
-train_images_cnt
-: 
-1040
-
-*/
 
 const ResultPage = ({props, sequence}) => {
-	// console.log(props.result)
+
+	const ResultComponent = {
+		safe:<SafeComponent props={Object.assign(props, {sequence:sequence})} />,
+		danger:<DangerComponent props={Object.assign(props, {sequence:sequence})} />,
+		ignore:<IgnoreComponent props={Object.assign(props, {sequence:sequence})}/>,
+	}
+	
 	return (
 		<ResultPageRoot result={props.result}>
 			<PageTitle>RESULTs</PageTitle>
 			{
-				props !== undefined && props.status === 'done' ? <RequestDoneComponent props={Object.assign(props, {sequence:sequence})}/> : <RequestUndoneComponent props={sampleJson}/>
+				props !== undefined && ResultComponent[props.result]
 			}
 		</ResultPageRoot>
 	);
 }
+
 
 const BgDict = {
 	safe:bgGreen,
