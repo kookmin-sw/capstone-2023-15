@@ -11,6 +11,7 @@ import MainPage from './pages/MainPage';
 import CasesPage from './pages/CasesPage';
 import ResultPage from './pages/ResultPage';
 import ResultCheckPage from './pages/ResultCheckPage';
+import Test from './components/Modal';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/cases' element={ <CasesPage /> } />
           <Route path='/check' element={<ResultCheckPage />} />
           <Route path='/result' element={<ResultPage />} />
+          <Route path='/check/tmp' element={<Test />} />
         </Routes>
         <Footer />
       </Router>

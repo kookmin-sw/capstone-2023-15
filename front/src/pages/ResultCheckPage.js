@@ -9,8 +9,8 @@ const ResultCheckPage = () => {
     const [email, setEmail] = useState("");
     const [isValid, setIsValid] = useState(true);
 
-    function handleInputChange(event) {
-        setEmail(event.target.value);
+    function handleInputChange(e) {
+        setEmail(e.target.value);
     }
 
     function checkEmail(email) {
