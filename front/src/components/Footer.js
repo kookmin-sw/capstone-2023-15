@@ -22,7 +22,6 @@ function Footer() {
                     <IconImgSection src={NotionIcon}/>
                 </IconLinkSection>
             </IconSection>
-            
         </TopSection>
         <BottomSection>
             <Copyright>
@@ -33,9 +32,6 @@ function Footer() {
             </Copyright>
             Kookmin Univ. SW 2023 Capstone Design
             
-            {/* <TextSection>
-                ⓒ 2023 ThreeF all rights reserved <br/>
-            </TextSection> */}
         </BottomSection>
         
     </FooterContainer>
@@ -44,7 +40,6 @@ function Footer() {
 
 const FooterContainer = styled.div`
     height: 9em;
-    width: 100%;
     background: #3c3c3c;
     padding: 1vw 3vw 1vw 3vw;
     color: white;
@@ -82,19 +77,20 @@ const LogoImgSection = styled.img`
 
 const TopSection = styled.div`
     width: 100%;
-    height: 7vh;
+    height: 6.5vh;
     padding-top: 2vh;
     display: flex;
     align-items: center;
     flex-direction: column;
 `
 const IconSection = styled.div`
-    height: 100%;
+    height: 70%;
     display: flex;
 `
+
 const IconLinkSection = styled.div`
-    height: 65%;
-    width: 4.5vw;
+    height: 100%;
+    width: 3vw;
     display: flex;
     justify-content: center;
 `
