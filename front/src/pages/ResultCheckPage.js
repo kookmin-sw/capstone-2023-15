@@ -1,20 +1,21 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import BG from '../statics/images/bg-blue.png'
 import { dynamoDB } from '../db.js';
+import BG from '../statics/images/bg-blue.png'
+import Modal from '../components/Modal';
 
 const ResultCheckPage = () => {
 	const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [isValid, setIsValid] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
 
     function handleInputChange(e) {
         setEmail(e.target.value);
     }
 
     function checkEmail(email) {
-        console.log('email : ', email)
         const params = {
           TableName: 'TF_database',
           KeyConditionExpression: "client_email = :client_email",
@@ -26,11 +27,14 @@ const ResultCheckPage = () => {
         dynamoDB.query(params, function(err, data) {
           if (err) {
               setIsValid(false);
+              setModalOpen(true);
           } else {
               if (data.Count == 0) {
                 setIsValid(false);
+                setModalOpen(true);
               }
               else {
+                // 이메일 유효시 result 페이지로 이동
                 navigate('/result');
               }
           }
@@ -40,9 +44,12 @@ const ResultCheckPage = () => {
     function handleFormSubmit(e) {
         e.preventDefault();
         checkEmail(email);
-
     }
 
+    const handleClickModal = () => {
+        setModalOpen(false);
+        setEmail('');
+    };
 
 	return (
 		<PageContainer>
@@ -52,10 +59,15 @@ const ResultCheckPage = () => {
             </Title>
             <InputContainer onSubmit={handleFormSubmit}>
                 <InputSection placeholder='Please enter your email' value={email} onChange={handleInputChange}></InputSection>
-                {/* 임시로 DONE 버튼을 누르면 result 페이지로 이동하도록 해두었습니다. */}
-                {/* <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn>  */}
                 <InputBtn >DONE</InputBtn> 
-                {!isValid && <p>Email is invalid</p>}
+                {!isValid && modalOpen &&
+                    <Modal 
+                        title='🚨 Error 🚨' 
+                        message1='Email is not valid' 
+                        message2='Please check your email'
+                        onConfirm={handleClickModal}
+                    />
+                }
 
 
             </InputContainer>

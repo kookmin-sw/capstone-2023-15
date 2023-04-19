@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const ModalCheckEmail = ({ title = 'Error', message = 'Email is not valid.Please check your email.', onConfirm }) => {
+const ModalCheckEmail = ({ title, message1, message2, onConfirm }) => {
   return (
     <ModalContainer>
       <ModalContent>
         <ModalHeader>{title}</ModalHeader>
-        <ModalBody>{message}</ModalBody>
+        <ModalBody>
+          {message1}
+          <br/>
+          {message2}
+        </ModalBody>
+        
         <ModalFooter>
           <Button onClick={onConfirm}>OK</Button>
         </ModalFooter>
@@ -60,7 +65,7 @@ const Button = styled.button`
   font-size: 1em;
   font-weight: bold;
   color: white;
-  background-color: ${(props) => props.color || '#000000'};
+  background-color: black;
   border: none;
   cursor: pointer;
   font-family: AkiraExpanded;
