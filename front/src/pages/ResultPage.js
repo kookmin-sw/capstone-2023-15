@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import RequestDoneComponent from '../components/ResultComponents/RequestDoneComponent';
-import RequestUndoneComponent from '../components/ResultComponents/RequestUndoneComponent';
+import IgnoreComponent from '../components/ResultComponents/IgnoreComponent';
+import SafeComponent from '../components/ResultComponents/SafeComponent';
+import DangerComponent from '../components/ResultComponents/DangerComponent';
 
 import bgGreen from '../statics/images/bg-green.png'
 import bgRed from '../statics/images/bg-red.png'
@@ -13,25 +14,25 @@ import bgBlue from '../statics/images/bg-blue.png'
     DONE - (safe, danger)
     UNDONE - (ignore)
 */
-const sampleJson = {
-	clientName : "AMERICAN MONKEY",
-	sequence:1,
-	requestStatus: "DONE", // DONE or UNDONE
-	requestResult:"danger", // safe, danger, ignore
-	numberOfImagesScanned:3258,
-	numberOfMaliciousImages:0
-}
 
-const ResultPage = () => {
+const ResultPage = ({props, sequence}) => {
+
+	const ResultComponent = {
+		safe:<SafeComponent props={Object.assign(props, {sequence:sequence})} />,
+		danger:<DangerComponent props={Object.assign(props, {sequence:sequence})} />,
+		ignore:<IgnoreComponent props={Object.assign(props, {sequence:sequence})}/>,
+	}
+	
 	return (
-		<ResultPageRoot>
+		<ResultPageRoot result={props.result}>
 			<PageTitle>RESULTs</PageTitle>
 			{
-				sampleJson.requestStatus === 'DONE' ? <RequestDoneComponent props={sampleJson}/> : <RequestUndoneComponent props={sampleJson}/>
+				props !== undefined && ResultComponent[props.result]
 			}
 		</ResultPageRoot>
 	);
 }
+
 
 const BgDict = {
 	safe:bgGreen,
@@ -40,7 +41,7 @@ const BgDict = {
 }
 
 const ResultPageRoot = styled.div`
-	background-image:url(${BgDict[sampleJson.requestResult]});
+	background-image:url(${ props => BgDict[props.result]});
 	height:100vh;
 	font-family: AkiraExpanded;
 	display:flex;
