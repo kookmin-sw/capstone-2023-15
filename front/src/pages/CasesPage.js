@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CaseComponent from '../components/CasesComponents/CaseComponent';
-import { dynamoDB, params } from '../db.js';
+import { dynamoDB, case_params } from '../db.js';
 
 const CasePage = () => {
 	const  [cases, setCases] = useState([]);
 
 	useEffect(() => {
-		dynamoDB.scan(params, function(err, data) {
+		dynamoDB.query(case_params, function(err, data) {
 		if (err) {
 			console.log(err);
 		} else {
@@ -17,11 +17,10 @@ const CasePage = () => {
 			collection_name,
 			scam_length: Math.floor(malicious_images.slice(1, -1).split(',').length/2)
 			}))
-			.filter(({ scam_length }) => scam_length > 0);
 			setCases(items); 
 		}  
 		});
-	}, [params]);
+	}, [case_params]);
 
 
 	return (

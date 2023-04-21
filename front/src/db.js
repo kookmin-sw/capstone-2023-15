@@ -33,4 +33,17 @@ const main_case_params = {
   }
 }
 
-export {dynamoDB, params, main_case_params};
+const case_params = {
+  TableName: dbName,
+  ScanIndexForward: false,
+  IndexName: 'result-index',
+  KeyConditionExpression: "#res = :result",
+  ExpressionAttributeNames: {
+    "#res": "result"
+  },
+  ExpressionAttributeValues: {
+    ":result": 'danger'
+  }
+}
+
+export {dynamoDB, params, main_case_params, case_params};
