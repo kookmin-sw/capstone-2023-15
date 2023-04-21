@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { dynamoDB } from '../db.js';
+import { dynamoDB, email_params } from '../db.js';
 import BG from '../statics/images/bg-blue.png'
 import Modal from '../components/Modal';
 
@@ -16,13 +16,7 @@ const ResultCheckPage = () => {
     }
 
     function checkEmail(email) {
-        const params = {
-          TableName: 'TF_database',
-          KeyConditionExpression: "client_email = :client_email",
-          ExpressionAttributeValues: {
-              ":client_email": email
-          }
-        };
+        const params = email_params(email = {email});
       
         dynamoDB.query(params, function(err, data) {
           if (err) {
