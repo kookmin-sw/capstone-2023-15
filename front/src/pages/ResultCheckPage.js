@@ -45,6 +45,13 @@ const ResultCheckPage = () => {
         setEmail('');
     };
 
+    const modalProps = {
+        title: '🚨 Error 🚨',
+        msg1: 'Email is not valid',
+        msg2: 'Please check your email',
+        onConfirm: handleClickModal
+      };
+
 	return (
 		<PageContainer>
 			<Title>
@@ -55,12 +62,7 @@ const ResultCheckPage = () => {
                 <InputSection placeholder='Please enter your email' value={email} onChange={handleInputChange}></InputSection>
                 <InputBtn >DONE</InputBtn> 
                 {!isValid && modalOpen &&
-                    <Modal 
-                        title='🚨 Error 🚨' 
-                        message1='Email is not valid' 
-                        message2='Please check your email'
-                        onConfirm={handleClickModal}
-                    />
+                    <Modal props={modalProps} />
                 }
 
 

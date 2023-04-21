@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const ModalCheckEmail = ({ title, message1, message2, onConfirm }) => {
+const ModalCheckEmail = ({props}) => {
   return (
     <ModalContainer>
       <ModalContent>
-        <ModalHeader>{title}</ModalHeader>
+        <ModalHeader>{props.title}</ModalHeader>
         <ModalBody>
-          {message1}
+          {props.msg1}
           <br/>
-          {message2}
+          {props.msg2}
         </ModalBody>
         
         <ModalFooter>
-          <Button onClick={onConfirm}>OK</Button>
+          <Button onClick={props.onConfirm}>OK</Button>
         </ModalFooter>
       </ModalContent>
     </ModalContainer>
