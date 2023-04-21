@@ -3,12 +3,19 @@ import multiprocessing, time
 import os
 import json
 from collections import OrderedDict
+import get_image
 from PIL import Image
 '''
 url = "https://i.seadn.io/gcs/files/93e2dd0a9fd852949598acf8f5c15c71.png?w=500&auto=format"
 savelocation = "C:/Users/hyeondin/Desktop/b.png" #내컴퓨터의 저장 위치
 urllib.request.urlretrieve(url, savelocation) #해당 url에서 이미지를 다운로드 메소드
 '''
+info_name = []  # 작품 이름
+info_address = [] # 작품 주소
+collection_title = [] # 컬랙션 이름
+download_url = [] # 컬랙션 url
+collection_id = [] # token_id
+
 def check_file():
     dir_path =  '../image'
     if os.path.isdir(dir_path) == False:
@@ -30,17 +37,42 @@ def try_download_from_link(url, savelocation):
 
 
 if __name__ == "__main__":
-    f = open('../link.txt', 'r')
-    info_name = open('../infomation.txt', 'r')
+    #f = open('../link.txt', 'r')
+    #info_name = open('../infomation.txt', 'r')
+
     json_information=OrderedDict()
     file_path = "../information.json"
+    search = ['fly%20dog','fight%20pig']
+    for search_name in search:
+        href, collection_name = get_image.name(search_name)
+        # url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
+        num = 0
+        for url in href:
+            unit = str(url).split('/')[4]
+            address = str(url).split('/')[5]
+            id = str(url).split('/')[6]
+            image_url = 'https://api.opensea.io/api/v2/metadata/' + unit + '/' + address + '/' + id
+            download_var, info_name_var = get_image.get_image(image_url)
+            info_address.append(url)
+            collection_id.append(id)
+            collection_title.append(collection_name[num])
+            info_name.append(info_name_var)
+            download_url.append(download_var)
+            num += 1
+
+        print(len(info_address))
+        print(info_address)
+        print(len(collection_id))
+        print(collection_id)
+        print(len(collection_title))
+        print(collection_title)
+        print(download_url)
 
     check_file()
     num = 1
-
-    for url in f.readlines():
-        url = url.replace("\n", "")
-        info = info_name.readline().replace("\n", "")
+    for i in range(0,len(download_url)):
+        print(download_url[i])
+        url = download_url[i]
         manager = multiprocessing.Manager()
         savelocation = "../image/"  # 내컴퓨터의 저장 위치
         savelocation = savelocation + str(num)+'.png'
@@ -56,10 +88,11 @@ if __name__ == "__main__":
                 p1.kill()
                 break
             elif not p1.is_alive():
-                art_name = info.split(',')[0]
-                collection_name = info.split(',')[1]
-                token_id = info.split(',')[2]
-                json_information[num] = {'art_name':art_name, 'collection_name':collection_name, 'token_id':token_id}
+                art_name = info_name[i]
+                collection_name = collection_title[i]
+                token_id = collection_id[i]
+                art_address = info_address[i]
+                json_information[num] = {'art_name':art_name, 'collection_name':collection_name, 'token_id':token_id, 'art_address':art_address}
                 print(url, savelocation)
                 p1.join()
                 p.kill()
