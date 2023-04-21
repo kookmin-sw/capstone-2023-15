@@ -1,22 +1,71 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { dynamoDB, email_params } from '../db.js';
 import BG from '../statics/images/bg-blue.png'
-
-
+import Modal from '../components/Modal';
 
 const ResultCheckPage = () => {
 	const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [isValid, setIsValid] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    function handleInputChange(e) {
+        setEmail(e.target.value);
+    }
+
+    function checkEmail(email) {
+        const params = email_params(email = {email});
+      
+        dynamoDB.query(params, function(err, data) {
+          if (err) {
+              setIsValid(false);
+              setModalOpen(true);
+          } else {
+              if (data.Count == 0) {
+                setIsValid(false);
+                setModalOpen(true);
+              }
+              else {
+                // 이메일 유효시 result 페이지로 이동
+                navigate('/result');
+              }
+          }
+        });
+    }
+
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        checkEmail(email);
+    }
+
+    const handleClickModal = () => {
+        setModalOpen(false);
+        setEmail('');
+    };
+
+    const modalProps = {
+        title: '🚨 Error 🚨',
+        msg1: 'Email is not valid',
+        msg2: 'Please check your email',
+        onConfirm: handleClickModal
+      };
+
 	return (
 		<PageContainer>
 			<Title>
                 -<br/>
                 Check the result
             </Title>
-            <InputContainer>
-                <InputSection placeholder='Please enter your email'></InputSection>
-                {/* 임시로 DONE 버튼을 누르면 result 페이지로 이동하도록 해두었습니다. */}
-                <InputBtn onClick={() => navigate('/result')}>DONE</InputBtn> 
+            <InputContainer onSubmit={handleFormSubmit}>
+                <InputSection placeholder='Please enter your email' value={email} onChange={handleInputChange}></InputSection>
+                <InputBtn >DONE</InputBtn> 
+                {!isValid && modalOpen &&
+                    <Modal props={modalProps} />
+                }
+
+
             </InputContainer>
 		</PageContainer>
 	);
@@ -41,7 +90,7 @@ const Title = styled.span`
     text-align: center;
 `
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     margin: 3%;
 `
 const InputSection = styled.input`
