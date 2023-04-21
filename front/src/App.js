@@ -11,6 +11,7 @@ import MainPage from './pages/MainPage';
 import CasesPage from './pages/CasesPage';
 import ResultPage from './pages/ResultPage';
 import ResultCheckPage from './pages/ResultCheckPage';
+import ResultPageList from './pages/ResultPageList';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
           <Route path='/' element={ <MainPage /> } />
           <Route path='/cases' element={ <CasesPage /> } />
           <Route path='/check' element={<ResultCheckPage />} />
-          <Route path='/result' element={<ResultPage />} />
+          <Route path='/result' element={<ResultPageList />} />
         </Routes>
         <Footer />
       </Router>
