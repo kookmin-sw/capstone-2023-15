@@ -19,7 +19,6 @@ const MainPage = () => {
 			  if (err) {
 				console.log(err);
 			} else {
-			  console.log(data);
 			  const items = data.Items
 			  .map(({ thumbnail_image, collection_name, malicious_images }) => ({
 				thumbnail_image,
