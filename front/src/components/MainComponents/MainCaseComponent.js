@@ -1,39 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import FakeNftImg from '../../statics/images/FakeNftImg.png'
-import ClientArrow from '../../statics/images/client-arrow.png'
 
-
-const MainCaseComponent = ({i}) => {
-    const navigate = useNavigate();
-    const tmp_name = 'AMERICANO';
-    const tmp_email = 'AMERICANO@gmail.com';
-    const tmp_sns = 'NFT_AMERICANO';
-
+const MainCaseComponent = ({index, props}) => {
 	return (
-        <MCaseContainer isBelowThree={i <= 3}>
+        <MCaseContainer isBelowThree={index+1 <= 3}>
             <CaseSection>
                 <MCaseImg>
-                    <ImgSection src={FakeNftImg} /> {/* tmp image */}
+                    <ImgSection src={props.thumbnail_image} /> {/* tmp image */}
                 </MCaseImg>
-                <TextSection>CASE #{i}</TextSection>
-
+                <TextSection>CASE #{index+1}</TextSection>
             </CaseSection>   
             <InfoSection>
                 <InfoTextSection>
-                    <InfoClientSmall>CLIENT</InfoClientSmall>
-                    <InfoClientBig>{tmp_name}</InfoClientBig>
-                    <InfoClientBig>-</InfoClientBig>
-                    <InfoClientSmall>{tmp_email}</InfoClientSmall>
-                    <InfoClientSmall>@{tmp_sns}</InfoClientSmall>                    
-                </InfoTextSection>
-                <InfoBtnSection onClick={()=>navigate('/cases')}>
-                    <InfoBtnText>MORE</InfoBtnText>
-                    <InfoBtnImg src={ClientArrow} />
-                </InfoBtnSection>
-                
-
+                    <InfoClientSmall>COLLECTION</InfoClientSmall>
+                    <InfoClientBig>{props.collection_name}</InfoClientBig>
+                    <InfoClientSmall>-</InfoClientSmall>
+                    <InfoClientSmall>
+                        Suspected <br/>
+                        <HighlightText>&nbsp;{props.scam_length} scam NFT&nbsp;</HighlightText><br/>
+                        For This Collection
+                    </InfoClientSmall>
+                </InfoTextSection>             
             </InfoSection>
         </MCaseContainer>
 	);
@@ -49,11 +36,10 @@ const CaseSection = styled.div`
 const InfoSection = styled.div`
     display: none;
     visibility: hidden;
-    background: #363636;
+    background: #252525;
     width: 100%;
     height: 100%;
     color: white;
-    text-align: left;
 `
 
 const MCaseContainer = styled.div`
@@ -74,50 +60,46 @@ const MCaseContainer = styled.div`
 `
 
 const MCaseImg = styled.div`
-    padding: 10%;
-    
+    margin: 1em auto;
+    height: 20vh;
 `
+
 const ImgSection = styled.img`
-    width: 60%;
+    width: 10vw;
 `
+
 const TextSection = styled.div`
     border-top: 0.15em solid black;
-    padding: 3%;
-    font-size: 1.8em;
-    text-align: left;
-    text-size-adjust: auto;
+    padding: 3vh;
+    font-size: 1.5vw;
 `
+
 const InfoTextSection = styled.div`
-    padding: 10% 3% 10% 3%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `
+
 const InfoClientBig = styled.div`
-    font-size: 2.5em;
+    font-size: 2.3em;
     overflow: hidden;
     text-overflow: ellipsis;
 `
+
 const InfoClientSmall = styled.div`
-    font-size: 1em;   
+    font-size: 0.8em;   
     overflow: hidden;
     text-overflow: ellipsis; 
 `
 
-const InfoBtnSection = styled.div`
-    text-align: right;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;  
+const HighlightText = styled.span`
+	color: black;
+	background: white;
+    font-size: 1.5vw;
 `
-
-const InfoBtnText = styled.div`
-    padding: 0% 3% 3% 0%; 
-    font-size: 2.3em;
-
-`
-const InfoBtnImg = styled.img`
-    padding-right: 3%;
-    width: 20%;
-`
-
 
 export default MainCaseComponent;
 
