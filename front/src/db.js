@@ -46,4 +46,22 @@ const case_params = {
   }
 }
 
-export {dynamoDB, params, main_case_params, case_params};
+const email_params = ({email}) => {
+  const params ={
+    TableName: dbName,
+    KeyConditionExpression: "client_email = :client_email",
+    ExpressionAttributeValues: {
+        ":client_email": email
+    }
+  }
+  return params
+}
+
+
+export {
+  dynamoDB, 
+  params, 
+  main_case_params, 
+  case_params,
+  email_params,
+};
