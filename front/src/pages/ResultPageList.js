@@ -81,18 +81,18 @@ const ResultPageList = () => {
       {
         results.length > 1 &&
         <ArrowGroup>
-          <AroowBtn onClick={previous}>
+          <ArrowBtn onClick={previous}>
             <img
               src={prevArrow}
               alt={"pre-arrow"}
             />
-          </AroowBtn>
-          <AroowBtn onClick={next}>
+          </ArrowBtn>
+          <ArrowBtn onClick={next}>
             <img
               src={nextArrow}
               alt={"next-arrow"}
             />
-          </AroowBtn>
+          </ArrowBtn>
         </ArrowGroup>
       }
     </>
@@ -108,7 +108,7 @@ const ArrowGroup = styled.div`
   top:50%;
 `
 
-const AroowBtn = styled.div`
+const ArrowBtn = styled.div`
   margin:1em;
 `
 

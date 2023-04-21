@@ -30,8 +30,8 @@ const IgnoreComponent = ({props}) => {
 // 모든 컴포넌트의 폰트 사이즈가 동일한 규격이 아니기 때문에 해당 변수는 선언된 컴포넌트에서만 사용한다.
 const fontSizeDict = {
 	small:'1em',
-	medium:'1.5em',
-	large:'3em',
+	medium:'1.2em',
+	large:'2.5em',
 }
 
 const ComponentRoot = styled.div`
