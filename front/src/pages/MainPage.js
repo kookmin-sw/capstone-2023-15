@@ -7,19 +7,19 @@ import NftCards from '../statics/images/nftcard.png'
 import CaseBoxImg from '../statics/images/main-case.png'
 import CaseBoxImg_ from '../statics/images/main-case-bline.png'
 import BTitleImg from '../statics/images/main-btitle.png'
-import { dynamoDB, get_latest_params } from '../db.js';
+import { dynamoDB, main_case_params } from '../db';
 
 
 const MainPage = () => {
 	const navigate = useNavigate();
 	const [cases, setCases] = useState([]);
 
-	const params = get_latest_params;
 	useEffect(() => {
-		  dynamoDB.scan(params, function(err, data) {
-			if (err) {
-			  console.log(err);
+		  dynamoDB.query(main_case_params, function(err, data) {
+			  if (err) {
+				console.log(err);
 			} else {
+			  console.log(data);
 			  const items = data.Items
 			  .map(({ thumbnail_image, collection_name, malicious_images }) => ({
 				thumbnail_image,
@@ -30,7 +30,7 @@ const MainPage = () => {
 			  setCases(items.slice(0,6)); 
 			}  
 		  });
-	}, [params]);
+	}, [main_case_params]);
 
 	return (
 		<MainPageContainer>
