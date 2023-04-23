@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ResultPage from './ResultPage';
 import * as AWS from 'aws-sdk';
+import { useParams } from "react-router-dom";
 
 import nextArrow from '../statics/images/arrow-right.png';
 import prevArrow from '../statics/images/arrow-left.png';
@@ -23,6 +24,8 @@ const ResultPageList = () => {
 		REACT_APP_SECRETACCESSKEY,
 	} = process.env;
 
+  const params = useParams();
+
   const slickRef = useRef(null);
 
   const previous = useCallback(() => slickRef.current.slickPrev(), []);
@@ -30,6 +33,7 @@ const ResultPageList = () => {
   const next = useCallback(() => slickRef.current.slickNext(), []);
 
   const [results, setResults] = useState([]);
+  const [email, setEmail] = useState(params.email);
 
 	AWS.config.update({
 		region: REACT_APP_REGION,
@@ -48,13 +52,12 @@ const ResultPageList = () => {
           "#ce": 'client_email'
         },
         ExpressionAttributeValues: {
-          ':email': 'latte@gmail.com',
+          ':email': email,
         }
       }, (err, data) => {
         if (err)
           console.log('Fail to get results.. Error: ' + err);
         else {
-          console.log(data.Items);
           setResults(data.Items);
         }
       });
