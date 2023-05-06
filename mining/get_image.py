@@ -27,7 +27,7 @@ def name(search):
     cursor_location_prev = driver.execute_script("return window.pageYOffset")
 
     #while True:
-    for i in range(2):
+    for i in range(80):
         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         time.sleep(2.0)
 
