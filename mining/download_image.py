@@ -31,18 +31,20 @@ def check_size(num):
     file_size = os.path.getsize(path)
     if file_size >= 1048576:
         os.remove(path)
+        return True
+    else:
+        return False
 
 def try_download_from_link(url, savelocation):
     urllib.request.urlretrieve(url, savelocation)  # 해당 url에서 이미지를 다운로드 메소드
-
 
 if __name__ == "__main__":
     #f = open('../link.txt', 'r')
     #info_name = open('../infomation.txt', 'r')
 
     json_information=OrderedDict()
-    file_path = "../information.json"
-    search = ['fly%20dog','fight%20pig']
+    file_path = "../metadata.json"
+    search = ['monkey']
     for search_name in search:
         href, collection_name = get_image.name(search_name)
         # url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
@@ -70,12 +72,18 @@ if __name__ == "__main__":
 
     check_file()
     num = 1
+    filenames = []
+
+    #작가정보
+    json_information['0000000'] = {'client_email':'latte@gmail.com','collection_name' : 'Mr.KIM'}
+
     for i in range(0,len(download_url)):
         print(download_url[i])
         url = download_url[i]
         manager = multiprocessing.Manager()
         savelocation = "../image/"  # 내컴퓨터의 저장 위치
-        savelocation = savelocation + str(num)+'.png'
+        filename = f"{num:07d}"
+        savelocation = savelocation + filename+'.png'
 
         p = multiprocessing.Process(target=check_time)
         p1 = multiprocessing.Process(target=try_download_from_link, args=(url,savelocation))
@@ -92,21 +100,26 @@ if __name__ == "__main__":
                 collection_name = collection_title[i]
                 token_id = collection_id[i]
                 art_address = info_address[i]
-                json_information[num] = {'art_name':art_name, 'collection_name':collection_name, 'token_id':token_id, 'art_address':art_address}
-                print(url, savelocation)
+                if collection_name != json_information['0000000']['collection_name']:
+                    json_information[filename] = {'image_name':art_name, 'collection_name':collection_name, 'token_id':token_id, 'art_address':art_address}
+                    filenames.append(filename)
+                    print(url, savelocation)
+                    num += 1
                 p1.join()
                 p.kill()
                 break
 
-        num+=1
+    # with open(file_path, 'w') as outfile:
+    #     json.dump(json_information, outfile, indent=4)
+
+    for i in filenames:
+        print(i)
+        judge = check_size(i)
+        if judge == True:
+            del json_information[i]
 
     with open(file_path, 'w') as outfile:
         json.dump(json_information, outfile, indent=4)
-
-    for i in range(1,num):
-        print(i)
-        check_size(i)
-
 
 # 이미지를 모두 다운받은 후, 이미지를 검사해야 할 듯
 # 안그러면 모두 다운 받기 전 검사를 해서, 그대로 통과가 됨
