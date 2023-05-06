@@ -57,6 +57,10 @@ const NavItem = styled.li`
     width: 100%;
     list-style-type: none;
     cursor:pointer;
+    &:hover {
+        color: #00c6ff;
+        transition: 0.3s;
+    }
 `
 
 const ResultBtn = styled.button`
