@@ -6,15 +6,16 @@ import subprocess
 
 #f = open('../link.txt', 'w')
 #info_name = open('../infomation.txt','w')
-
-info_name = []  # 작품 이름
-info_address = [] # 작품 주소
-collection_title = [] # 컬랙션 이름
-download_url = [] # 컬랙션 url
-collection_id = [] # token_id
+#
+# info_name = []  # 작품 이름
+# info_address = [] # 작품 주소
+# collection_title = [] # 컬랙션 이름
+# download_url = [] # 컬랙션 url
+# collection_id = [] # token_id
 def name(search):
     # selenium을 통해서 chrome 부라우저의 새로운 창을 열기 위해서 현재 내가 사용하는 chrome 부라우저와 상응하는 chromedriver를 다운 받아서 사용
     driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe')
+    driver.delete_all_cookies()
 
     # 내가 크롤링 하고자 하는 링크
     #search = 'monkey'
@@ -26,10 +27,11 @@ def name(search):
     # 이전 커서 위치
     cursor_location_prev = driver.execute_script("return window.pageYOffset")
 
-    #while True:
-    for i in range(80):
+    while True:
+    #for i in range(5):
+        driver.delete_all_cookies()
         driver.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
-        time.sleep(2.0)
+        time.sleep(3.0)
 
         # 현재 커서 위치
         cursor_location_current = driver.execute_script("return window.pageYOffset")
@@ -81,40 +83,40 @@ def get_image(url):
 def run_next_file(next_file):
     subprocess.run(['python', next_file])
 
-if __name__=='__main__':
-    search = ['fly%20dog']
-    for search_name in search:
-        href,collection_name = name(search_name)
-        #url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
-        num=0
-        for url in href:
-
-            unit = str(url).split('/')[4]
-            address = str(url).split('/')[5]
-            id = str(url).split('/')[6]
-            image_url = 'https://api.opensea.io/api/v2/metadata/'+unit+'/'+address+'/'+id
-            download_var, info_name_var = get_image(image_url)
-            info_address.append(url)
-            collection_id.append(id)
-            collection_title.append(collection_name[num])
-            info_name.append(info_name_var)
-            download_url.append(download_var)
-            num+=1
-
-        print(len(info_address))
-        print(info_address)
-        print(len(collection_id))
-        print(collection_id)
-        print(len(collection_title))
-        print(collection_title)
-        print(download_url)
-
-
-    # 현재 파이썬 파일이 완료되면 실행할 파일 이름
-    next_file = "download_img.py"
-
-    # 현재 파이썬 파일이 완료되면 다음 파일 실행
-    run_next_file(next_file)
+# if __name__=='__main__':
+#     search = ['fly%20dog']
+#     for search_name in search:
+#         href,collection_name = name(search_name)
+#         #url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
+#         num=0
+#         for url in href:
+#
+#             unit = str(url).split('/')[4]
+#             address = str(url).split('/')[5]
+#             id = str(url).split('/')[6]
+#             image_url = 'https://api.opensea.io/api/v2/metadata/'+unit+'/'+address+'/'+id
+#             download_var, info_name_var = get_image(image_url)
+#             info_address.append(url)
+#             collection_id.append(id)
+#             collection_title.append(collection_name[num])
+#             info_name.append(info_name_var)
+#             download_url.append(download_var)
+#             num+=1
+#
+#         print(len(info_address))
+#         print(info_address)
+#         print(len(collection_id))
+#         print(collection_id)
+#         print(len(collection_title))
+#         print(collection_title)
+#         print(download_url)
+#
+#
+#     # 현재 파이썬 파일이 완료되면 실행할 파일 이름
+#     next_file = "download_img.py"
+#
+#     # 현재 파이썬 파일이 완료되면 다음 파일 실행
+#     run_next_file(next_file)
 
 # infoamtion 파일 : 작품이름, 컬랙션 이름, token_id
 #173개 2분 20초
