@@ -4,6 +4,7 @@ import os
 import json
 from collections import OrderedDict
 import get_image
+import shutil
 from PIL import Image
 '''
 url = "https://i.seadn.io/gcs/files/93e2dd0a9fd852949598acf8f5c15c71.png?w=500&auto=format"
@@ -18,8 +19,11 @@ collection_id = [] # token_id
 
 def check_file():
     dir_path =  '../image'
+    if os.path.isdir(dir_path) == True:
+        shutil.rmtree(dir_path)
     if os.path.isdir(dir_path) == False:
         os.mkdir(dir_path)
+
 
 def check_time():
     time.sleep(5.0)
@@ -43,8 +47,22 @@ if __name__ == "__main__":
     #info_name = open('../infomation.txt', 'r')
 
     json_information=OrderedDict()
+    search = []
     file_path = "../metadata.json"
-    search = ['monkey']
+    print("Please enter the search keyword(up to 5)")
+
+    # 키워드 검색
+    for num in range(5):
+        keyword = input("Please enter search keyword(s) (1-5 keywords, enter 'q' to exit): ")
+        if keyword == 'q':
+            break
+        search.append(keyword)
+
+    # client 고객 정보 입력
+    client_email = input("Please enter the client email : ")
+    client_collection_name = input("Please enter the collection name : ")
+    json_information['0000000'] = {'client_email': client_email, 'collection_name': client_collection_name}
+
     for search_name in search:
         href, collection_name = get_image.name(search_name)
         # url = 'https://api.opensea.io/api/v2/metadata/ethereum/0xed5af388653567af2f388e6224dc7c4b3241c544/1'
@@ -73,9 +91,6 @@ if __name__ == "__main__":
     check_file()
     num = 1
     filenames = []
-
-    #작가정보
-    json_information['0000000'] = {'client_email':'latte@gmail.com','collection_name' : 'Mr.KIM'}
 
     for i in range(0,len(download_url)):
         print(download_url[i])
