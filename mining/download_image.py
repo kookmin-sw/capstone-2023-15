@@ -5,7 +5,7 @@ import json
 from collections import OrderedDict
 import get_image
 import shutil
-from PIL import Image
+import glob
 '''
 url = "https://i.seadn.io/gcs/files/93e2dd0a9fd852949598acf8f5c15c71.png?w=500&auto=format"
 savelocation = "C:/Users/hyeondin/Desktop/b.png" #내컴퓨터의 저장 위치
@@ -26,7 +26,7 @@ def check_file():
 
 
 def check_time():
-    time.sleep(5.0)
+    time.sleep(7.0)
 
 def check_size(num):
     import os
@@ -90,6 +90,7 @@ if __name__ == "__main__":
 
     check_file()
     num = 1
+    num2 = 1
     filenames = []
 
     for i in range(0,len(download_url)):
@@ -97,7 +98,8 @@ if __name__ == "__main__":
         url = download_url[i]
         manager = multiprocessing.Manager()
         savelocation = "../image/"  # 내컴퓨터의 저장 위치
-        filename = f"{num:07d}"
+        #filename = f"{num:07d}"
+        filename = str(num)
         savelocation = savelocation + filename+'.png'
 
         p = multiprocessing.Process(target=check_time)
@@ -132,6 +134,16 @@ if __name__ == "__main__":
         judge = check_size(i)
         if judge == True:
             del json_information[i]
+
+
+    png_files = [f for f in os.listdir('../image') if f.endswith('.png')]
+    for file in png_files:
+        filename = f"{num2:07d}"
+        old_name = '../image/'+file
+        new_name = '../image/'+filename+'.png'
+        json_information[filename] = json_information.pop(file.split('.')[0])
+        os.rename(old_name,new_name)
+        num2+=1
 
     with open(file_path, 'w') as outfile:
         json.dump(json_information, outfile, indent=4)
