@@ -147,11 +147,6 @@ def get_scores_interp(loader, score_func):
 
 from sklearn.metrics import f1_score
 
-# def find_optimal_threshold_f1(validation_data, validation_labels, num_thresholds=100):
-#     candidate_thresholds = np.linspace(0, 1, num_thresholds)
-#     f1_scores = [f1_score(validation_labels, (validation_data >= t).astype(int)) for t in candidate_thresholds]
-#     optimal_threshold = candidate_thresholds[np.argmax(f1_scores)]
-#     return optimal_threshold
 
 def get_cap(scores_id, scores_ood):
     # scores = np.concatenate([scores_id, scores_ood])
@@ -166,7 +161,8 @@ def get_cap(scores_id, scores_ood):
         for n,sc in enumerate(scores_ood):
             if sc >= th :
                 li.append([n+1,sc])
-                
+        if len(li) < 10 : 
+            break
         # humman feedback
         sort_li = sorted(li, key=lambda x: x[1])
         for i in range(10):
