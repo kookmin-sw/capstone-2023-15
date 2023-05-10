@@ -149,28 +149,31 @@ from sklearn.metrics import f1_score
 
 
 def get_cap(scores_id, scores_ood):
-    # scores = np.concatenate([scores_id, scores_ood])
-    # labels = np.concatenate([np.ones_like(scores_id), np.zeros_like(scores_ood)])
     a = scores_id
     per = 30 
     
     while 1 :   
         th = np.percentile(a,per)    
         li = []
+        n_case = 10
         # print(len(scores_ood))
         for n,sc in enumerate(scores_ood):
             if sc >= th :
                 li.append([n+1,sc])
         if len(li) < 10 : 
-            break
+            n_case = len(li)
         # humman feedback
         sort_li = sorted(li, key=lambda x: x[1])
-        for i in range(10):
+        for i in range(n_case):
             img = Image.open("./data/TEST/monkey/" + str(sort_li[i][0]) +".png" )
             # img.show()
             display(img)
             try:
-                ip = input("y or n enter:")
+                ip = 'w'
+                while(ip != 'y' and  ip != 'n')
+                    ip = input("y or n enter:")
+                    if ip != 'y' and  ip != 'n':
+                        print('Not a y or n. Retype')
             except EOFError:
                 print("No input received.")
             if ip == 'n':
@@ -180,7 +183,6 @@ def get_cap(scores_id, scores_ood):
         else : 
             per += 5
             
-        
     return li , len(scores_id) , len(scores_ood)
 
 
