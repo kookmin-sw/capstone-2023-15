@@ -16,8 +16,11 @@ const ResultCheckPage = () => {
     }
 
     function checkEmail(email) {
+
+        // 이메일이 변경되는 이슈 해결을 위해 한 번 더 할당 해놓음.
+        const emailStr = email;
         const params = email_params(email = {email});
-      
+
         dynamoDB.query(params, function(err, data) {
           if (err) {
               setIsValid(false);
@@ -29,7 +32,7 @@ const ResultCheckPage = () => {
               }
               else {
                 // 이메일 유효시 result 페이지로 이동
-                navigate('/result');
+                navigate(`/result/${emailStr}`);
               }
           }
         });
