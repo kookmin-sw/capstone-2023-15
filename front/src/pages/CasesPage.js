@@ -12,10 +12,10 @@ const CasePage = () => {
 			console.log(err);
 		} else {
 			const items = data.Items
-			.map(({ thumbnail_image, collection_name, malicious_images }) => ({
+			.map(({ thumbnail_image, collection_name, number_of_malicious_images }) => ({
 			thumbnail_image,
 			collection_name,
-			scam_length: Math.floor(malicious_images.slice(1, -1).split(',').length/2)
+			scam_length: number_of_malicious_images
 			}))
 			setCases(items); 
 		}  
@@ -51,7 +51,7 @@ const CasePageRoot = styled.div`
 const PageTitle = styled.div`
 	font-size:3em;
 	color:white;
-	margin-top: 5vh;
+	margin-top: 8vh;
 `
 
 const Dash = styled.div`

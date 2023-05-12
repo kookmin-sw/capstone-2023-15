@@ -13,9 +13,8 @@ const CaseComponent = ({props}) => {
 					{props.collection_name}
 				</CollectionTitle>
 				<ScamContent>
-					{/* We Found a total of <br/> */}
-					{/* <HighlightText>&nbsp;{props.scam_length} suspected&nbsp;</HighlightText> scam NFTs <br/> */}
-					<HighlightText>&nbsp;{props.scam_length}&nbsp;</HighlightText> suspected
+					<HighlightText>&nbsp;{props.scam_length}&nbsp;</HighlightText>
+					<br/>suspected
 				</ScamContent>
 				
 			</ContentSection>
@@ -47,6 +46,7 @@ const ContentSection = styled.div`
 
 const TextSection = styled.p`
 	font-size: 1.2vw;
+	margin-bottom: 0.5vh; 
 `
 
 const CollectionTitle = styled.div`
@@ -66,7 +66,7 @@ const ScamContent = styled.div`
 `
 
 const ImgSection = styled.img`
-	margin: 2.5em 2.5em 1.5em 2.5em;
+	margin: 2.5vw 2.5vh 1.5vw 2.5vh;
 `
 
 export default CaseComponent;
