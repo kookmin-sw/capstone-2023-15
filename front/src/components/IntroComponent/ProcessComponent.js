@@ -1,44 +1,76 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+import BG from '../../statics/images/bg-purple.png'
 
 const ProcessComponent = () => {
     const [barPosition, setBarPosition] = useState(0);
+    const [frevBarPosition, setFrevBarPosition] = useState(0);
 
     const handleClickProcess = (i) => {
-        setBarPosition(i*7.8);
-        console.log(i, barPosition)
+        setFrevBarPosition(barPosition);
+        setBarPosition(i*5.3);
+        // console.log(i, barPosition)
     }
+
+    const barAnim = keyframes`
+        0%{
+            transform: translateY(${frevBarPosition}vw);
+        }
+        100%{
+            transform: translateY(${barPosition}vw);
+        }
+    `
 
     const ProcessBar = styled.div`
         position: absolute;
-        border: 0.15vw solid rgba( 255, 255, 255, 0.18 );
+        border: 0.15vw solid rgba( 255, 255, 255, 0.13);
         border-radius: 4vw;
         box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
-        width: 43vw;
-        height: 7.3vw;
-        right: 6.5vw;
-        transform: translateY(${barPosition}vw);
+        width: 34vw;
+        height: 4.8vw;
+        right: 20.5vw;
+        margin-top: -0.3vw;
         transition: transform 1s;
-        &:hover {
-            transform: translateX(${barPosition}vw)
-        }
+        animation: ${barAnim} 1s forwards;
     `
 
 	return (
         <Container>
             <TopContainer>
                 <Title>
-                    Pro-<br/>gress
+                    Pro-<br/>cess
                 </Title>
                 <ProcessContainer>
-                    <ProcessBar />
+                    <ProcessBar onMouseOver={()=>setFrevBarPosition(barPosition)} />
                     <ProcessContent onClick={()=>handleClickProcess(0)}>Reception</ProcessContent>
                     <ProcessContent onClick={()=>handleClickProcess(1)}>Detection</ProcessContent>
                     <ProcessContent onClick={()=>handleClickProcess(2)}>Result</ProcessContent>
                 </ProcessContainer>
             </TopContainer>
             <BottomContainer>
+                {
+                barPosition===0 ?
+                <BottomContent>
+                    Receive the service. <br/>
+                    All your information is secure and will be deleted immediately after detection.<br/>
+                    What if you want to sign up now?
+                </BottomContent>
+                :
+                barPosition/5.3===1 ?
+                <BottomContent>
+                    Based on <PointBox>AI technology</PointBox>, <br/> we detect suspected scam-copycat NFTs.
+                </BottomContent>
+                :
+                <BottomContent>
+                    We provide detection results.<br/>
+                    We request marketplaces to stop selling suspected stolen cases.<br/><br/>
+                    <SmallText>
+                        * Our service provides 'suspected' cases of scam-copycat NFTs.<br/>
+                        * The marketplace has all the power to decide on scam-copycat NFTs and stop sales.<br/>
+                    </SmallText>
 
+                </BottomContent>
+                }
             </BottomContainer>
         </Container>
 	);
@@ -46,9 +78,9 @@ const ProcessComponent = () => {
 
 const Container = styled.div`
 	font-family: AkiraExpanded;
-    width: 100vw;
 	height: 100vh;
-	background: #e3e3e3;
+	// background: #e3e3e3;
+	background: url(${BG});
 	display: flex;
     // justify-content: center;
     // align-items: center;
@@ -58,44 +90,54 @@ const Container = styled.div`
 
 const TopContainer = styled.div`
     display: flex;
-    margin: 10vh 8vw 10vh 8vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    // text-align: center;
+`
 
+const BottomContainer = styled.div`
+    height: 50vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
 `
 
 const Title = styled.div`
-    font-size: 8vw;
-    margin-top: 6vw;
+    font-size: 5.5vw;
 `
 
 const ProcessContainer = styled.div`
-    width: 100vw;
+    // width: 100vw;
+    height: 15vw;
     border: 0.3em solid black;
-    border-radius: 4vw;
+    border-radius: 3vw;
     margin-left: 3vw;
     padding: 3vw;
+    // margin-top: 1vw;
 `
 
 const ProcessContent = styled.div`
-    font-size: 5vw;
-    padding: 1vw;
+    font-size: 4vw;
+    padding-bottom: 0.7vw;
     cursor: pointer;
 `
 
-// const ProcessBar = styled.div`
-//     position: absolute;
-//     border: 0.15vw solid rgba( 255, 255, 255, 0.18 );
-//     border-radius: 4vw;
-//     box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
-//     width: 43vw;
-//     height: 7.3vw;
-//     right: 6.5vw;
-//     // transform: translateY(${barPosition});
-//     transition: transform 0.5s ease;
-// `
+const BottomContent = styled.div`
+    font-size: 2.7vw;
+    padding: 0 20vw 0 20vw;
+`
 
-const BottomContainer = styled.div`
-    margin: 10vh 8vw 10vh 8vw;
+const SmallText = styled.p`
+    font-size: 0.5vw;
+`
 
+const PointBox = styled.span`
+    border: 0.3vw solid black;
+    border-radius: 10vw;
+    padding: 0.2vw 1vw;
+    font-style: italic;
 `
 
 export default ProcessComponent;
