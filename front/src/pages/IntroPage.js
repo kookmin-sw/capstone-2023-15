@@ -20,20 +20,21 @@ const IntroPage = () => {
                 <br/>We will protect the value of your valuable content assets.
                 </Text>
             </MainContainer>
+            <ValueIntro></ValueIntro>
             <ProcessIntro></ProcessIntro>
         </IntroContainer>
 	);
 }
 
 const IntroContainer = styled.div`
+    font-family: AkiraExpanded;
 `
 
 
 const MainContainer = styled.div`
-	font-family: AkiraExpanded;
-    width: 100vw;
 	height: 100vh;
 	background: url(${BG});
+	background-size: cover;
 	display: flex;
     justify-content: center;
     align-items: center;
