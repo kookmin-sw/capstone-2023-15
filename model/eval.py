@@ -41,14 +41,12 @@ elif P.mode == 'caps':
 
         # csv에 담을 data list 추가
         data = []
-        # print(json_data['1'])
         for i in li:
             a = []
             c = 7-len(str(i[0]))
             q = '0'*c + str(i[0])
             da = json_data[q]
             a.append(da['image_name']) 
-            # a.append(da['art_name']) 
             a.append(da['collection_name'])
             a.append(da['token_id']) 
             a.append(da['art_address']) 
@@ -69,11 +67,8 @@ elif P.mode == 'caps':
         result_dict["id"] = id
         result_dict["status"] = 'done'
         result_dict["client_email"] = json_data['0000000']['client_emaill']
-        result_dict["client_email"] = '임시발'
         result_dict["collection_name"] = json_data['0000000']['collection_name']
-        # result_dict["collection_name"] = json_data[str(li[0][0])]['collection_name']
         result_dict["timestamp"] = int(time.time())
-        # result_dict["thumbnail_image"] = json_data[str(li[0][0])]['art_address']
         result_dict['number_of_malicious_image'] = len(li)
         result_dict["predict_result"] = pr
         result_dict["train_images_cnt"] = train_len
