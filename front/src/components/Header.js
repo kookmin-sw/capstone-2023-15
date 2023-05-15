@@ -56,6 +56,7 @@ const NavList = styled.ul`
 const NavItem = styled.li`
     width: 100%;
     list-style-type: none;
+    cursor:pointer;
 `
 
 const ResultBtn = styled.button`
@@ -67,6 +68,7 @@ const ResultBtn = styled.button`
     border: 0.2em solid black;
     background-color: white;
     white-space : nowrap;
+    cursor:pointer;
 
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);
