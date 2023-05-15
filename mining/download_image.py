@@ -1,3 +1,5 @@
+# %pip install selenium
+
 import urllib.request
 import multiprocessing, time
 import os
@@ -18,7 +20,7 @@ download_url = [] # 컬랙션 url
 collection_id = [] # token_id
 
 def check_file():
-    dir_path =  '../image'
+    dir_path =  './image'
     if os.path.isdir(dir_path) == True:
         shutil.rmtree(dir_path)
     if os.path.isdir(dir_path) == False:
@@ -31,7 +33,7 @@ def check_time():
 def check_size(num):
     import os
 
-    path = '../image/'+str(num)+'.png'
+    path = './image/'+str(num)+'.png'
     file_size = os.path.getsize(path)
     if file_size >= 1048576:
         os.remove(path)
@@ -42,13 +44,14 @@ def check_size(num):
 def try_download_from_link(url, savelocation):
     urllib.request.urlretrieve(url, savelocation)  # 해당 url에서 이미지를 다운로드 메소드
 
+
 if __name__ == "__main__":
     #f = open('../link.txt', 'r')
     #info_name = open('../infomation.txt', 'r')
 
     json_information=OrderedDict()
     search = []
-    file_path = "../metadata.json"
+    file_path = "./metadata.json"
     print("Please enter the search keyword(up to 5)")
 
     # 키워드 검색
@@ -73,31 +76,32 @@ if __name__ == "__main__":
             id = str(url).split('/')[6]
             image_url = 'https://api.opensea.io/api/v2/metadata/' + unit + '/' + address + '/' + id
             download_var, info_name_var = get_image.get_image(image_url)
-            info_address.append(url)
-            collection_id.append(id)
-            collection_title.append(collection_name[num])
-            info_name.append(info_name_var)
-            download_url.append(download_var)
-            num += 1
+            if str(download_var) != '[]' and str(info_name_var) !='[]':
+                print(download_var, info_name_var)
+                info_address.append(url)
+                collection_id.append(id)
+                collection_title.append(collection_name[num])
+                info_name.append(info_name_var)
+                download_url.append(download_var)
+                num += 1
 
-        print(len(info_address))
-        print(info_address)
-        print(len(collection_id))
-        print(collection_id)
-        print(len(collection_title))
-        print(collection_title)
-        print(download_url)
+    #         print(len(info_address))
+    #         print(info_address)
+    #         print(len(collection_id))
+    #         print(collection_id)
+    #         print(len(collection_title))
+    #         print(collection_title)
+    #         print(download_url)
 
     check_file()
     num = 1
     num2 = 1
     filenames = []
-
+    print('------download start------')
     for i in range(0,len(download_url)):
-        print(download_url[i])
         url = download_url[i]
         manager = multiprocessing.Manager()
-        savelocation = "../image/"  # 내컴퓨터의 저장 위치
+        savelocation = "./image/"  # 내컴퓨터의 저장 위치
         #filename = f"{num:07d}"
         filename = str(num)
         savelocation = savelocation + filename+'.png'
@@ -130,23 +134,25 @@ if __name__ == "__main__":
     #     json.dump(json_information, outfile, indent=4)
 
     for i in filenames:
-        print(i)
+        #print(i)
         judge = check_size(i)
         if judge == True:
+            print('del : ' + str(i))
             del json_information[i]
 
 
-    png_files = [f for f in os.listdir('../image') if f.endswith('.png')]
+    png_files = [f for f in os.listdir('./image') if f.endswith('.png')]
     for file in png_files:
         filename = f"{num2:07d}"
-        old_name = '../image/'+file
-        new_name = '../image/'+filename+'.png'
+        old_name = './image/'+file
+        new_name = './image/'+filename+'.png'
         json_information[filename] = json_information.pop(file.split('.')[0])
         os.rename(old_name,new_name)
         num2+=1
 
     with open(file_path, 'w') as outfile:
         json.dump(json_information, outfile, indent=4)
+
 
 # 이미지를 모두 다운받은 후, 이미지를 검사해야 할 듯
 # 안그러면 모두 다운 받기 전 검사를 해서, 그대로 통과가 됨
