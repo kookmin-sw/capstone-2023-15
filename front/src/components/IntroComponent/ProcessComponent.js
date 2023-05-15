@@ -55,16 +55,16 @@ const ProcessComponent = ({}) => {
                     Receive the service. <br/>
                     
                     <ReceiveContent>
-                        <span style={{fontSize: '1.8vw'}}>
-                            What if you want to sign up now?
+                        <span style={{fontSize: '1.75vw'}}>
+                            What if you want to request it now?
                         </span>
                         <ReceiveBtn onClick={()=>window.open('https://forms.gle/fzSeaSjjL8JidtdS6')}>
-                            Go !
+                            Here !
                         </ReceiveBtn>
                     </ReceiveContent>
                     
                     <SmallText>
-                        * All your information is secure and will be deleted immediately after detection.<br/>
+                        <br/><br/>* All your information is secure and will be deleted immediately after detection.<br/>
                     </SmallText>
                 </BottomContent>
                 :
@@ -178,15 +178,19 @@ const ReceiveContent = styled.div`
 `
 
 const ReceiveBtn = styled.button`
-    margin-left: 3vw;
-    // padding: 0.5vw 0vw;
+    margin-left: 2vw;
+    padding: 0vw 0.8vw;
     border: 0.2vw solid white;
     border-radius: 3vw;
     font-family: AkiraExpanded;
     background: #8186d3;
     color: white;
     cursor: pointer;
-    
+    transition: all 1s ease-in;
+    &:hover {
+        transition: all 1s ease-in;
+        background: linear-gradient(to left, #858bd5, #a6b0e7);
+    }
 `
 
 const SmallText = styled.p`
