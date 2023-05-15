@@ -170,7 +170,7 @@ def get_cap(scores_id, scores_ood):
             display(img)
             try:
                 ip = 'w'
-                while(ip != 'y' and  ip != 'n')
+                while(ip != 'y' and  ip != 'n'):
                     ip = input("y or n enter:")
                     if ip != 'y' and  ip != 'n':
                         print('Not a y or n. Retype')
