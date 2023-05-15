@@ -28,7 +28,7 @@ const ProcessComponent = ({}) => {
         box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
         width: 34vw;
         height: 4.8vw;
-        right: 20.5vw;
+        right: 21vw;
         margin-top: -0.3vw;
         transition: transform 1s;
         animation: ${barAnim} 1s forwards;
@@ -54,7 +54,15 @@ const ProcessComponent = ({}) => {
                     <NumBox>1</NumBox><br/><br/>
                     Receive the service. <br/>
                     
-                    What if you want to sign up now?
+                    <ReceiveContent>
+                        <span style={{fontSize: '1.8vw'}}>
+                            What if you want to sign up now?
+                        </span>
+                        <ReceiveBtn onClick={()=>window.open('https://forms.gle/fzSeaSjjL8JidtdS6')}>
+                            Go !
+                        </ReceiveBtn>
+                    </ReceiveContent>
+                    
                     <SmallText>
                         * All your information is secure and will be deleted immediately after detection.<br/>
                     </SmallText>
@@ -70,7 +78,7 @@ const ProcessComponent = ({}) => {
                 <BottomContent>
                     <NumBox>3</NumBox><br/><br/>
                     
-                    <span style={{fontSize: '2.3vw'}}>- We provide detection results.<br/>-</span>
+                    <span style={{fontSize: '2vw'}}>- We provide detection results.<br/>-</span>
                     <span style={{fontSize: '2vw'}}> We request marketplaces to stop<br/> &nbsp;&nbsp;&nbsp;selling suspected scam nft cases.</span><br/>
                     <br/>
                     <SmallText>
@@ -82,38 +90,25 @@ const ProcessComponent = ({}) => {
                 }
                 <MarqueeContent>
                     <MarqueeText>
-                    ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        {/* * Our service provides 'suspected' cases of scam-copycat NFTs. &nbsp;
-                        * The marketplace has all the power to decide on scam-copycat NFTs and stop sales. &nbsp;
-                        * Our service provides 'suspected' cases of scam-copycat NFTs.&nbsp;
-                        * The marketplace has all the power to decide on scam-copycat NFTs and stop sales. &nbsp; */}
-                    </MarqueeText>
-                </MarqueeContent>
-                {/* <MarqueeContent>
-                    <MarqueeText>
-                    ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
+                        <span>ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF &nbsp; &nbsp; &nbsp;ThreeF&nbsp; &nbsp; &nbsp;</span>
                     </MarqueeText>
                 </MarqueeContent>
                 <MarqueeContent2>
-                    <MarqueeText2>
-                        * Our service provides 'suspected' cases of scam-copycat NFTs. &nbsp;
-                        * The marketplace has all the power to decide on scam-copycat NFTs and stop sales. &nbsp;
-                        * Our service provides 'suspected' cases of scam-copycat NFTs.&nbsp;
-                        * The marketplace has all the power to decide on scam-copycat NFTs and stop sales. &nbsp;
-
-                    </MarqueeText2>
-                </MarqueeContent2>
-                <MarqueeContent3>
                     <MarqueeText>
-                    ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
-                        ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF ThreeF&nbsp;
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+                        <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
+
                     </MarqueeText>
-                </MarqueeContent3> */}
+                </MarqueeContent2>
             </BottomContainer>
         </Container>
 	);
@@ -132,6 +127,7 @@ const Container = styled.div`
     flex-direction: column;
     z-index: 100;
     position: relative;
+    overflow: hidden;
 `
 
 const TopContainer = styled.div`
@@ -177,6 +173,22 @@ const BottomContent = styled.div`
     padding: 0 20vw 0 20vw;
 `
 
+const ReceiveContent = styled.div`
+    display: flex;
+`
+
+const ReceiveBtn = styled.button`
+    margin-left: 3vw;
+    // padding: 0.5vw 0vw;
+    border: 0.2vw solid white;
+    border-radius: 3vw;
+    font-family: AkiraExpanded;
+    background: #8186d3;
+    color: white;
+    cursor: pointer;
+    
+`
+
 const SmallText = styled.p`
     font-size: 0.5vw;
 `
@@ -198,32 +210,30 @@ const NumBox = styled.span`
 const MarqueeContent = styled.div`
     background: #8186d3;
     color: white;
-    bottom: 60vh;
+    bottom: 45vh;
     position: absolute;
     padding: 3vw 0;
-    // box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
+    box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.15), 0 0.5vw 0.5vw rgba(0,0,0,0.05);
     z-index: -1;
-    opacity: 50%;
+    opacity: 30%;
     transform: rotate(-10deg);
+    left: -10%;
+    width: 112vw;
 `
 const MarqueeContent2 = styled.div`
-    background: white;
-    color: black;
-    bottom: -195vh;
-    position: absolute;
-    padding: 1vw 0;
-    transform: rotate(-3deg);
-    box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
-`
-const MarqueeContent3 = styled.div`
-    background: #8186d3;
+    background: #aeb9f4;
     color: white;
-    bottom: -210vh;
+    bottom: 35vh;
     position: absolute;
-    padding: 1vw 0;
-    transform: rotate(3deg);
-    box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
+    padding: 3vw 0;
+    transform: rotate(10deg);
+    box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.15), 0 0.5vw 0.5vw rgba(0,0,0,0.05);
+    z-index: -1;
+    opacity: 30%;
+    width: 112vw;
+    left: -10%;
 `
+
 
 const marquee = keyframes`
     0% { transform: translateX(0); }
@@ -231,22 +241,12 @@ const marquee = keyframes`
 `
 
 const MarqueeText = styled.span`
-	animation: ${marquee} 40s linear infinite;
+	animation: ${marquee} 50s linear infinite;
 	white-space: nowrap;
 	will-change: transform;
 	display: inline-block;
+    font-size: 1.3vw;
 `
 
-const marquee2 = keyframes`
-	0% { transform: translateX(-100%); }
-	100% { transform: translateX(0); }
-`
-
-const MarqueeText2 = styled.span`
-	animation: ${marquee2} 20s linear infinite;
-	white-space: nowrap;
-	will-change: transform;
-	display: inline-block;
-`
 
 export default ProcessComponent;

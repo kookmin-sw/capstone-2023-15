@@ -42,7 +42,7 @@ const ValueContainer = styled.div`
 `
 const ValueBox = styled.div`
 	background: white;
-	height: 37vh;
+	height: 43vh;
 	// margin: 0vw 15vw 15vh 15vw;
 	padding 2vw 2vw;
 	background-repeat: no-repeat;
@@ -51,8 +51,7 @@ const ValueBox = styled.div`
 `
 const ValueContent = styled.div`
 	background: pink;
-	height: 37vh;
-	// margin: 0vw 15vw 15vh 15vw;
+	height: 43vh;
 	padding 0 2vw;
 	background: url(${GenImg});
 	background-repeat: no-repeat;
