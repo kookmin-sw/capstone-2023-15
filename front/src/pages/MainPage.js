@@ -20,10 +20,10 @@ const MainPage = () => {
 				console.log(err);
 			} else {
 			  const items = data.Items
-			  .map(({ thumbnail_image, collection_name, malicious_images }) => ({
+			  .map(({ thumbnail_image, collection_name, number_of_malicious_images }) => ({
 				thumbnail_image,
 				collection_name,
-				scam_length: Math.floor(malicious_images.slice(1, -1).split(',').length/2)
+				scam_length: number_of_malicious_images
 			  }))
 			  // 최근 데이터 6개만 출력
 			  setCases(items.slice(0,6)); 
