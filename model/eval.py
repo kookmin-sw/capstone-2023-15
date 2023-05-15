@@ -30,11 +30,23 @@ elif P.mode == 'caps':
 
         result_dict = {"data_type":'respone'}
 
+        # json file open 
+        # path = './data/monkey.json'
+        path = './data/metadata.json'
+        # path = './data/'+ P.author_name + '/metadata.json'
+        with open(path, 'r', encoding='utf-8') as json_file:
+            json_data = json.load(json_file)
+
+        result_dict = {"data_type":'respone'}
+
         # csv에 담을 data list 추가
         data = []
+        # print(json_data['1'])
         for i in li:
             a = []
-            da = json_data[str(i[0])]
+            c = 7-len(str(i[0]))
+            q = '0'*c + str(i[0])
+            da = json_data[q]
             a.append(da['image_name']) 
             # a.append(da['art_name']) 
             a.append(da['collection_name'])
@@ -49,15 +61,16 @@ elif P.mode == 'caps':
             writer.writerow(['image_name','collection_name','token_id','art_address'])
             for row in data:
                 writer.writerow(row)
+        
         id = str(uuid.uuid4())
         pr = 'safe'
         if len(li) > 0 : 
             pr = 'danger'
         result_dict["id"] = id
         result_dict["status"] = 'done'
-        result_dict["client_email"] = json_data['0']['emaill']
-        # result_dict["client_email"] = '임시'
-        result_dict["collection_name"] = json_data['0']['collection_name']
+        result_dict["client_email"] = json_data['0000000']['client_emaill']
+        result_dict["client_email"] = '임시발'
+        result_dict["collection_name"] = json_data['0000000']['collection_name']
         # result_dict["collection_name"] = json_data[str(li[0][0])]['collection_name']
         result_dict["timestamp"] = int(time.time())
         # result_dict["thumbnail_image"] = json_data[str(li[0][0])]['art_address']
@@ -65,8 +78,7 @@ elif P.mode == 'caps':
         result_dict["predict_result"] = pr
         result_dict["train_images_cnt"] = train_len
         result_dict["target_images_cnt"] = test_len 
-        
-        
+       
         AWS_ACCESS_KEY = ''
         AWS_SECRET_KEY = ''
         
