@@ -24,8 +24,7 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
-    height: 4em;
-    // width: 100vw;
+    height: 4vw;
     font-size: 1em;
     margin: 0 auto;
     display: flex;
@@ -34,9 +33,7 @@ const HeaderContainer = styled.div`
 `
 
 const Logo = styled.div`
-    width: 30%;
-    margin-right: 3vh;
-    margin-top: 0.5vh;
+    margin-top: 0.3vw;
 `
 
 const LogoImgSection = styled.img`
@@ -58,18 +55,18 @@ const NavItem = styled.li`
     list-style-type: none;
     cursor:pointer;
     &:hover {
-        color: #00c6ff;
+        color: #4285ec;
         transition: 0.3s;
     }
 `
 
 const ResultBtn = styled.button`
-    padding: 1vh 3vh 1vh 3vh;
-    margin: 1vh;
-    font-size: 1em;
+    padding: 0.5vw 1.5vw;
+    margin: 1vw;
+    font-size: 0.85vw;
     font-family: AkiraExpanded; 
-    border-radius: 3em;
-    border: 0.2em solid black;
+    border-radius: 3vw;
+    border: 0.2vw solid black;
     background-color: white;
     white-space : nowrap;
     cursor:pointer;
@@ -77,8 +74,7 @@ const ResultBtn = styled.button`
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);
         color: white;
-        border: 0.2em solid white;
-        // transition: 0.2s; // 애니메이션 임시 주석
+        transition: ease-in 0.3s;
     }
 `
 
