@@ -35,7 +35,6 @@ const CaseCard = styled.div`
     flex-direction: column;
 	margin-bottom:1em;
 	margin: 1em auto;
-
 `
 
 const ContentSection = styled.div`
@@ -45,12 +44,14 @@ const ContentSection = styled.div`
 `
 
 const TextSection = styled.p`
-	font-size: 1.2vw;
+	font-size: 1.1vw;
 	margin-bottom: 0.5vh; 
 `
 
 const CollectionTitle = styled.div`
-	font-size: 3vw;
+	font-size: 2.6vw;
+	overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 const HighlightText = styled.span`
