@@ -25,15 +25,16 @@ function Header() {
 
 const HeaderContainer = styled.div`
     height: 4vw;
-    font-size: 1em;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: AkiraExpanded;
 `
 
 const Logo = styled.div`
     margin-top: 0.3vw;
+    cursor: pointer;
 `
 
 const LogoImgSection = styled.img`
@@ -47,13 +48,12 @@ const NavList = styled.ul`
     text-align: center;
     align-items: center;
     font-size: 1.8vh;
-    font-family: AkiraExpanded;
 `
 
 const NavItem = styled.li`
     width: 100%;
     list-style-type: none;
-    cursor:pointer;
+    cursor: pointer;
     &:hover {
         color: #4285ec;
         transition: 0.3s;
@@ -69,7 +69,7 @@ const ResultBtn = styled.button`
     border: 0.2vw solid black;
     background-color: white;
     white-space : nowrap;
-    cursor:pointer;
+    cursor: pointer;
 
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);
