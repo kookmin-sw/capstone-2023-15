@@ -13,7 +13,10 @@ import { dynamoDB, main_case_params } from '../db';
 const MainPage = () => {
 	const navigate = useNavigate();
 	const [cases, setCases] = useState([]);
-
+	const navCase = () => {
+        navigate('/cases')
+        window.scrollTo(0, 0);
+    }
 	useEffect(() => {
 		  dynamoDB.query(main_case_params, function(err, data) {
 			  if (err) {
@@ -65,7 +68,7 @@ const MainPage = () => {
 					</BottomTitleSection>
 				</BottomTitle>
 				<BottomCaseContainer>
-					<BoxToCase onClick={()=>navigate('/cases')}>
+					<BoxToCase onClick={navCase}>
 						<BoxToCaseImg>
 							<BoxToCaseText>MORE</BoxToCaseText>
 							<BoxToCaseBtn>+</BoxToCaseBtn>
