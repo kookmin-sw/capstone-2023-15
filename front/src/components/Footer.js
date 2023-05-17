@@ -21,7 +21,6 @@ function Footer() {
         <FooterContainer>
             <TopSection>
                 <TextSection>
-                    {/* 임시 링크 연결 */}
                     <a onClick={navIntro}>About</a> | <a onClick={navTerms}>Terms</a>
                 </TextSection>
                 <IconSection>
@@ -92,6 +91,7 @@ const TopSection = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
 `
 
 const IconSection = styled.div`
