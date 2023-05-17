@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-// import { CSSTransition } from 'react-transition-group';
+import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 
