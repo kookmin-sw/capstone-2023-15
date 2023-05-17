@@ -1,111 +1,61 @@
-import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
 
+const morphAnimation = keyframes`
+  0% {
+    filter: blur(2px);
+    opacity: 0;
+    // opacity: 1;
 
-const morphTime = 1;
-const cooldownTime = 0.25;
+  }
+  30% {
+    filter: blur(0);
+    opacity: 1;
+    // opacity: 0.3;
+  }
+  70% {
+    filter: blur(0);
+    opacity: 1;
+    // opacity: 0.3;
+  }
+  100% {
+    filter: blur(2px);
+    opacity: 0;
+    // opacity: 1;
 
-const texts = [
-  "If",
-  "You",
-  "Like",
-  "It",
-  "Please",
-  "Give",
-  "a Love",
-  ":)",
-];
+  }
+`;
 
-const getNextTextIndex = (textIndex) => (textIndex + 1) % texts.length;
+const BlurryText = styled.span`
+  display: inline-block;
+  position: relative;
+  animation: ${morphAnimation} 3s infinite;
+  // opacity: 0.3;
+  transition: 0.5s;
+  transition-timing-function: linear;
+`;
 
-const getNextTextStyles = (fraction) => ({
-  blur: Math.min(8 / fraction - 8, 100),
-  opacity: Math.pow(fraction, 0.4) * 100,
-});
-
-const getCurrentTextStyles = (fraction) => {
-  const inverseFraction = 1 - fraction;
-  return {
-    blur: Math.min(8 / inverseFraction - 8, 100),
-    opacity: Math.pow(inverseFraction, 0.4) * 100,
-  };
-};
-
-const MorphingText = () => {
-  const [textIndex, setTextIndex] = useState(texts.length - 1);
-  const [fraction, setFraction] = useState(0);
-  const [cooldown, setCooldown] = useState(cooldownTime);
-
-  const handleMorph = () => {
-    setFraction((morph) => {
-      let newMorph = morph - cooldown;
-      let newCooldown = 0;
-
-      if (newMorph < 0) {
-        newMorph = 0;
-      } else if (newMorph > morphTime) {
-        newMorph = morphTime;
-        newCooldown = cooldownTime;
-      }
-
-      setCooldown(newCooldown);
-      return newMorph;
-    });
-  };
-
-  const handleCooldown = () => {
-    setFraction(0);
-    setCooldown(cooldownTime);
-  };
+const BlurryTextMorphEffect = () => {
+  const [currentText, setCurrentText] = useState('Three F');
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCooldown((cooldown) => {
-        if (cooldown <= 0) {
-          setTextIndex((textIndex) => getNextTextIndex(textIndex));
-          handleMorph();
-          return cooldownTime;
-        } else {
-          handleCooldown();
-          return cooldown - 0.01;
-        }
-      });
-    }, 10);
+    const timer = setInterval(() => {
+      setCurrentText(prevText => (prevText === 'Three F' ? 'Find Fake nFt' : 'Three F'));
+    }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
-  const currentText = texts[textIndex];
-  const nextText = texts[getNextTextIndex(textIndex)];
-  const { blur: currentBlur, opacity: currentOpacity } =
-    getCurrentTextStyles(fraction);
-  const { blur: nextBlur, opacity: nextOpacity } = getNextTextStyles(fraction);
-
   return (
-    <Container>
-      <Text blur={currentBlur} opacity={currentOpacity}>
-        {currentText}
-      </Text>
-      <Text blur={nextBlur} opacity={nextOpacity}>
-        {nextText}
-      </Text>
-    </Container>
+    <div>
+      <CSSTransition in={currentText === 'Three F'} appear={true} timeout={1600} classNames="fade">
+        <BlurryText>{currentText}</BlurryText>
+      </CSSTransition>
+    </div>
   );
 };
 
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 5rem;
-`;
-
-const Text = styled.span`
-  position: absolute;
-  opacity: ${({ opacity }) => opacity}%;
-  filter: ${({ blur }) => `blur(${blur}px)`};
-`;
-
-export default MorphingText;
+export default BlurryTextMorphEffect;

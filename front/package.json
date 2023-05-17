@@ -12,8 +12,11 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-transition-group": "^4.4.5",
+    "react-type-animation": "^3.0.1",
+    "react-typewriter-effect": "^1.1.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.0.0-rc.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

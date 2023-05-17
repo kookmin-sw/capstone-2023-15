@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BG from '../statics/images/bg-color.png'
 import TitleIntro from '../components/IntroComponent/TitleComponent'
+import TitleWriterIntro from '../components/IntroComponent/TitleWriterComponent'
 import ValueIntro from '../components/IntroComponent/ValueComponent'
 import ProcessIntro from '../components/IntroComponent/ProcessComponent'
 
@@ -12,11 +13,10 @@ const IntroPage = () => {
         <IntroContainer>
             <MainContainer>
                 <Title>
-                    Three F
+                    <TitleIntro />
                 </Title>
                 <Text>
-                Find Fake nFt is a powerful tool to prevent AI-powered NFT theft incidents.
-                <br/>We will protect the value of your valuable content assets.
+                    <TitleWriterIntro />
                 </Text>
             </MainContainer>
             <ValueIntro />
@@ -42,7 +42,7 @@ const MainContainer = styled.div`
 `
 
 const Title = styled.span`
-	font-size: 3em;
+	font-size: 6vw;
     margin: 0 auto;
 	display: flex;
     text-align: center;
