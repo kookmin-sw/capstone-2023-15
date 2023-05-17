@@ -41,7 +41,7 @@ const MainPage = () => {
 						NFTs - safeguard & digital assets<br/>  
 						with the power of AI security.
 					</SubTitle>
-					<ContactBtn>Let's Protect! ►</ContactBtn>
+					<ContactBtn onClick={()=>window.open('https://forms.gle/fzSeaSjjL8JidtdS6')}>Let's Protect! ►</ContactBtn>
 				</MainText>
 				<MainImg>
 					<MainImgSection src={NftCards} />
@@ -120,6 +120,7 @@ const ContactBtn = styled.button`
 	background: linear-gradient(to right, #71b4f6, #62d9fa);
 	border-radius: 2vw;
 	border: 0.2em solid black;
+	cursor: pointer;
 `
 
 const MainImg = styled.div`
