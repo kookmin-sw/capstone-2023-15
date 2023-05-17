@@ -39,9 +39,9 @@ function Footer() {
 }
 
 const FooterContainer = styled.div`
-    height: 9em;
+    height: 9vw;
     background: #3c3c3c;
-    padding: 1vw 3vw 1vw 3vw;
+    padding: 1vw 3vw;
     color: white;
     font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
     margin: 0 auto;
@@ -51,7 +51,7 @@ const BottomSection = styled.div`
     width: 100%;
     text-align: center;
     align-items: center;
-    font-size: 0.5em;
+    font-size: 0.5vw;
 `
 
 const Copyright = styled.div`
@@ -62,13 +62,13 @@ const Copyright = styled.div`
 `
 
 const TextSection = styled.div`
-    font-size: 0.5em;
+    font-size: 0.5vw;
 `
 
 const Logo = styled.div`
-    width: 25vh;
-    padding-right: 1vh;
-    padding-bottom: 0.5vh;
+    width: 10vw;
+    padding-right: 0.8vw;
+    padding-bottom: 0.3vw;
 `
 
 const LogoImgSection = styled.img`
@@ -77,12 +77,13 @@ const LogoImgSection = styled.img`
 
 const TopSection = styled.div`
     width: 100%;
-    height: 6.5vh;
-    padding-top: 2vh;
+    height: 3vw;
+    padding-top: 1.5vw;
     display: flex;
     align-items: center;
     flex-direction: column;
 `
+
 const IconSection = styled.div`
     height: 70%;
     display: flex;
@@ -90,12 +91,12 @@ const IconSection = styled.div`
 
 const IconLinkSection = styled.div`
     height: 100%;
-    width: 3vw;
+    width: 2vw;
     display: flex;
     justify-content: center;
 `
 const IconImgSection = styled.img`
-    padding: 0.7vh;
+    padding: 0.5vw;
 `
 
 export default Footer;
