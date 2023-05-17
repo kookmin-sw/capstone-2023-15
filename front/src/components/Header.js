@@ -24,6 +24,10 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
     height: 4vw;
     margin: 0 auto;
     display: flex;

@@ -12,7 +12,7 @@ import {SectionsContainer, Section} from 'react-fullpage';
 
 const IntroPage = () => {
     let options = {
-        anchors: ['sectionOne', 'sectionTwo', 'sectionThree'],
+        anchors: ['main', 'value', 'process'],
     };
 
 	return (
