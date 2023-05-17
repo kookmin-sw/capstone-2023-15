@@ -40,7 +40,7 @@ const ValueContainer = styled.div`
 const ValueBox = styled.div`
 	background: white;
 	height: 43vh;
-	padding 2vw 2vw;
+	padding: 4vw;
 	background-repeat: no-repeat;
 	background-size: 75%;
 	background-position: center;

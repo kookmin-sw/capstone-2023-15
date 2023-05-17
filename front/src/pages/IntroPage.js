@@ -1,27 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 import BG from '../statics/images/bg-color.png'
+
 import TitleIntro from '../components/IntroComponent/TitleComponent'
 import TitleWriterIntro from '../components/IntroComponent/TitleWriterComponent'
 import ValueIntro from '../components/IntroComponent/ValueComponent'
 import ProcessIntro from '../components/IntroComponent/ProcessComponent'
 
+import {SectionsContainer, Section} from 'react-fullpage';
 
 
 const IntroPage = () => {
+    let options = {
+        anchors: ['sectionOne', 'sectionTwo', 'sectionThree'],
+    };
+
 	return (
-        <IntroContainer>
-            <MainContainer>
-                <Title>
-                    <TitleIntro />
-                </Title>
-                <Text>
-                    <TitleWriterIntro />
-                </Text>
-            </MainContainer>
-            <ValueIntro />
-            <ProcessIntro />
-        </IntroContainer>
+        <SectionsContainer {...options}>
+            <IntroContainer>
+                <Section>
+                    <MainContainer>
+                        <Title>
+                            <TitleIntro />
+                        </Title>
+                        <TitleWriterIntro />
+                    </MainContainer>
+                </Section>
+                <Section>
+                    <ValueIntro />
+                </Section>
+                <Section>
+                    <ProcessIntro />
+                </Section>
+            </IntroContainer>
+        </SectionsContainer>
 	);
 }
 
@@ -46,11 +58,6 @@ const Title = styled.span`
     margin: 0 auto;
 	display: flex;
     text-align: center;
-`
-
-const Text = styled.div`
-    font-size: 1vw;
-    margin-top: 3vh;
 `
 
 export default IntroPage;
