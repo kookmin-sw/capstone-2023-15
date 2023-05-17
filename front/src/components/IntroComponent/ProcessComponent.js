@@ -9,7 +9,6 @@ const ProcessComponent = ({}) => {
     const handleClickProcess = (i) => {
         setFrevBarPosition(barPosition);
         setBarPosition(i*5.3);
-        // console.log(i, barPosition)
     }
 
     const barAnim = keyframes`
@@ -106,7 +105,6 @@ const ProcessComponent = ({}) => {
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
-
                     </MarqueeText>
                 </MarqueeContent2>
             </BottomContainer>
@@ -192,6 +190,7 @@ const PointBox = styled.span`
     padding: 0.2vw 1.5vw;
     font-style: italic;
 `
+
 const NumBox = styled.span`
     background: white;
     border-radius: 100vw;
@@ -212,6 +211,7 @@ const MarqueeContent = styled.div`
     left: -10%;
     width: 112vw;
 `
+
 const MarqueeContent2 = styled.div`
     background: #aeb9f4;
     color: white;
@@ -225,7 +225,6 @@ const MarqueeContent2 = styled.div`
     width: 112vw;
     left: -10%;
 `
-
 
 const marquee = keyframes`
     0% { transform: translateX(0); }

@@ -57,9 +57,11 @@ const Logo = styled.div`
 const LogoImgSection = styled.img`
     width: 35vh;
 `
+
 const Nav = styled.nav`
     width: 70%;
 `
+
 const NavList = styled.ul`
     display: flex;
     text-align: center;
@@ -87,6 +89,7 @@ const ResultBtn = styled.button`
     background-color: white;
     white-space : nowrap;
     cursor: pointer;
+	color: black;
 
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);

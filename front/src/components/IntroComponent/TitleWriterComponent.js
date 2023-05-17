@@ -2,8 +2,7 @@ import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 
-const BlurryTextMorphEffect = () => {
-
+const TitleWriterComponent = () => {
   return (
     <div>
       <TypeAnimation
@@ -52,15 +51,9 @@ const BlurryTextMorphEffect = () => {
           }}
           repeat={Infinity}
         />
-        {/* <TypeWriterEffect
-        
-                multiText= {['Hello', 'World']}
-                autoStart={true}
-                loop={true}
-        /> */}
     </div>
     
   );
 };
 
-export default BlurryTextMorphEffect;
+export default TitleWriterComponent;

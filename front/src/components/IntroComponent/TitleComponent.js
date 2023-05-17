@@ -6,24 +6,18 @@ const morphAnimation = keyframes`
   0% {
     filter: blur(2px);
     opacity: 0;
-    // opacity: 1;
-
   }
   30% {
     filter: blur(0);
     opacity: 1;
-    // opacity: 0.3;
   }
   70% {
     filter: blur(0);
     opacity: 1;
-    // opacity: 0.3;
   }
   100% {
     filter: blur(2px);
     opacity: 0;
-    // opacity: 1;
-
   }
 `;
 
@@ -31,12 +25,11 @@ const BlurryText = styled.span`
   display: inline-block;
   position: relative;
   animation: ${morphAnimation} 3s infinite;
-  // opacity: 0.3;
   transition: 0.5s;
   transition-timing-function: linear;
 `;
 
-const BlurryTextMorphEffect = () => {
+const TitleComponent = () => {
   const [currentText, setCurrentText] = useState('Three F');
 
   useEffect(() => {
@@ -58,4 +51,4 @@ const BlurryTextMorphEffect = () => {
   );
 };
 
-export default BlurryTextMorphEffect;
+export default TitleComponent;

@@ -1,9 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import { dynamoDB, email_params } from '../db.js';
 import BG from '../statics/images/bg-blue.png'
-import Modal from '../components/Modal';
 
 const TermsPage = () => {
 	return (
@@ -61,10 +58,7 @@ const Content = styled.div`
     padding: 2vw;
     font-size: 0.8vw;
     text-align: left;
-    word-wrap: break-word;
-    word-break: break-all;
     white-space: normal;
-    // overflow: auto;
     width: 70vw;
     font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
 `
@@ -73,33 +67,5 @@ const ContentPre = styled.pre`
     white-space: normal;
     font-size: 0.6vw;
 `
-
-const InputSection = styled.input`
-    width: 80vh;
-    height: 40%;
-    border: 0.15em solid black;
-    border-radius: 1.7em;
-    margin: 0.3%;
-    font-family: AkiraExpanded;
-    text-align: center;
-    font-size: 1.3em;
-    &::placeholder {
-        color: #B7B7B7;
-        text-align: center;
-    }
-`
-
-const InputBtn = styled.button`
-	font-family: AkiraExpanded;
-	font-size: 1.2em;
-	padding: 2%;
-	background: #2B6FD3;
-	border-radius: 1em;
-	border: none;
-    color: white;
-    margin: 3%;
-    width: 17%;
-`
-
 
 export default TermsPage;

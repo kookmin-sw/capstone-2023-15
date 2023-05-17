@@ -123,6 +123,7 @@ const ContactBtn = styled.button`
 	border-radius: 2vw;
 	border: 0.2em solid black;
 	cursor: pointer;
+	color: black;
 
 	&:hover {
 		background: linear-gradient(to right, #4285ec, #0bbafb);

@@ -16,7 +16,6 @@ function Footer() {
         window.scrollTo(0, 90);
     }
 
-
     return (
         <FooterContainer>
             <TopSection>
