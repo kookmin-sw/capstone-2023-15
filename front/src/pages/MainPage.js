@@ -86,7 +86,6 @@ const MainPage = () => {
 
 const MainPageContainer = styled.div`
 	font-family: AkiraExpanded;
-
 `
 
 const MainTop = styled.div`
@@ -121,6 +120,12 @@ const ContactBtn = styled.button`
 	border-radius: 2vw;
 	border: 0.2em solid black;
 	cursor: pointer;
+
+	&:hover {
+		background: linear-gradient(to right, #4285ec, #0bbafb);
+        color: white;
+        transition: linear 0.3s;
+	}
 `
 
 const MainImg = styled.div`
@@ -245,7 +250,6 @@ const MainCaseContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	border-bottom: 0.3em solid black;
-
 `
 export default MainPage;
 
