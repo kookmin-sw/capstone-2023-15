@@ -12,7 +12,7 @@ function Header() {
         </Logo>
         <Nav>
             <NavList>
-                <NavItem onClick={()=>navigate('/')}>INTRODUCTION</NavItem>
+                <NavItem onClick={()=>navigate('/introduction')}>INTRODUCTION</NavItem>
                 <NavItem onClick={()=>navigate('/cases')}>CASE</NavItem>
                 <NavItem>
                     <ResultBtn onClick={() => navigate('/check')}>Check the result</ResultBtn>
