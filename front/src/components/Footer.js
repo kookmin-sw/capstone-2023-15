@@ -6,36 +6,46 @@ import GitIcon from '../statics/images/github-mark-white.png'
 import NotionIcon from '../statics/images/notion-white.png'
 
 function Footer() {
-  const navigate = useNavigate();
-  return (
-    <FooterContainer>
-        <TopSection>
-            <TextSection>
-                {/* 임시 링크 연결 */}
-                <a onClick={()=>navigate('/')}>About</a> | <a>Terms</a>
-            </TextSection>
-            <IconSection>
-                <IconLinkSection onClick={()=>window.open('https://kookmin-sw.github.io/capstone-2023-15/')}>
-                    <IconImgSection src={GitIcon}/>
-                </IconLinkSection>
-                <IconLinkSection onClick={()=>window.open('https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150')}>
-                    <IconImgSection src={NotionIcon}/>
-                </IconLinkSection>
-            </IconSection>
-        </TopSection>
-        <BottomSection>
-            <Copyright>
-                <Logo>
-                    <LogoImgSection src={LogoImg} />
-                </Logo>
-                ⓒ 2023 ThreeF all rights reserved.
-            </Copyright>
-            Kookmin Univ. SW 2023 Capstone Design
+    const navigate = useNavigate();
+    const navIntro = () => {
+        navigate('/introduction')
+        window.scrollTo(0, 0);
+    }
+    const navTerms = () => {
+        navigate('/terms')
+        window.scrollTo(0, 90);
+    }
+
+
+    return (
+        <FooterContainer>
+            <TopSection>
+                <TextSection>
+                    {/* 임시 링크 연결 */}
+                    <a onClick={navIntro}>About</a> | <a onClick={navTerms}>Terms</a>
+                </TextSection>
+                <IconSection>
+                    <IconLinkSection onClick={()=>window.open('https://kookmin-sw.github.io/capstone-2023-15/')}>
+                        <IconImgSection src={GitIcon}/>
+                    </IconLinkSection>
+                    <IconLinkSection onClick={()=>window.open('https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150')}>
+                        <IconImgSection src={NotionIcon}/>
+                    </IconLinkSection>
+                </IconSection>
+            </TopSection>
+            <BottomSection>
+                <Copyright>
+                    <Logo>
+                        <LogoImgSection src={LogoImg} />
+                    </Logo>
+                    ⓒ 2023 ThreeF all rights reserved.
+                </Copyright>
+                Kookmin Univ. SW 2023 Capstone Design
+                
+            </BottomSection>
             
-        </BottomSection>
-        
-    </FooterContainer>
-  );
+        </FooterContainer>
+    );
 }
 
 const FooterContainer = styled.div`

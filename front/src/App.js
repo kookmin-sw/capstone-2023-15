@@ -13,6 +13,7 @@ import ResultPage from './pages/ResultPage';
 import ResultCheckPage from './pages/ResultCheckPage';
 import IntroPage from './pages/IntroPage';
 import ResultPageList from './pages/ResultPageList';
+import TermsPage from './pages/TermsPage';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/result' element={<ResultPage />} />
           <Route path='/introduction' element={<IntroPage />} />
           <Route path='/result/:email' element={<ResultPageList />} />
+          <Route path='/terms' element={<TermsPage />} />
         </Routes>
         <Footer />
       </Router>
