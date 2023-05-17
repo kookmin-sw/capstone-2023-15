@@ -17,7 +17,7 @@ const MainCaseComponent = ({index, props}) => {
                     <InfoClientSmall>-</InfoClientSmall>
                     <InfoClientSmall>
                         Suspected <br/>
-                        <HighlightText>&nbsp;{props.scam_length}&nbsp;scam&nbsp;NFT&nbsp;</HighlightText><br/>
+                        <HighlightText>&nbsp;{props.scam_length}&nbsp;scam&nbsp;NFTs&nbsp;</HighlightText><br/>
                         For This Collection
                     </InfoClientSmall>
                 </InfoTextSection>             
@@ -37,7 +37,6 @@ const InfoSection = styled.div`
     display: none;
     visibility: hidden;
     background: #252525;
-    width: 100%;
     height: 100%;
     color: white;
 `
@@ -76,21 +75,20 @@ const TextSection = styled.div`
 
 const InfoTextSection = styled.div`
     height: 100%;
+    width: 90%;
     text-align: center;
-    display: flex;
-	align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: inline-block;
+    margin-top: 5vw;
 `
 
 const InfoClientBig = styled.div`
-    font-size: 3vw;
+    font-size: 2.3vw;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; 
 `
 
 const InfoClientSmall = styled.div`
-    font-size: 0.8em;   
+    font-size: 0.6vw;   
     overflow: hidden;
     text-overflow: ellipsis; 
 `
@@ -98,7 +96,7 @@ const InfoClientSmall = styled.div`
 const HighlightText = styled.span`
 	color: black;
 	background: white;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
 `
 
 export default MainCaseComponent;
