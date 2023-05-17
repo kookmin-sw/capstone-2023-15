@@ -5,6 +5,19 @@ import LogoImg from '../statics/images/logo-text.png'
 
 function Header() {
   const navigate = useNavigate();
+  const navIntro = () => {
+    navigate('/introduction#main')
+    window.scrollTo(0, 0);
+  }
+  const navCase = () => {
+    navigate('/cases')
+    window.scrollTo(0, 0);
+  }
+  const navCheck = () => {
+    navigate('/check')
+    window.scrollTo(0, 0);
+  }
+
   return (
     <HeaderContainer>
         <Logo onClick={()=>navigate('/')}>
@@ -12,10 +25,10 @@ function Header() {
         </Logo>
         <Nav>
             <NavList>
-                <NavItem onClick={()=>navigate('/introduction')}>INTRODUCTION</NavItem>
-                <NavItem onClick={()=>navigate('/cases')}>CASE</NavItem>
+                <NavItem onClick={navIntro}>INTRODUCTION</NavItem>
+                <NavItem onClick={navCase}>CASE</NavItem>
                 <NavItem>
-                    <ResultBtn onClick={() => navigate('/check')}>Check the result</ResultBtn>
+                    <ResultBtn onClick={navCheck}>Check the result</ResultBtn>
                 </NavItem>
             </NavList>
         </Nav>
