@@ -5,6 +5,19 @@ import LogoImg from '../statics/images/logo-text.png'
 
 function Header() {
   const navigate = useNavigate();
+  const navIntro = () => {
+    navigate('/introduction#main')
+    window.scrollTo(0, 0);
+  }
+  const navCase = () => {
+    navigate('/cases')
+    window.scrollTo(0, 0);
+  }
+  const navCheck = () => {
+    navigate('/check')
+    window.scrollTo(0, 0);
+  }
+
   return (
     <HeaderContainer>
         <Logo onClick={()=>navigate('/')}>
@@ -12,10 +25,10 @@ function Header() {
         </Logo>
         <Nav>
             <NavList>
-                <NavItem onClick={()=>navigate('/introduction')}>INTRODUCTION</NavItem>
-                <NavItem onClick={()=>navigate('/cases')}>CASE</NavItem>
+                <NavItem onClick={navIntro}>INTRODUCTION</NavItem>
+                <NavItem onClick={navCase}>CASE</NavItem>
                 <NavItem>
-                    <ResultBtn onClick={() => navigate('/check')}>Check the result</ResultBtn>
+                    <ResultBtn onClick={navCheck}>Check the result</ResultBtn>
                 </NavItem>
             </NavList>
         </Nav>
@@ -24,57 +37,64 @@ function Header() {
 }
 
 const HeaderContainer = styled.div`
-    height: 4em;
-    // width: 100vw;
-    font-size: 1em;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    height: 4vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: AkiraExpanded;
 `
 
 const Logo = styled.div`
-    width: 30%;
-    margin-right: 3vh;
-    margin-top: 0.5vh;
+    margin-top: 0.3vw;
+    cursor: pointer;
 `
 
 const LogoImgSection = styled.img`
     width: 35vh;
 `
+
 const Nav = styled.nav`
     width: 70%;
 `
+
 const NavList = styled.ul`
     display: flex;
     text-align: center;
     align-items: center;
     font-size: 1.8vh;
-    font-family: AkiraExpanded;
 `
 
 const NavItem = styled.li`
     width: 100%;
     list-style-type: none;
-    cursor:pointer;
+    cursor: pointer;
+    &:hover {
+        color: #4285ec;
+        transition: 0.3s;
+    }
 `
 
 const ResultBtn = styled.button`
-    padding: 1vh 3vh 1vh 3vh;
-    margin: 1vh;
-    font-size: 1em;
+    padding: 0.5vw 1.5vw;
+    margin: 1vw;
+    font-size: 0.85vw;
     font-family: AkiraExpanded; 
-    border-radius: 3em;
-    border: 0.2em solid black;
+    border-radius: 3vw;
+    border: 0.2vw solid black;
     background-color: white;
     white-space : nowrap;
-    cursor:pointer;
+    cursor: pointer;
+	color: black;
 
     &:hover{
         background: linear-gradient(to right, #4285ec, #0bbafb);
         color: white;
-        border: 0.2em solid white;
-        // transition: 0.2s; // 애니메이션 임시 주석
+        transition: ease-in 0.3s;
     }
 `
 

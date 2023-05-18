@@ -26,7 +26,7 @@ const ResultCheckPage = () => {
               setIsValid(false);
               setModalOpen(true);
           } else {
-              if (data.Count == 0) {
+              if (data.Count === 0) {
                 setIsValid(false);
                 setModalOpen(true);
               }

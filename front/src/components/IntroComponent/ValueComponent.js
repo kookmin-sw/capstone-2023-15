@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import BG from '../../statics/images/bg-char.png'
-// import BGChar from '../../statics/images/bg-char.png'
 import GenImg from '../../statics/images/gen-img.png'
 
 const ValueComponent = () => {
@@ -36,19 +35,17 @@ const ValueContainer = styled.div`
 	display: flex;
     justify-content: center;
     align-items: center;
-    // text-align: center;
-
-
 `
+
 const ValueBox = styled.div`
 	background: white;
 	height: 43vh;
-	// margin: 0vw 15vw 15vh 15vw;
-	padding 2vw 2vw;
+	padding: 4vw;
 	background-repeat: no-repeat;
 	background-size: 75%;
 	background-position: center;
 `
+
 const ValueContent = styled.div`
 	background: pink;
 	height: 43vh;

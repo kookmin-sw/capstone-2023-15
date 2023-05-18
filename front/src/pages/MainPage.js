@@ -13,7 +13,10 @@ import { dynamoDB, main_case_params } from '../db';
 const MainPage = () => {
 	const navigate = useNavigate();
 	const [cases, setCases] = useState([]);
-
+	const navCase = () => {
+        navigate('/cases')
+        window.scrollTo(0, 0);
+    }
 	useEffect(() => {
 		  dynamoDB.query(main_case_params, function(err, data) {
 			  if (err) {
@@ -65,7 +68,7 @@ const MainPage = () => {
 					</BottomTitleSection>
 				</BottomTitle>
 				<BottomCaseContainer>
-					<BoxToCase onClick={()=>navigate('/cases')}>
+					<BoxToCase onClick={navCase}>
 						<BoxToCaseImg>
 							<BoxToCaseText>MORE</BoxToCaseText>
 							<BoxToCaseBtn>+</BoxToCaseBtn>
@@ -86,7 +89,6 @@ const MainPage = () => {
 
 const MainPageContainer = styled.div`
 	font-family: AkiraExpanded;
-
 `
 
 const MainTop = styled.div`
@@ -121,6 +123,13 @@ const ContactBtn = styled.button`
 	border-radius: 2vw;
 	border: 0.2em solid black;
 	cursor: pointer;
+	color: black;
+
+	&:hover {
+		background: linear-gradient(to right, #4285ec, #0bbafb);
+        color: white;
+        transition: linear 0.3s;
+	}
 `
 
 const MainImg = styled.div`
@@ -245,7 +254,6 @@ const MainCaseContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	border-bottom: 0.3em solid black;
-
 `
 export default MainPage;
 

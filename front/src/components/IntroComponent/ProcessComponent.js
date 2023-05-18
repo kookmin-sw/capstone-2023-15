@@ -9,7 +9,6 @@ const ProcessComponent = ({}) => {
     const handleClickProcess = (i) => {
         setFrevBarPosition(barPosition);
         setBarPosition(i*5.3);
-        // console.log(i, barPosition)
     }
 
     const barAnim = keyframes`
@@ -106,7 +105,6 @@ const ProcessComponent = ({}) => {
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
                         <span>Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp;Find Fake nFt &nbsp; &nbsp; &nbsp; </span>
-
                     </MarqueeText>
                 </MarqueeContent2>
             </BottomContainer>
@@ -118,12 +116,8 @@ const ProcessComponent = ({}) => {
 const Container = styled.div`
 	font-family: AkiraExpanded;
 	height: 100vh;
-	// background: #e3e3e3;
 	background: url(${BG});
 	display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // text-align: center;
     flex-direction: column;
     z-index: 100;
     position: relative;
@@ -135,15 +129,10 @@ const TopContainer = styled.div`
     height: 50vh;
     justify-content: center;
     align-items: center;
-    // text-align: center;
 `
 
 const BottomContainer = styled.div`
     height: 50vh;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // text-align: center;
 `
 
 const Title = styled.div`
@@ -151,13 +140,11 @@ const Title = styled.div`
 `
 
 const ProcessContainer = styled.div`
-    // width: 100vw;
     height: 15vw;
     border: 0.3em solid black;
     border-radius: 3vw;
     margin-left: 3vw;
     padding: 3vw;
-    // margin-top: 1vw;
     background: linear-gradient(to left, #858bd5, #a6b0e7);
     box-shadow: 0 1vw 1.5vw rgba(0,0,0,0.25), 0 0.5vw 0.5vw rgba(0,0,0,0.15);
 `
@@ -198,12 +185,12 @@ const SmallText = styled.p`
 `
 
 const PointBox = styled.span`
-    // border: 0.3vw solid black;
     background: white;
     border-radius: 10vw;
     padding: 0.2vw 1.5vw;
     font-style: italic;
 `
+
 const NumBox = styled.span`
     background: white;
     border-radius: 100vw;
@@ -224,6 +211,7 @@ const MarqueeContent = styled.div`
     left: -10%;
     width: 112vw;
 `
+
 const MarqueeContent2 = styled.div`
     background: #aeb9f4;
     color: white;
@@ -237,7 +225,6 @@ const MarqueeContent2 = styled.div`
     width: 112vw;
     left: -10%;
 `
-
 
 const marquee = keyframes`
     0% { transform: translateX(0); }
