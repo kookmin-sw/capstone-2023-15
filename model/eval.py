@@ -23,17 +23,7 @@ elif P.mode == 'caps':
                                             train_loader=train_loader, simclr_aug=simclr_aug)
 
         # json file open 
-        path = './data/monkey.json'
-        # path = './data/'+ P.author_name + '/metadata.json'
-        with open(path, 'r', encoding='utf-8') as json_file:
-            json_data = json.load(json_file)
-
-        result_dict = {"data_type":'respone'}
-
-        # json file open 
-        # path = './data/monkey.json'
         path = './data/metadata.json'
-        # path = './data/'+ P.author_name + '/metadata.json'
         with open(path, 'r', encoding='utf-8') as json_file:
             json_data = json.load(json_file)
 
@@ -52,8 +42,7 @@ elif P.mode == 'caps':
             a.append(da['art_address']) 
             data.append(a)
 
-        filename =  P.author_name +'.csv'
-        # filename = './output/+ P.author_name +/이름.csv'
+        filename = json_data['0000000']['collection_name'] + '.csv'
         with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['image_name','collection_name','token_id','art_address'])
@@ -64,12 +53,10 @@ elif P.mode == 'caps':
         pr = 'safe'
         if len(li) > 0 : 
             pr = 'danger'
-        result_dict["id"] = id
         result_dict["status"] = 'done'
         result_dict["client_email"] = json_data['0000000']['client_email']
         result_dict["collection_name"] = json_data['0000000']['collection_name']
         result_dict["timestamp"] = int(time.time())
-        result_dict['number_of_malicious_images'] = len(li)
         result_dict["predict_result"] = pr
         result_dict["train_images_cnt"] = train_len
         result_dict["target_images_cnt"] = test_len 
@@ -106,23 +93,19 @@ elif P.mode == 'caps':
             except NoCredentialsError:
                 print("자격 증명이 없습니다. AWS_ACCESS_KEY 및 AWS_SECRET_KEY를 확인하십시오.")
   
-        local_file = './awesome.csv'
+        local_file =  './' + filename
         bucket_name = 'threef-bucket'
-        s3_file = 'threef-bucket/awesome.csv'
+        s3_file = 'result_csv/' + filename
         
         upload_to_s3(local_file, bucket_name, s3_file)
 
     except :      
         result_dict = {}
         id = str(uuid.uuid4())
-        result_dict["id"] = id
         result_dict["status"] = 'fail'
-        # result_dict["client_email"] = json_data['0']['emaill']
         result_dict["client_email"] = 'done'
         result_dict["collection_name"] = 'done'
         result_dict["timestamp"] = 'done'
-        # result_dict["thumbnail_image"] = json_data[str(li[0][0])]['art_address']
-        result_dict['number_of_malicious_images'] = 'done'
         result_dict["predict_result"] = 'ignore'
         result_dict["train_images_cnt"] = 'done'
         result_dict["target_images_cnt"] = 'done' 
