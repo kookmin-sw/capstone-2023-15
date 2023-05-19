@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MainCaseComponent = ({index, props}) => {
+    let collection_name = props.collection_name.length > 7 ? props.collection_name.slice(0,7)+'...': props.collection_name
 	return (
         <MCaseContainer isBelowThree={index+1 <= 3}>
             <CaseSection>
@@ -13,7 +14,7 @@ const MainCaseComponent = ({index, props}) => {
             <InfoSection>
                 <InfoTextSection>
                     <InfoClientSmall>COLLECTION</InfoClientSmall>
-                    <InfoClientBig>{props.collection_name}</InfoClientBig>
+                    <InfoClientBig>{collection_name}</InfoClientBig>
                     <InfoClientSmall>-</InfoClientSmall>
                     <InfoClientSmall>
                         Suspected <br/>
@@ -75,22 +76,23 @@ const TextSection = styled.div`
 
 const InfoTextSection = styled.div`
     height: 100%;
-    width: 90%;
     text-align: center;
-    display: inline-block;
-    margin-top: 5vw;
+    display: flex;
+	align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `
 
 const InfoClientBig = styled.div`
     font-size: 2.3vw;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    // text-overflow: ellipsis; 
 `
 
 const InfoClientSmall = styled.div`
     font-size: 0.6vw;   
     overflow: hidden;
-    text-overflow: ellipsis; 
+    // text-overflow: ellipsis; 
 `
 
 const HighlightText = styled.span`
