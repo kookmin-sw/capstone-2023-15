@@ -86,13 +86,11 @@ const InfoTextSection = styled.div`
 const InfoClientBig = styled.div`
     font-size: 2.3vw;
     overflow: hidden;
-    // text-overflow: ellipsis; 
 `
 
 const InfoClientSmall = styled.div`
     font-size: 0.6vw;   
     overflow: hidden;
-    // text-overflow: ellipsis; 
 `
 
 const HighlightText = styled.span`
