@@ -122,8 +122,8 @@ elif P.mode == 'caps':
         result_dict["target_images_cnt"] = 'done' 
     
         dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-2',
-                              aws_access_key_id='',
-                              aws_secret_access_key='')
+                              aws_access_key_id=AWS_ACCESS_KEY,
+                              aws_secret_access_key=AWS_SECRET_KEY)
     
         table_name = 'TF_database'
         table = dynamodb.Table(table_name)
