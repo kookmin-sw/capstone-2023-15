@@ -7,6 +7,11 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 import uuid
 from decimal import Decimal
+from Email import Email
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
 
 model.eval() 
 
@@ -28,6 +33,8 @@ elif P.mode == 'caps':
             json_data = json.load(json_file)
 
         result_dict = {"data_type":'respone'}
+        collectionName = json_data['0000000']['collection_name']
+        clientEmail = json_data['0000000']['client_email']
 
         # csv에 담을 data list 추가
         data = []
@@ -54,8 +61,8 @@ elif P.mode == 'caps':
         if len(li) > 0 : 
             pr = 'danger'
         result_dict["status"] = 'done'
-        result_dict["client_email"] = json_data['0000000']['client_email']
-        result_dict["collection_name"] = json_data['0000000']['collection_name']
+        result_dict["client_email"] = clientEmail
+        result_dict["collection_name"] = collectionName
         result_dict["timestamp"] = int(time.time())
         result_dict["predict_result"] = pr
         result_dict["train_images_cnt"] = train_len
@@ -99,6 +106,10 @@ elif P.mode == 'caps':
         
         upload_to_s3(local_file, bucket_name, s3_file)
 
+        # send email
+        emailInstance = Email(clientEmail, collectionName)
+        emailInstance.send_email()
+        
     except :      
         result_dict = {}
         id = str(uuid.uuid4())
