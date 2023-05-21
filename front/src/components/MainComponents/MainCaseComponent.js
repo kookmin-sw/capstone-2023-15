@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MainCaseComponent = ({index, props}) => {
-    let collection_name = props.collection_name.length > 7 ? props.collection_name.slice(0,7)+'...': props.collection_name
+    const collection_name = props.collection_name.length > 7 ? props.collection_name.slice(0,7)+'...': props.collection_name
 	return (
         <MCaseContainer isBelowThree={index+1 <= 3}>
             <CaseSection>
