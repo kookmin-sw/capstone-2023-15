@@ -1,20 +1,10 @@
 # ThreeF: FIND FAKE NFT
 
-<div style="display:flex; justify-content:center; align-items:center; margin: 2em;">
-  <a href="https://www.threef.xyz" style="
-    background:#0078ff;
-    color:white;
-    width:13em;
-    height:2em;
-    padding-top:10px;
-    border-radius: 8px;
-    font-size:2em;
-    font-weight: bold;
-    border:none;
-    text-decoration:none;
-    text-align:center;">
-    Try our service</a>
-</div>
+<div align="center">
+  <a href="https://www.threef.xyz/">
+    <img src="/statics/try-button.svg" width="400" height="100"/>
+   </a>
+</div>  
 
 ![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
 
