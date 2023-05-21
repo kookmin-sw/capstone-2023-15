@@ -53,7 +53,7 @@ elif P.mode == 'caps':
             data.append(a)
 
         filename = collectionName + '.csv'
-        with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+        with open('./csvs/' + filename, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['image_name','collection_name','token_id','art_address'])
             for row in data:
