@@ -68,8 +68,8 @@ elif P.mode == 'caps':
         result_dict["train_images_cnt"] = train_len
         result_dict["target_images_cnt"] = test_len 
        
-        AWS_ACCESS_KEY = ''
-        AWS_SECRET_KEY = ''
+        AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+        AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
         
         dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-2',
                               aws_access_key_id= AWS_ACCESS_KEY,
