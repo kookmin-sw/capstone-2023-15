@@ -100,7 +100,7 @@ elif P.mode == 'caps':
             except NoCredentialsError:
                 print("자격 증명이 없습니다. AWS_ACCESS_KEY 및 AWS_SECRET_KEY를 확인하십시오.")
   
-        local_file =  './' + filename
+        local_file =  './csvs/' + filename
         bucket_name = 'threef-bucket'
         s3_file = 'result_csv/' + filename
         
