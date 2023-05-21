@@ -47,8 +47,8 @@ class Email:
         msg.attach(MIMEText(self.message, 'plain'))
 
         # Attach the CSV file
-        filename = 'awesome.csv'
-        with open('/Users/chanhhoo/Desktop/workPlace/4-1class/capstone/'+filename, 'rb') as attachment:
+        filename = self.collectionName+'.csv'
+        with open('./csvs/' + filename, 'rb') as attachment:
             part = MIMEBase('application', 'octet-stream')
             part.set_payload(attachment.read())
             encoders.encode_base64(part)
