@@ -49,7 +49,7 @@ elif P.mode == 'caps':
             a.append(da['art_address']) 
             data.append(a)
 
-        filename = json_data['0000000']['collection_name'] + '.csv'
+        filename = collectionName + '.csv'
         with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['image_name','collection_name','token_id','art_address'])
