@@ -1,16 +1,20 @@
 # ThreeF: FIND FAKE NFT
-![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
-
-## Document
-<div align="center">
-  <a href="https://kookmin-sw.github.io/capstone-2023-15/">
-    <img src="https://user-images.githubusercontent.com/54926467/229354423-0f9ee204-2541-4bb9-bbd2-bd308b0876d7.png" width="150" height="150"/>
-   </a>
-  <a href="https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150&pvs=4">
-    <img src="https://user-images.githubusercontent.com/54926467/229354654-5741b51f-7c6d-4af1-a396-bf65c1bef318.png" width="150" height="150"/>
-  </a>
+<div style="display:flex; justify-content:center; margin: 2em;">
+  <button style="
+    background:#0078ff;
+    color:white;
+    width:13em;
+    height:3em;
+    border-radius: 8px;
+    font-size:2em;
+    font-weight: bold;
+    border:none;
+    "
+    onclick="location.href = 'www.threef.xyz'"
+    >Let's try our service</button>
 </div>
 
+![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
 
 ## 1. 프로젝트 소개 
 
@@ -53,3 +57,13 @@
 > - Email : nier8702@kookmin.ac.kr
 
 ## 4. 사용법 
+
+## Document
+<div align="center">
+  <a href="https://kookmin-sw.github.io/capstone-2023-15/">
+    <img src="https://user-images.githubusercontent.com/54926467/229354423-0f9ee204-2541-4bb9-bbd2-bd308b0876d7.png" width="150" height="150"/>
+   </a>
+  <a href="https://www.notion.so/1ec58d3ee3e443108ee23c9ffbeb89b7?v=98cf90e1a6d5475da32bad06eb82a150&pvs=4">
+    <img src="https://user-images.githubusercontent.com/54926467/229354654-5741b51f-7c6d-4af1-a396-bf65c1bef318.png" width="150" height="150"/>
+  </a>
+</div>  
