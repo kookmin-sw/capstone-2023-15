@@ -14,3 +14,7 @@ mining/prompt_generator/node_modules
 .DS_Store
 
 /image
+
+/mining/image
+
+/mining/metadata.json
