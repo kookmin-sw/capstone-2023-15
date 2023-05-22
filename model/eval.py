@@ -7,8 +7,16 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 import uuid
 from decimal import Decimal
+from Email import Email
+from dotenv import load_dotenv
+import os 
+
+load_dotenv()
 
 model.eval() 
+
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
 
 if P.mode == 'test_acc' :
     from evals import test_classifier
@@ -28,6 +36,8 @@ elif P.mode == 'caps':
             json_data = json.load(json_file)
 
         result_dict = {"data_type":'respone'}
+        collectionName = json_data['0000000']['collection_name']
+        clientEmail = json_data['0000000']['client_email']
 
         # csv에 담을 data list 추가
         data = []
@@ -42,8 +52,8 @@ elif P.mode == 'caps':
             a.append(da['art_address']) 
             data.append(a)
 
-        filename = json_data['0000000']['collection_name'] + '.csv'
-        with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+        filename = collectionName + '.csv'
+        with open('./csvs/' + filename, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['image_name','collection_name','token_id','art_address'])
             for row in data:
@@ -54,15 +64,12 @@ elif P.mode == 'caps':
         if len(li) > 0 : 
             pr = 'danger'
         result_dict["status"] = 'done'
-        result_dict["client_email"] = json_data['0000000']['client_email']
-        result_dict["collection_name"] = json_data['0000000']['collection_name']
+        result_dict["client_email"] = clientEmail
+        result_dict["collection_name"] = collectionName
         result_dict["timestamp"] = int(time.time())
         result_dict["predict_result"] = pr
         result_dict["train_images_cnt"] = train_len
         result_dict["target_images_cnt"] = test_len 
-       
-        AWS_ACCESS_KEY = ''
-        AWS_SECRET_KEY = ''
         
         dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-2',
                               aws_access_key_id= AWS_ACCESS_KEY,
@@ -93,12 +100,16 @@ elif P.mode == 'caps':
             except NoCredentialsError:
                 print("자격 증명이 없습니다. AWS_ACCESS_KEY 및 AWS_SECRET_KEY를 확인하십시오.")
   
-        local_file =  './' + filename
+        local_file =  './csvs/' + filename
         bucket_name = 'threef-bucket'
         s3_file = 'result_csv/' + filename
         
         upload_to_s3(local_file, bucket_name, s3_file)
 
+        # send email
+        emailInstance = Email(clientEmail, collectionName)
+        emailInstance.send_email()
+        
     except :      
         result_dict = {}
         id = str(uuid.uuid4())
@@ -111,8 +122,8 @@ elif P.mode == 'caps':
         result_dict["target_images_cnt"] = 'done' 
     
         dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-2',
-                              aws_access_key_id='',
-                              aws_secret_access_key='')
+                              aws_access_key_id=AWS_ACCESS_KEY,
+                              aws_secret_access_key=AWS_SECRET_KEY)
     
         table_name = 'TF_database'
         table = dynamodb.Table(table_name)
