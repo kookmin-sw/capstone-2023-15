@@ -1,11 +1,4 @@
 # ThreeF: FIND FAKE NFT
-
-<div align="center">
-  <a href="https://www.threef.xyz/">
-    <img src="/statics/try-button.svg" width="400" height="100"/>
-   </a>
-</div>  
-
 ![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
 
 ## 1. 프로젝트 소개 
