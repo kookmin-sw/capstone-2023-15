@@ -7,10 +7,9 @@
 - Service Target : Companies or artists operating in the NFT space, and individuals interested in purchasing NFTs.
 - Service Objective : We provide a proxy service for companies or artists involved in NFT operations to identify if their owned collection has been plagiarized and request a halt to the sale on the platform.
 
-**Korea**
+**Korean**
 - 서비스 타겟 : NFT 를 운영하는 회사( 혹은 작가 ), NFT 구매 희망자
 - 서비스 목표 : NFT를 운영하는 회사나 작가를 대상으로, 자신이 소유한 컬렉션의 작품이 도용되었는지 파악하고 플랫폼에 판매 중지를 요청하는 대리 서비스를 제공합니다.
-위 내용을 영어로 바꿔줘
 
 ![process](/statics/process.png)
 
@@ -24,7 +23,7 @@
 5. The examination results are published on the website. Whether or not to make the results public is decided through consultation with the artist.
 6. We request a halt to the sales. We send an email to the marketplace, requesting the suspension of sales to prevent the unauthorized use of the artist's work.
 
-**Korea**
+**Korean**
 1. 작가의 요청을 받습니다. 작가는 홈페이지에 접속하여 구글폼을 통해 자신의 정보와 학습용 데이터를 제공합니다. 이 때, 이용 동의서를 받습니다.
 2. 제공받은 학습용 데이터를 기반으로 모델을 학습시킵니다.
 3. 데이터 마이닝을 통해 특정된 마켓플레이스에서 검사 가능한 컬렉션과 유사하다고 판단한 이미지를 모델에 전송합니다.
