@@ -72,7 +72,7 @@ def name(search):
     img_collection_name = []
     href = []
     if int(total_image) > 0 :
-        selected = driver.find_element(by = By.CSS_SELECTOR, value = "#main > div > div > div > div > div.sc-29427738-0.sc-630fc9ab-0.iRxATS.jSPhMX > div.sc-29427738-0.jFfKPa > div.sc-29427738-0.dVNeWL > div")
+        selected = driver.find_element(by = By.CSS_SELECTOR, value = "#main > div > div > div > div > div.sc-29427738-0.sc-630fc9ab-0.gcOzSb.bNkKFC > div.sc-29427738-0.iLWtP > div.sc-29427738-0.cKdnBO > div")
 
         img_href = selected.find_elements(by = By.TAG_NAME, value = 'a')
 

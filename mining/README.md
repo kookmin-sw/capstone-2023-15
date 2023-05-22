@@ -2,12 +2,16 @@
 1. 자신의 chrome 버전에 맞는 chrome driver를 다운로드 합니다.
 2. get_image.py에 있는 driver 변수에 자신이 다운로드 받은 chrome driver 실행파일 경로를 입력합니다.
 
-    ex)``` driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe')```
-3. 자신이 검색하고 싶은 키워드를 download_image.py에 있는 search 변수에 입력해줍니다.
+    ex)``` driver = webdriver.Chrome('C:\chromedriver\chromedriver.```
+3. download_image.py 파일을 실행시킵니다.
+4. 1~5개의 keyword를 입력하고 q를 누릅니다.
 
-    ex) ``` search = 'pig'```
+    ex)``` Please enter search keyword(s) (1-5 keywords, enter 'q' to exit) : quokka```
+
+    ex)``` Please enter search keyword(s) (1-5 keywords, enter 'q' to exit): q```
+5. 의뢰한 client의 email과 collection name을 입력합니다.
+
+    ex)``` Please enter the client email : awesome@gmail.com```       
     
-    주의할점 : 키워드에 띄어쓰기를 입력하고 싶은 경우 단어와 단어 사이에 %20을 넣어주세요.
-
-    ex) ```search = 'fight%20pig'```
-4. download_image.py 파일을 실행시킵니다.
+    ex)``` Please enter the collection name : QuQuQu```
+6. 프로그램이 종료되면 image파일(검증 데이터)과 metadata.json(검증 데이터 정보)파일이 생성되게 됩니다.
