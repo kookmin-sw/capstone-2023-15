@@ -79,9 +79,10 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 |:-:|:-:|
 |![May-24-2023 17-03-14](https://github.com/ShimHyerin/ThreeF/assets/54926467/a3706d75-1a5c-4f89-ab61-94c6e12f406e)|![May-24-2023 17-06-36](https://github.com/ShimHyerin/ThreeF/assets/54926467/3b699eda-652c-4c8f-a4ec-f6b35e464e24)|
 
-## 2. 소개 영상
+<hr/>
+<br/>
 
-## 3. 팀 소개 
+## 🧑🏻‍💻 팀 소개 | Introduction of team members
 
 - 김찬호[팀장]
 > - 학번 : ****1601
@@ -107,20 +108,22 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 <br/>
 
 ## 🔎 실행 방법 | Execution method
-### 공통
+**Common**
 ```
 git clone https://github.com/kookmin-sw/capstone-2023-15.git
 ```
-
-### Frontend 
+<details>
+<summary><b>Frontend</b></summary>
 
 ```
 cd front
 yarn
 yarn start
 ```
+</details>
 
-### AI_Model
+<details>
+<summary><b>AI_Model</b></summary>
 
 ```
 pip install boto3
@@ -143,7 +146,10 @@ python caps_runner.py
 
 #### Modified based on the official code : https://github.com/alinlab/CSI
 
-### Miner
+</details>
+
+<details>
+<summary><b>Miner</b></summary>
 
 1. install chrome driver for your env
 2. input your chromedriver path in get_image.py
@@ -166,7 +172,8 @@ Please enter the client email : awesome@gmail.com
 Please enter the collection name : QuQuQu
 ```
 6. 프로그램이 종료되면 image파일(검증 데이터)과 metadata.json(검증 데이터 정보)파일이 생성되게 됩니다.
-
+</details>
+  
 <hr/>
 <br/>
 
@@ -179,3 +186,26 @@ Please enter the collection name : QuQuQu
     <img src="https://user-images.githubusercontent.com/54926467/229354654-5741b51f-7c6d-4af1-a396-bf65c1bef318.png" width="150" height="150"/>
   </a>
 </div>  
+
+<div align="center">
+  <a href="https://www.threef.xyz/">
+    중간 발표
+  </a>
+  | 
+  <a href="https://www.threef.xyz/">
+    최종 발표
+  </a>
+  |
+  <a href="https://www.threef.xyz/">
+    시연 동영상
+  </a>
+  | 
+  <a href="https://www.threef.xyz/">
+    수행 보고서
+  </a>
+<div/>
+  
+<details>
+<summary> <h4>포스터<h4/> </summary>
+<img src="https://github.com/ShimHyerin/ThreeF/assets/54926467/9ce29bd4-fad2-4458-93d5-92ef2220ef38"/>
+</details>
