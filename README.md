@@ -83,7 +83,32 @@ python caps_runner.py
 ```
 
 
-## Modified based on the official code : https://github.com/alinlab/CSI
+#### Modified based on the official code : https://github.com/alinlab/CSI
+
+### Miner
+
+1. install chrome driver for your env
+2. input your chromedriver path in get_image.py
+
+    ex)``` driver = webdriver.Chrome('C:\chromedriver\chromedriver.```
+    
+3. run download_image.py 
+4. input 5 keyword at most
+
+``` 
+python3 download_image.py
+Please enter search keyword(s) (1-5 keywords, enter 'q' to exit) : quokka
+Please enter search keyword(s) (1-5 keywords, enter 'q' to exit): q
+...
+```
+5. input email and collection name
+
+``` 
+Please enter the client email : awesome@gmail.com
+Please enter the collection name : QuQuQu
+```
+6. 프로그램이 종료되면 image파일(검증 데이터)과 metadata.json(검증 데이터 정보)파일이 생성되게 됩니다.
+
 
 ## Document
 <div align="center">
