@@ -2,13 +2,13 @@
 ### 쉽게 찾고, 쉽게 지키자. - ThreeF로 내 NFT를 안전하게 보호하세요! 
 
 <div align="center">
+  <img width=79% src="https://github.com/ShimHyerin/ThreeF/assets/54926467/9b8ef283-8fa1-4cf6-ac64-be4172ffe2ec"/>
   <a href="https://www.threef.xyz/">
-    <img src="/statics/try-button.svg" width="400" height="100"/>
-   </a>
+    <img width=20% src="https://github.com/ShimHyerin/ThreeF/assets/54926467/2c198199-65c6-40c7-9597-6e9ef5faa814"/>
+  </a>
 </div>  
 
-![01](https://user-images.githubusercontent.com/54926467/229353868-a178cd9a-7a6f-4f61-85fb-1531f600c250.png)
-
+<br/><br/>
 
 ## <img width=25 src="https://github.com/ShimHyerin/ThreeF/assets/54926467/f749620d-10b9-463a-956d-b43ee6726e27"> 프로젝트 개요 | Project Abstract
 **ThreeF - Find Fake nFt :** NFT organization을 위한, NFT 도용 사건 방지 AI 솔루션
@@ -23,7 +23,6 @@
 
 This project provides a service targeted at NFT organizations. The goal is to provide a service for NFT organizations or artists running NFTs to identify if a piece in their collection has been stolen and request the platform to stop selling it. The project utilizes an AI model. The trained model uses the NFT marketplace's open API to perform data mining, detecting NFTs that are similar to the client's NFTs and collecting suspicious data. We then utilize AI to identify artworks that we believe to be scam-copycat NFTs. The artworks that are determined to be scam-copycat NFTs will be removed from sale by proxy to the websites selling them. In addition, information about the data-mined scam-copycat NFTs will be provided to the client. This allows the client to be aware of the information about the scam-copycat NFTs and follow-up actions. This project is an innovative service for NFT organizations that protects the rights and interests of NFT owners by detecting NFT theft and making stop-sale requests on their behalf.
 
-<br/><br/>
 <hr/>
 <br/>
 
@@ -38,7 +37,6 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 모방작을 보는것도 불쾌한데, 직접 중단 요청까지? 마켓플레이스에 직접 판매 중단을 요청하는 복잡한 절차를 없애 불편함을 해소했습니다.
 <br/>Eliminate inconvenience by eliminating the complexity of requesting a marketplace to stop selling directly.
 
-<br/><br/>
 <hr/>
 <br/>
 
@@ -64,6 +62,22 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 4. The model determines the scam-copycat NFTs and provides the results of the inspection via web and email.
 5. Request the marketplace to stop the sale.
 
+<hr/>
+<br/>
+
+## 🖥 웹 구성 | Web Configuration
+|Main|Cases|
+|:-:|:-:|
+|<img width="1700" alt="image" src="https://github.com/ShimHyerin/ThreeF/assets/54926467/35477867-35b7-460a-b3de-5de336b260bc"> |![May-24-2023 16-58-59](https://github.com/ShimHyerin/ThreeF/assets/54926467/7593166d-03f5-4ec9-947e-5e87dbca67de) ![May-24-2023 17-00-08](https://github.com/ShimHyerin/ThreeF/assets/54926467/4cbf827c-8958-47c7-a9a3-4991c427efd9)|
+
+
+|Introduction|Intro-Value|Intro-Process|
+|:-:|:-:|:-:|
+|![May-24-2023 17-00-35](https://github.com/ShimHyerin/ThreeF/assets/54926467/7ec910f7-bbdf-4e1e-b151-4a3123abdb5e)|<img width="640" alt="image" src="https://github.com/ShimHyerin/ThreeF/assets/54926467/805db25d-da67-44a6-9985-47055ec18db2"> |![May-24-2023 17-01-12](https://github.com/ShimHyerin/ThreeF/assets/54926467/4186a5e9-d38a-486b-86c5-081c1ec26201)|
+
+|Check email|Results|
+|:-:|:-:|
+|![May-24-2023 17-03-14](https://github.com/ShimHyerin/ThreeF/assets/54926467/a3706d75-1a5c-4f89-ab61-94c6e12f406e)|![May-24-2023 17-06-36](https://github.com/ShimHyerin/ThreeF/assets/54926467/3b699eda-652c-4c8f-a4ec-f6b35e464e24)|
 
 ## 2. 소개 영상
 
@@ -89,7 +103,6 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 > - position : FE, UI & UX
 > - Email : nier8702@kookmin.ac.kr
 
-<br/><br/>
 <hr/>
 <br/>
 
@@ -154,7 +167,8 @@ Please enter the collection name : QuQuQu
 ```
 6. 프로그램이 종료되면 image파일(검증 데이터)과 metadata.json(검증 데이터 정보)파일이 생성되게 됩니다.
 
-<br/><br/>
+<hr/>
+<br/>
 
 ## 🗂 문서 | Document
 <div align="center">
