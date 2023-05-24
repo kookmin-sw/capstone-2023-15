@@ -4,7 +4,7 @@
 <div align="center">
   <img width=79% src="https://github.com/ShimHyerin/ThreeF/assets/54926467/9b8ef283-8fa1-4cf6-ac64-be4172ffe2ec"/>
   <a href="https://www.threef.xyz/">
-    <img width=20% src="https://github.com/ShimHyerin/ThreeF/assets/54926467/2c198199-65c6-40c7-9597-6e9ef5faa814"/>
+    <img width=20% src="https://github-production-user-asset-6210df.s3.amazonaws.com/54926467/240581788-728e8413-9163-446c-87b6-b9cfda692d6a.png" />
   </a>
 </div>  
 
