@@ -70,6 +70,21 @@ pip install python-detenv
 pip install opencv-python
 ```
 
+- Train
+
+``` 
+python train.py --dataset ours --model resnet18 --mode simclr_CSI --shift_trans_type rotation --batch_size 32 --one_class_idx 0
+```
+
+- Evaluation
+
+```
+python caps_runner.py
+```
+
+
+## Modified based on the official code : https://github.com/alinlab/CSI
+
 ## Document
 <div align="center">
   <a href="https://kookmin-sw.github.io/capstone-2023-15/">
