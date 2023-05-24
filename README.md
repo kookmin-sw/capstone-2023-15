@@ -49,6 +49,26 @@
 > - Email : nier8702@kookmin.ac.kr
 
 ## 4. 사용법 
+### 공통
+```
+git clone https://github.com/kookmin-sw/capstone-2023-15.git
+```
+
+### Frontend 
+
+```
+cd front
+yarn
+yarn start
+```
+
+### AI_Model
+
+```
+pip install boto3
+pip install python-detenv
+pip install opencv-python
+```
 
 ## Document
 <div align="center">
