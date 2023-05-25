@@ -87,7 +87,8 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
   <img width="43%" alt="image" src="https://github.com/kookmin-sw/capstone-2023-15/assets/54926467/cca3a008-82c1-458f-ad9c-96e929220424">
   <img width="55%" alt="image" src="https://github.com/kookmin-sw/capstone-2023-15/assets/54926467/5a2c35f8-e227-4512-80ca-ebb141b37666">
 </div>
- One-class Novelty Detection 방법론을 활용하여, 서비스를 신청한 클라이언트가 생성한 NFT들만을 통한 학습을 실시합니다.
+ One-class Novelty Detection 방법론을 활용하여, 서비스를 신청한 클라이언트가 생성한 NFT들만을 통한 학습을 실시합니다.<br/>
+ Utilizing a one-class Novelty Detection methodology, it only learns from NFTs created by clients who have applied for the service.
 
 <hr/>
 <br/>
@@ -96,17 +97,21 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 <h4>✅  2번의 테스트와, 1번의 실제 서비스 진행하여 <span style="background: #2880e3; color: white; border-radius: 1px;">91%</span>의 정확도를 얻어냈습니다. </h4>
 
 ```
-Test 1     : 42개의 악성 이미지 중  38개 감지
-Test 2     : 20개의 악성 이미지 중  16개 감지
-Service 1  :  5개의 악성 이미지 중   5개 감지
+Test 1     : 42개의 악성 이미지 중  38개 감지 (38/42)
+Test 2     : 20개의 악성 이미지 중  16개 감지 (16/20)
+Service 1  :  5개의 악성 이미지 중   5개 감지 (5/5)
 ```
 
 #### ✅  실제 판매중인 NFT Collection <[Quokkas-World](https://opensea.io/collection/quokkas-world)>로 서비스 제공
 ```
 1. Quokkas-World 는 1020장의 이미지 중 40장이 판매중인 상태다. 1020장은 모두 학습용 데이터로 사용되었다.
+   Quokkas-World has 1020 images, of which 40 are for sale. All 1020 images were used as training data.
 2. 마이너는 같은 Collection에 대해 68개의 이미지를 찾았다. 이 중 악성 이미지가 5개 포함되어 있다.
-3. AI는 5개의 악성 이미지 중 5개를 모두 악성 이미지로 판단했다. 
+   The miner found 68 images for the same collection, including 5 malicious images.
+3. AI는 5개의 악성 이미지 중 5개를 모두 악성 이미지로 판단했다.
+   The AI determined that all 5 of the 5 malicious images were malicious.  
 4. 5개의 도용 의심 NFT의 판매 중단을 요청했다.
+   Requested that the 5 suspected stolen NFTs be removed from sale.
 ```
 
 <hr/>
