@@ -1,6 +1,6 @@
 # ThreeF - FIND FAKE NFT
 ### 쉽게 찾고, 쉽게 지키자. - ThreeF로 내 NFT를 안전하게 보호하세요! 
-
+    
 <div align="center">
   <img width=79% src="https://github.com/ShimHyerin/ThreeF/assets/54926467/9b8ef283-8fa1-4cf6-ac64-be4172ffe2ec"/>
   <a href="https://www.threef.xyz/">
@@ -78,6 +78,36 @@ AI기술로 모방 NFT를 찾아 소중한 NFT 저작권을 지킬 수 있습니
 |Check email|Results|
 |:-:|:-:|
 |![May-24-2023 17-03-14](https://github.com/ShimHyerin/ThreeF/assets/54926467/a3706d75-1a5c-4f89-ab61-94c6e12f406e)|![May-24-2023 17-06-36](https://github.com/ShimHyerin/ThreeF/assets/54926467/3b699eda-652c-4c8f-a4ec-f6b35e464e24)|
+
+<hr/>
+<br/>
+
+## 🧠 인공지능 | AI
+<div>
+  <img width="43%" alt="image" src="https://github.com/kookmin-sw/capstone-2023-15/assets/54926467/cca3a008-82c1-458f-ad9c-96e929220424">
+  <img width="55%" alt="image" src="https://github.com/kookmin-sw/capstone-2023-15/assets/54926467/5a2c35f8-e227-4512-80ca-ebb141b37666">
+</div>
+ One-class Novelty Detection 방법론을 활용하여, 서비스를 신청한 클라이언트가 생성한 NFT들만을 통한 학습을 실시합니다.
+
+<hr/>
+<br/>
+
+## 📃 결과 | Result
+<h4>✅  2번의 테스트와, 1번의 실제 서비스 진행하여 <span style="background: #2880e3; color: white; border-radius: 1px;">91%</span>의 정확도를 얻어냈습니다. </h4>
+
+```
+Test 1     : 42개의 악성 이미지 중  38개 감지
+Test 2     : 20개의 악성 이미지 중  16개 감지
+Service 1  :  5개의 악성 이미지 중   5개 감지
+```
+
+#### ✅  실제 판매중인 NFT Collection <[Quokkas-World](https://opensea.io/collection/quokkas-world)>로 서비스 제공
+```
+1. Quokkas-World 는 1020장의 이미지 중 40장이 판매중인 상태다. 1020장은 모두 학습용 데이터로 사용되었다.
+2. 마이너는 같은 Collection에 대해 68개의 이미지를 찾았다. 이 중 악성 이미지가 5개 포함되어 있다.
+3. AI는 5개의 악성 이미지 중 5개를 모두 악성 이미지로 판단했다. 
+4. 5개의 도용 의심 NFT의 판매 중단을 요청했다.
+```
 
 <hr/>
 <br/>
